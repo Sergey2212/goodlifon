@@ -35,7 +35,8 @@
     "vova07/yii2-imperavi-widget": "~1.2.2",
     "himiklab/yii2-recaptcha-widget" : "*",
     "twbs/bootstrap-icons": "^1.10",
-    "ext-json": "*"
+    "ext-json": "*",
+    "bower-asset/slick-carousel": "~1.5.5"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.1.0",
