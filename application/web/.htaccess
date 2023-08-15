@@ -1,0 +1,22 @@
+RewriteEngine on
+
+# prevent httpd from serving dotfiles (.htaccess, .svn, .git, etc.)
+#RedirectMatch 403 /\..*$
+# if a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# otherwise forward it to index.php
+RewriteRule . index.php
+
+SetEnvIfNoCase User-Agent ".*MegaIndex" bad_bot
+SetEnvIfNoCase User-Agent "^AspiegelBot" bad_bot
+SetEnvIfNoCase User-Agent ".*AspiegelBot" bad_bot
+Deny from env=bad_bot
+
+RewriteCond %{HTTP_USER_AGENT} MegaIndex.ru [OR]
+
+<Limit GET POST HEAD> 
+Order Allow,Deny 
+Allow from all
+Deny from env=bad_bot
+</Limit>

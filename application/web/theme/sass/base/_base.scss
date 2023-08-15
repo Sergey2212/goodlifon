@@ -1,0 +1,75 @@
+/* local fonts */
+
+@font-face {
+  font-family: "Gilroy-Bold ☞";
+  font-style: normal;
+  font-weight: fontweight(bold);
+  src: local("Gilroy-Bold ☞"), url("../../fonts/Gilroy-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Gilroy-Heavy ☞";
+  font-style: normal;
+  font-weight: fontweight(heavy);
+  src: local("Gilroy-Heavy ☞"), url("../../fonts/Gilroy-Heavy.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Gilroy-Light ☞";
+  font-style: normal;
+  font-weight: fontweight(light);
+  src: local("Gilroy-Light ☞"), url("../../fonts/Gilroy-Light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Gilroy-Medium ☞";
+  font-style: normal;
+  font-weight: fontweight(medium);
+  src: local("Gilroy-Medium ☞"),
+  url("../../fonts/Gilroy-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Gilroy-Regular ☞";
+  font-style: normal;
+  font-weight: fontweight(regular);
+  src: local("Gilroy-Regular ☞"),
+  url("../../fonts/Gilroy-Regular.woff") format("woff");
+}
+
+/*---------------------------*
+ #Template default CSS
+*----------------------------*/
+
+body {
+  background: $color-white;
+  font-family: $gilroyRegular;
+  font-weight: fontweight(regular);
+  font-size: 14px;
+  color: $body-color;
+  line-height: $base-line-height;
+  visibility: visible;
+  overflow-x: hidden;
+}
+
+
+.navbar-nav li a {
+  font-family: $gilroyBold;
+  font-weight: 700;
+  display: block;
+  text-align: center;
+  font-size: 16px !important;
+  text-transform: uppercase;
+}
+
+.container,
+.container-lg,
+.container-md,
+.container-sm {
+  @include min-screen(1200) {
+    max-width: 1440px;
+  }
+  @include max-screen(576, 1199) {
+    max-width: 100%;
+  }
+}
