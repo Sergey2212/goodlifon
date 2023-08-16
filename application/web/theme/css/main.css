@@ -85,6 +85,7 @@ p {
     width: 100%;
     position: relative; }
 .product-show .product-images .first-image {
+    border: 1px solid #dee2e6;
     height: 400px;
     display: table-cell;
     vertical-align: middle; }
@@ -95,6 +96,7 @@ p {
     height: 120px;
     position: relative; }
 .product-show .product-images .other-images .slick-slide {
+    padding-top: 10px;
     padding-right: 10px;
     height: 120px; }
 .product-show .product-images .other-images img {
