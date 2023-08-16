@@ -146,7 +146,7 @@ $propertiesShowedInAnnounce = false;
                                     </div>
                                     <div class="mt-3">
                                         <h6>Discription :</h6>
-                                        <p class="mb-0">Virgil Abloh’s Off-White is a streetwear-inspired collection that continues to break away from the conventions of mainstream fashion. Made in Italy, these black and brown Odsy-1000 low-top sneakers.</p>
+                                        <p class="mb-0">Virgil Abloh’s Off-White is a streetwear-inspired коллекция that continues to break away from the conventions of mainstream fashion. Made in Italy, these black and brown Odsy-1000 low-top sneakers.</p>
                                     </div>
                                     <dl class="row mt-3">	<dt class="col-sm-3">Product id</dt>
                                         <dd class="col-sm-9">#BHU5879</dd>	<dt class="col-sm-3">Delivery</dt>

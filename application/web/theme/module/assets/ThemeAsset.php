@@ -25,9 +25,9 @@ class ThemeAsset extends AssetBundle
 //        "js/main.js",
 //        "js/jquery.mousewheel.js",
         "js/jscrollpane.min.js",
-        "js/app.js"
+        "js/app.js",
 //        "js/sweet-alert.min.js",
-//        "js/zoomsl-3.0.min.js",
+        "js/zoomsl-3.0.min.js",
     ];
     public $depends = [
         'app\assets\AppAsset',
