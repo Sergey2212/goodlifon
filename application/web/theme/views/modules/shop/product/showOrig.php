@@ -217,21 +217,12 @@ $propertiesShowedInAnnounce = false;
                             </div>
                         </div>
 
-                    </div>
-                    <div class="cta">
+                        </div>
+                        <div class="cta">
                         <a  class="btn btn-add-to-cart add-to-cart-disabled" id="add-to-cart"  data-action="" data-id = "<?= $model->id?>">
                             <?=Yii::t('app', 'Add to')?> <i class="fa fa-shopping-cart"></i>
                         </a>
-<!--                        <p class="text-justify" id="no-cart">-->
-<!--                                Обращаем внимание! Корзина не работает, <strong>НЕЛЬЗЯ</strong> добавить товар и оформить доставку. Сайт существует только в качестве ознакомительного ресурса.-->
-<!--                            </p>-->
-<!---->
-<!--                        <h5>-->
-<!--                            <a href="shop/move/?id=--><?//= Html::encode($model->id) ?><!--">-->
-<!--                                --><?//= $model->quantity->in_warehouse; ?>
-<!--                                / --><?//= $model->optionsQuantity; ?>
-<!--                            </a>-->
-<!--                        </h5>-->
+
                        <br><br>
                         <a href='#' class="btn-add-to-wishlist" rel="nofollow" data-toggle="modal" data-target="#wishlist">
                             <?=Yii::t('app', 'Add to wishlist')?>

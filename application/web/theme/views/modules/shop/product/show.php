@@ -126,83 +126,118 @@ $propertiesShowedInAnnounce = false;
                                     </div>
                                 <?php endif; ?>
                             </div>
-                            <div class="col-12 col-lg-7">
-                                <div class="product-info-section p-3">
-                                    <h3 class="mt-3 mt-lg-0 mb-0">Allen Solly Men's Polo T-Shirt</h3>
-                                    <div class="product-rating d-flex align-items-center mt-2">
-                                        <div class="rates cursor-pointer font-13">	<i class="bx bxs-star text-warning"></i>
-                                            <i class="bx bxs-star text-warning"></i>
-                                            <i class="bx bxs-star text-warning"></i>
-                                            <i class="bx bxs-star text-warning"></i>
-                                            <i class="bx bxs-star text-light-4"></i>
-                                        </div>
-                                        <div class="ms-1">
-                                            <p class="mb-0">(24 Ratings)</p>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center mt-3 gap-2">
-                                        <h5 class="mb-0 text-decoration-line-through text-light-3">$98.00</h5>
-                                        <h4 class="mb-0">$49.00</h4>
-                                    </div>
-                                    <div class="mt-3">
-                                        <h6>Discription :</h6>
-                                        <p class="mb-0">Virgil Abloh’s Off-White is a streetwear-inspired коллекция that continues to break away from the conventions of mainstream fashion. Made in Italy, these black and brown Odsy-1000 low-top sneakers.</p>
-                                    </div>
-                                    <dl class="row mt-3">	<dt class="col-sm-3">Product id</dt>
-                                        <dd class="col-sm-9">#BHU5879</dd>	<dt class="col-sm-3">Delivery</dt>
-                                        <dd class="col-sm-9">Russia, USA, and Europe</dd>
-                                    </dl>
-                                    <div class="row row-cols-auto align-items-center mt-3">
-                                        <div class="col">
-                                            <label class="form-label">Quantity</label>
-                                            <select class="form-select form-select-sm">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
-                                        </div>
-                                        <div class="col">
-                                            <label class="form-label">Size</label>
-                                            <select class="form-select form-select-sm">
-                                                <option>S</option>
-                                                <option>M</option>
-                                                <option>L</option>
-                                                <option>XS</option>
-                                                <option>XL</option>
-                                            </select>
-                                        </div>
-                                        <div class="col">
-                                            <label class="form-label">Colors</label>
-                                            <div class="color-indigators d-flex align-items-center gap-2">
-                                                <div class="color-indigator-item bg-primary"></div>
-                                                <div class="color-indigator-item bg-danger"></div>
-                                                <div class="color-indigator-item bg-success"></div>
-                                                <div class="color-indigator-item bg-warning"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--end row-->
-                                    <div class="d-flex gap-2 mt-3">
-                                        <a href="javascript:;" class="btn btn-white btn-ecomm">	<i class="bx bxs-cart-add"></i>Add to Cart</a> <a href="javascript:;" class="btn btn-light btn-ecomm"><i class="bx bx-heart"></i>Add to Wishlist</a>
-                                    </div>
-                                    <hr/>
-                                    <div class="product-sharing">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item"> <a href="javascript:;"><i class='bx bxl-facebook'></i></a>
-                                            </li>
-                                            <li class="list-inline-item">	<a href="javascript:;"><i class='bx bxl-linkedin'></i></a>
-                                            </li>
-                                            <li class="list-inline-item">	<a href="javascript:;"><i class='bx bxl-twitter'></i></a>
-                                            </li>
-                                            <li class="list-inline-item">	<a href="javascript:;"><i class='bx bxl-instagram'></i></a>
-                                            </li>
-                                            <li class="list-inline-item">	<a href="javascript:;"><i class='bx bxl-google'></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
+            <div class="col-12 col-lg-7">
+                                <h1 itemprop="name">
+                                    <?=Html::encode($productCategory  . ' ' . $model->h1)?>
+                                </h1>
+                                <div class="row">
+                <div class="col-md-12 col-lg-8">
+
+                    <?php if ($model->parent_id == 0): ?>
+
+                      <?php if (isset($model->optionsQuantity)): ?>
+                        <div class="varieties">  <!-- Разновидности товара -->
+                            <?php
+                                echo \app\properties\PropertiesWidget::widget(
+                                [
+                                'model' => $model,
+                                'viewFile' => 'show-announce-widget',
+                                ]
+                                );
+                            ?>
+                                <div id="opisanie" itemprop="description">
+                                    <?php echo $this->blocks['announce'];?>
                                 </div>
+                            <div class="text-center" id="varieties-product">
+                                <h2>Разновидности товара</h2>
+                                <?php
+                                echo app\web\theme\module\widgets\varieties\VarietiesWidget::widget(
+                                    [
+                                        'model' => $model,
+                                    ]
+                                );
+                                ?>
+                            </div>
+                        </div>
+                            <?php else: ?>
+                            <div class="varieties">  <!-- Разновидности товара -->
+                             <h2>Характеристики товара</h2>
+                                <?php
+                                echo \app\properties\PropertiesWidget::widget(
+                                [
+                                'model' => $model,
+                                'viewFile' => 'show-properties-widget',
+                                ]
+                                );
+                             ?>
+                                <p>Наличие нужного вам цвета или размера уточняйте </p>
+                            </div>
+                        <?php endif; ?>
+
+                    <?php else: ?>
+                        <div class="varieties">
+                            <h2>Характеристики товара</h2>
+                            <div itemprop="description">
+                                <?php
+                                    echo $parentAnnounce->announce;
+                                    $propertiesShowedInAnnounce = true;
+                                    echo \app\properties\PropertiesWidget::widget(
+                                        [
+                                            'model' => $model,
+                                            'viewFile' => 'show-properties-widget',
+                                        ]
+                                    );
+                                ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
+
+                </div>
+                <div class="col-md-12 col-lg-4">
+                    <div class="price-block">
+                        <?php if ($model->price < $model->old_price): ?>
+                            <div class="old">
+                                <div class="price-name">
+                                    <?= Yii::t('app', 'Old price:') ?>
+                                </div>
+                                <div class="price">
+                                    <?=$model->nativeCurrencyPrice(true, false)?>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+
+                        <div class="price-name">
+                            <?= Yii::t('app', 'Price:') ?>
+                            <div class="price">
+                                <?=$model->nativeCurrencyPrice(false, true)?>
+                            </div>
+                        </div>
+
+                        </div>
+                        <div class="cta">
+                        <a  class="btn btn-add-to-cart add-to-cart-disabled" id="add-to-cart"  data-action="" data-id = "<?= $model->id?>">
+                            <?=Yii::t('app', 'Add to')?> <i class="fa fa-shopping-cart"></i>
+                        </a>
+
+                       <br><br>
+                        <a href='#' class="btn-add-to-wishlist" rel="nofollow" data-toggle="modal" data-target="#wishlist">
+                            <?=Yii::t('app', 'Add to wishlist')?>
+                        </a>
+                        <?= AddToWishlistWidget::widget(['id' => $model->id]) ?>
+                        <br><br>
+
+                        <a href="/shop/cart" class="btn btn-success go-cart" role="button" >Перейти в корзину</a>
+
+                        <br><br>
+                        <!-- Button trigger modal -->
+                        <button type="button" id="wearsize" class="btn btn-light btn-sm" data-toggle="modal" data-target=".bd-example-modal-lg">
+                            Подобрать размер
+                        </button>
+
+                    </div>
+                </div>
+            </div>                         
                             </div>
                         </div>
                         <!--end row-->
@@ -212,6 +247,10 @@ $propertiesShowedInAnnounce = false;
         </section>
         <!--end product detail-->
 
+            
+            
+
+            
 <?php
 app\slider\sliders\slick\SlickAsset::register($this);
 $js = <<<JS
