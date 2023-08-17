@@ -91,7 +91,7 @@ $propertiesShowedInAnnounce = false;
                             <div class="col-12 col-lg-5">
                                 <?php if ($model->parent_id == 0): ?>
                                     <div class="product-images">
-                                        <div class="first-image">
+                                        <div class="first-image text-center">
                                             <?=
                                             ObjectImageWidget::widget(
                                                 [
