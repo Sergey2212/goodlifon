@@ -1,0 +1,84 @@
+/*Стиль для index(05.06.17)*/
+.not-selected {
+    display: inline-block;
+    background-color: #e7e7e7;
+    color: #000;
+    font-weight: 400;
+    border: none;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.not-selected, .selected, .selected-size, .halh-selected,  .not-size-selected{
+    float: left;
+    margin: 8px 5px 0 0;
+    padding: 0 14px;
+    line-height: 32px!important;
+    height: 32px;
+    cursor: pointer;
+}
+
+.selected {
+    background: #50c8a1;
+    border: none;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    display: inline-block;
+    color: #fff;
+}
+
+.selected-size {
+    background: #50c8a1;
+    border: none;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    display: inline-block;
+    color: #fff;
+}
+
+.halh-selected {
+    background: #d0f6df;
+    border: none;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.not-size-selected {
+    background: #f0b0ab;
+    border: none;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+input.none {
+    display: none;
+}
+
+#varieties-product{
+    background-color: #EBFAF8;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+#varieties-product > h2{
+    padding-top: 15px;
+    margin-bottom: 1px !important;
+}
+
+#pushbutton > h3{
+    padding-top: 15px;
+    margin-bottom: 1px !important;
+}
+
+#colorButtons, #sizeButtons{
+    margin-left: 20px;
+}
+
+#opisanie{
+    padding-left: 6px;
+}

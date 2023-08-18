@@ -183,10 +183,10 @@ function setSizes(colorProdId, $arrCountProduct) {
         var arr = getIntersection(makeArrayFromString(colorProdId), arrSizeProductId);
         $('label.label-size').removeClass('selected-size halh-selected not-size-selected').addClass('not-selected');
         var arr2 = [];
-        $('.label-size').attr({'data-original-title': 'Нет в наличии Можно заказать', 'data-select': "0"});
+        $('.label-size').attr({'data-bs-original-title': 'Нет в наличии Можно заказать', 'data-select': "0"});
         for (var i = 0; i < arr.length; i++) {
             $('.label-size').eq(arr[i]).removeClass('not-selected').addClass('halh-selected').attr({
-                'data-original-title': 'Добавить в корзину',
+                'data-bs-original-title': 'Добавить в корзину',
                 'data-select': "1"
             });
             arr2.push(arr[i]);
@@ -241,7 +241,7 @@ function setCount (sizeProdId, prodCount) {
         var lastWord = y.substring(y.lastIndexOf(" ") + 1);
         if (lastWord === '(0)') {
             $('label.label-size').eq(i).removeClass('selected-size halh-selected not-size-selected').addClass('not-selected');
-            $('.label-size').eq(i).attr({'data-original-title': 'Нет в наличии Можно заказать', 'data-select': "0"});
+            $('.label-size').eq(i).attr({'data-bs-original-title': 'Нет в наличии Можно заказать', 'data-select': "0"});
         }
     }
 

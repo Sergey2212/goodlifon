@@ -15,14 +15,14 @@ class ThemeAsset extends AssetBundle
            // "css/simple-line-icons.css",
             "css/app.css",
 //        "css/navbar.css",
-//        "css/variaties.css",
+            "css/variaties.css",
 //        "css/default-theme.css",
           "css/jscrollpane.css",
 //        "css/sweet-alert.css",
     ];
     public $js = [
         // your js files will be here
-//        "js/main.js",
+        "js/main.js",
 //        "js/jquery.mousewheel.js",
         "js/jscrollpane.min.js",
         "js/app.js",

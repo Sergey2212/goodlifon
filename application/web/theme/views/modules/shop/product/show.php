@@ -216,8 +216,8 @@ $propertiesShowedInAnnounce = false;
 
                         </div>
                         <div class="cta">
-                        <a  class="btn btn-add-to-cart add-to-cart-disabled" id="add-to-cart"  data-action="" data-id = "<?= $model->id?>">
-                            <?=Yii::t('app', 'Add to')?> <i class="fa fa-shopping-cart"></i>
+                        <a  class="btn btn-success btn-add-to-cart add-to-cart-disabled" id="add-to-cart"  data-action="" data-id = "<?= $model->id?>">
+                            <?=Yii::t('app', 'Add to')?> корзину <i class="bi bi-cart-plus-fill"></i>
                         </a>
 
                        <br><br>
@@ -231,8 +231,8 @@ $propertiesShowedInAnnounce = false;
 
                         <br><br>
                         <!-- Button trigger modal -->
-                        <button type="button" id="wearsize" class="btn btn-light btn-sm" data-toggle="modal" data-target=".bd-example-modal-lg">
-                            Подобрать размер
+                        <button type="button" id="wearsize" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Таблицы размеров
                         </button>
 
                     </div>
@@ -247,7 +247,462 @@ $propertiesShowedInAnnounce = false;
         </section>
         <!--end product detail-->
 
-            
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="box-content">
+                        <h1>Таблицы размеров на разные категории одежды</h1>
+
+                        <table class="wearsize" data-gender="female" data-type-wear="bust" data-trade-mark="">
+                            <caption>Таблица размеров на бюстовую группу</caption>
+                            <tbody><tr>
+                                <th rowspan="3">Размер бюстгальтера</th>
+                                <th>Россия</th>
+                                <td>65</td>
+                                <td>70</td>
+                                <td>75</td>
+                                <td>80</td>
+                                <td>85</td>
+                                <td>90</td>
+                                <td>95</td>
+                                <td>100</td>
+                                <td>105</td>
+                                <td>110</td>
+                            </tr>
+                            <tr>
+                                <th>Франция</th>
+                                <td>80</td>
+                                <td>85</td>
+                                <td>90</td>
+                                <td>95</td>
+                                <td>100</td>
+                                <td>105</td>
+                                <td>110</td>
+                                <td>115</td>
+                                <td>120</td>
+                                <td>125</td>
+                            </tr>
+                            <tr>
+                                <th>Италия</th>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+                                <td>x</td>
+                                <td>x</td>
+                                <td>x</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Объем под грудью, см.</th>
+                                <td>63-67</td>
+                                <td>68-72</td>
+                                <td>73-77</td>
+                                <td>78-82</td>
+                                <td>83-87</td>
+                                <td>88-92</td>
+                                <td>93-97</td>
+                                <td>98-102</td>
+                                <td>103-107</td>
+                                <td>108-112</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Размер чашки</th>
+                                <th colspan="8">Обхват груди, см.</th>
+                            </tr>
+                            <tr>
+                                <td colspan="2">AA (11 см)</td>
+                                <td>75-77</td>
+                                <td>80-82</td>
+                                <td>85-87</td>
+                                <td>90-92</td>
+                                <td>95-97</td>
+                                <td>100-102</td>
+                                <td>105-107</td>
+                                <td>x</td>
+                                <td>x</td>
+                                <td>x</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">A (13 см)</td>
+                                <td>77-79</td>
+                                <td>82-84</td>
+                                <td>87-89</td>
+                                <td>92-94</td>
+                                <td>97-99</td>
+                                <td>102-104</td>
+                                <td>107-109</td>
+                                <td>112-114</td>
+                                <td>117-119</td>
+                                <td>122-124</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">B (15 см)</td>
+                                <td>79-81</td>
+                                <td>84-86</td>
+                                <td>89-91</td>
+                                <td>94-96</td>
+                                <td>99-101</td>
+                                <td>104-106</td>
+                                <td>109-111</td>
+                                <td>114-116</td>
+                                <td>119-121</td>
+                                <td>124-126</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">C (17 см)</td>
+                                <td>81-83</td>
+                                <td>86-88</td>
+                                <td>91-93</td>
+                                <td>96-98</td>
+                                <td>101-103</td>
+                                <td>106-108</td>
+                                <td>111-113</td>
+                                <td>116-118</td>
+                                <td>121-123</td>
+                                <td>126-128</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">D (19 см)</td>
+                                <td>83-85</td>
+                                <td>88-90</td>
+                                <td>93-95</td>
+                                <td>98-100</td>
+                                <td>103-105</td>
+                                <td>108-110</td>
+                                <td>113-115</td>
+                                <td>118-120</td>
+                                <td>123-125</td>
+                                <td>128-130</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">E (21 см)</td>
+                                <td>85-87</td>
+                                <td>90-92</td>
+                                <td>95-97</td>
+                                <td>100-102</td>
+                                <td>105-107</td>
+                                <td>110-112</td>
+                                <td>115-117</td>
+                                <td>120-122</td>
+                                <td>125-127</td>
+                                <td>130-132</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">F (23 см)</td>
+                                <td>87-89</td>
+                                <td>92-94</td>
+                                <td>97-99</td>
+                                <td>102-104</td>
+                                <td>107-109</td>
+                                <td>112-114</td>
+                                <td>117-119</td>
+                                <td>122-124</td>
+                                <td>127-129</td>
+                                <td>132-134</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">G (25 см)</td>
+                                <td>89-91</td>
+                                <td>94-96</td>
+                                <td>99-101</td>
+                                <td>104-106</td>
+                                <td>109-111</td>
+                                <td>114-116</td>
+                                <td>119-121</td>
+                                <td>124-126</td>
+                                <td>129-131</td>
+                                <td>134-136</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">H (27 см)</td>
+                                <td>91-93</td>
+                                <td>96-98</td>
+                                <td>101-103</td>
+                                <td>106-108</td>
+                                <td>111-113</td>
+                                <td>116-118</td>
+                                <td>121-123</td>
+                                <td>126-128</td>
+                                <td>131-133</td>
+                                <td>136-138</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">I (29 см)</td>
+                                <td>93-95</td>
+                                <td>98-100</td>
+                                <td>103-105</td>
+                                <td>108-110</td>
+                                <td>113-115</td>
+                                <td>118-120</td>
+                                <td>123-125</td>
+                                <td>128-130</td>
+                                <td>133-135</td>
+                                <td>138-140</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="wearsize">
+                            <caption>Таблица размеров на женскую одежду из трикотажа</caption>
+                            <tbody><tr>
+                                <th class="first">&nbsp;</th>
+                                <th>XS</th>
+                                <th>S</th>
+                                <th>M</th>
+                                <th>L</th>
+                                <th>XL</th>
+                                <th>2XL</th>
+                                <th>3XL</th>
+                                <th>4XL</th>
+                            </tr>
+                            <tr>
+                                <th class="first">размер</th>
+                                <td>42</td>
+                                <td>44</td>
+                                <td>46</td>
+                                <td>48</td>
+                                <td>50</td>
+                                <td>52</td>
+                                <td>54</td>
+                                <td>56</td>
+                            </tr>
+                            <tr>
+                                <th class="first">рост</th>
+                                <td>170</td>
+                                <td>170</td>
+                                <td>170</td>
+                                <td>170</td>
+                                <td>170</td>
+                                <td>170</td>
+                                <td>170</td>
+                                <td>170</td>
+                            </tr>
+                            <tr>
+                                <th class="first">обхват груди</th>
+                                <td>84</td>
+                                <td>88</td>
+                                <td>92</td>
+                                <td>96</td>
+                                <td>100</td>
+                                <td>104</td>
+                                <td>108</td>
+                                <td>112</td>
+                            </tr>
+                            <tr>
+                                <th class="first">обхват бёдер</th>
+                                <td>90</td>
+                                <td>94</td>
+                                <td>98</td>
+                                <td>102</td>
+                                <td>106</td>
+                                <td>110</td>
+                                <td>114</td>
+                                <td>118</td>
+                            </tr>
+                            </tbody></table>
+
+                        <table class="wearsize">
+                            <caption>Таблица размеров на купальники </caption>
+                            <tbody><tr>
+                                <th class="first">&nbsp;</th>
+                                <th>XXS</th>
+                                <th>XS</th>
+                                <th>S</th>
+                                <th>M</th>
+                                <th>L</th>
+                                <th>XL</th>
+                                <th>2XL</th>
+                            </tr>
+                            <tr>
+                                <th class="first">размер</th>
+                                <th>40</th>
+                                <th>42</th>
+                                <th>44</th>
+                                <th>46</th>
+                                <th>48</th>
+                                <th>50</th>
+                                <th>52</th>
+                            </tr>
+                            <tr>
+                                <th class="first">обхват груди</th>
+                                <td>80</td>
+                                <td>84</td>
+                                <td>88</td>
+                                <td>92</td>
+                                <td>96</td>
+                                <td>100</td>
+                                <td>104</td>
+                            </tr>
+                            <tr>
+                                <th class="first">обхват под грудью</th>
+                                <td>65</td>
+                                <td>70</td>
+                                <td>75</td>
+                                <td>80</td>
+                                <td>85</td>
+                                <td>90</td>
+                                <td>95</td>
+                            </tr>
+                            <tr>
+                                <th class="first">обхват бёдер</th>
+                                <td>86</td>
+                                <td>90</td>
+                                <td>94</td>
+                                <td>98</td>
+                                <td>102</td>
+                                <td>106</td>
+                                <td>110</td>
+                            </tr>
+                            </tbody></table>
+
+                        <table class="wearsize">
+                            <caption>Таблица размеров на женскую одежду швейной группы</caption>
+                            <tbody><tr>
+                                <th class="first">&nbsp;</th>
+                                <th>XS</th>
+                                <th>S</th>
+                                <th>M</th>
+                                <th>L</th>
+                                <th>XL</th>
+                                <th>2XL</th>
+                                <th>3XL</th>
+                                <th>4XL</th>
+                            </tr>
+
+                            <tr>
+                                <th class="first">размер</th>
+                                <td>42</td>
+                                <td>44</td>
+                                <td>46</td>
+                                <td>48</td>
+                                <td>50</td>
+                                <td>52</td>
+                                <td>54</td>
+                                <td>56</td>
+                            </tr>
+                            <tr>
+                                <th class="first">рост</th>
+                                <td>170</td>
+                                <td>170</td>
+                                <td>170</td>
+                                <td>170</td>
+                                <td>170</td>
+                                <td>170</td>
+                                <td>170</td>
+                                <td>170</td>
+                            </tr>
+                            <tr>
+                                <th class="first">обхват груди</th>
+                                <td>84</td>
+                                <td>88</td>
+                                <td>92</td>
+                                <td>96</td>
+                                <td>100</td>
+                                <td>104</td>
+                                <td>108</td>
+                                <td>112</td>
+                            </tr>
+                            <tr>
+                                <th class="first">обхват бёдер</th>
+                                <td>92</td>
+                                <td>96</td>
+                                <td>100</td>
+                                <td>104</td>
+                                <td>108</td>
+                                <td>112</td>
+                                <td>116</td>
+                                <td>120</td>
+                            </tr>
+                            </tbody></table>
+                        <table class="wearsize">
+                            <caption>Таблица размеров на мужскую одежду из трикотажа</caption>
+                            <tbody><tr>
+                                <th class="first">&nbsp;</th>
+                                <th>XS</th>
+                                <th>S</th>
+                                <th>M</th>
+                                <th>L</th>
+                                <th>XL</th>
+                                <th>2XL</th>
+                                <th>3XL</th>
+                                <th>4XL</th>
+                                <th>5XL</th>
+                                <th>6XL</th>
+                                <th>7XL</th>
+                            </tr>
+                            <tr>
+                                <th class="first">размер</th>
+                                <td>42</td>
+                                <td>44</td>
+                                <td>46</td>
+                                <td>48</td>
+                                <td>50</td>
+                                <td>52</td>
+                                <td>54</td>
+                                <td>56</td>
+                                <td>58</td>
+                                <td>60</td>
+                                <td>62</td>
+                            </tr>
+                            <tr>
+                                <th class="first">рост</th>
+                                <td>170</td>
+                                <td>170</td>
+                                <td>170</td>
+                                <td>176</td>
+                                <td>176</td>
+                                <td>182</td>
+                                <td>182</td>
+                                <td>182</td>
+                                <td>188</td>
+                                <td>188</td>
+                                <td>194</td>
+                            </tr>
+                            <tr>
+                                <th class="first">обхват груди</th>
+                                <td>84</td>
+                                <td>88</td>
+                                <td>92</td>
+                                <td>96</td>
+                                <td>100</td>
+                                <td>104</td>
+                                <td>108</td>
+                                <td>112</td>
+                                <td>116</td>
+                                <td>120</td>
+                                <td>124</td>
+                            </tr>
+                            <tr>
+                                <th class="first">обхват талии</th>
+                                <td>74</td>
+                                <td>78</td>
+                                <td>82</td>
+                                <td>86</td>
+                                <td>90</td>
+                                <td>94</td>
+                                <td>98</td>
+                                <td>102</td>
+                                <td>106</td>
+                                <td>110</td>
+                                <td>114</td>
+                            </tr>
+                            </tbody></table>
+
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>            
             
 
             
