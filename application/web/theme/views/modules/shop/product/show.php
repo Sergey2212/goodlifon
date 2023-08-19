@@ -247,6 +247,60 @@ $propertiesShowedInAnnounce = false;
         </section>
         <!--end product detail-->
 
+    <!--start product more info-->
+    <section class="py-4">
+        <div class="container">
+            <div class="product-more-info">
+                <?php
+                $tabs = [];
+                if ($propertiesShowedInAnnounce === false) {
+                    $tabs[] = [
+                        'label' => Yii::t('app', 'Properties'),
+                        'content' =>
+                            \app\properties\PropertiesWidget::widget(
+                                [
+                                    'model' => $model,
+                                    'viewFile' => 'show-properties-widget',
+                                ]
+                            ),
+                        'active' => true,
+                    ];
+                }
+                if (!empty($this->blocks['content'])) {
+                    $tabs[] = [
+                        'label' => Yii::t('app', 'Description'),
+                        'content' => $this->blocks['content'],
+                        'options' => [
+                            'class' => 'description-tab'
+                        ]
+                    ];
+                }
+                $tabs[] = [
+                    'label' => Yii::t('app', 'Reviews'),
+                    'content' => \app\modules\review\widgets\ReviewsWidget::widget(
+                        [
+                            'model' => $model,
+                            'formId' => 1,
+                            'ratingGroupName' => 'First',
+                            'additionalParams' => [
+                                'model' => $model,
+                            ],
+                        ]
+                    )
+                ];
+                ?>
+
+                <?= \yii\bootstrap5\Tabs::widget([
+                    'items' => $tabs,
+                    'options' => [
+                        'class' => 'product-tabs',
+                    ]
+                ]) ?>
+            </div>
+        </div>
+    </section>
+    <!--end product more info-->
+
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
