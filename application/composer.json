@@ -30,10 +30,10 @@
     "kartik-v/yii2-icons": "@dev",
     "kartik-v/yii2-helpers": "dev-master",
     "kartik-v/yii2-nav-x": "@dev",
+    "himiklab/yii2-recaptcha-widget" : "*",
     "creocoder/yii2-flysystem": "^1.1",
     "timurmelnikov/yii2-loading-overlay": "~1.0.0",
     "vova07/yii2-imperavi-widget": "~1.2.2",
-    "himiklab/yii2-recaptcha-widget" : "*",
     "twbs/bootstrap-icons": "^1.10",
     "ext-json": "*",
     "bower-asset/slick-carousel": "~1.5.5"

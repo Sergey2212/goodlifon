@@ -49,6 +49,7 @@ HtmlTagHelper::addTagOptions('html', 'lang', Yii::$app->language);
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="icon" type="image/png" href="/files/favicons/favicon-16x16.png" sizes="16x16" />  
 <link rel="icon" type="image/png" href="/files/favicons/favicon-32x32.png" sizes="32x32" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 <!--<script src="//code.jivosite.com/widget.js" jv-id="XcBOo0VTa1" async></script>-->
 </head>
 <body>
@@ -149,7 +150,7 @@ if (empty($rightSidebar) === false) {
 	</div> <!-- /container  -->
 </div>
 <?//= ThemeParts::renderPart('pre-footer') ?>
-<?//= ThemeParts::renderPart('footer') ?>
+<?= ThemeParts::renderPart('footer') ?>
 <?//= ThemeParts::renderPart('post-footer') ?>
 
 <?php $this->endBody(); ?>

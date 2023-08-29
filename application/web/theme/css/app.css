@@ -4,12 +4,12 @@
 
 body {
     font-size: 13px;
-    /* letter-spacing: .5px;
+    letter-spacing: .5px;
     font-family: Roboto, sans-serif;
-    background-color: #fff; */
+    background-color: #fff;
 }
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-    color: #388f73;
+    color: #212529;
 }
 input::placeholder {
     color: rgb(0, 0, 0)!important;
@@ -217,6 +217,11 @@ blockquote {
     line-height: 1.3em;
     height: 4.4em;
     padding: 3px 3px 0 5px;
+}
+
+.product-more-info a{
+    color: rgba(33, 37, 41, 0.6);
+    text-transform: uppercase;
 }
 
 .font-11 {

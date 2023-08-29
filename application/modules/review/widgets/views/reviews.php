@@ -100,15 +100,15 @@ $allowRate = !empty($ratingGroupName);
         <?php endforeach; ?>
 
         <?php
-        if (Yii::$app->getUser()->isGuest) {
-            echo  $form->field($model, 'reCaptcha')->widget(
-                \himiklab\yii2\recaptcha\ReCaptcha3::className(),
-                [
-                    'siteKey' => '6LfH-6cUAAAAAHRHB3XzICAgUcFXLzYEr1st5LjW', // unnecessary is reCaptcha component was set up
-                    'action' => 'homepage',
-                ]
-            );
-        }
+//        if (Yii::$app->getUser()->isGuest) {
+//            echo  $form->field($model, 'reCaptcha')->widget(
+//                \himiklab\yii2\recaptcha\ReCaptcha3::className(),
+//                [
+//                    'siteKey' => '6LfH-6cUAAAAAHRHB3XzICAgUcFXLzYEr1st5LjW', // unnecessary is reCaptcha component was set up
+//                    'action' => 'homepage',
+//                ]
+//            );
+//        }
         ?>
         <div class="form-group no-margin">
             <?=

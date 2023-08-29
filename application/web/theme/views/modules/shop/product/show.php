@@ -27,9 +27,9 @@ use app\modules\shop\widgets\AddToWishlistWidget;
 //array_shift($arrSubcategory);
 //$strCategory = implode('  ', $arrSubcategory);
 
-//$productName = $breadcrumbs[array_key_last($breadcrumbs)];
+$productName = $breadcrumbs[array_key_last($breadcrumbs)];
 
-$productCategory = $model->subcategoryTittle[0]['title_append'];
+$productCategory = (array_pop($model->subcategoryTittle)['title_append']);
 $this->title = $productCategory  .' '.  $model->brand->name  .' '.  $model->name  . ' купить в Волгограде. В интернет-магазине Гудлифон' ;
 
 $textDescription =  $productCategory  .' '.  $model->brand->name  .' '.  $model->name  . ' купить в магазине нижнего белья Гудлифон. Имеющийся размер и цвет уточняйте на сайте или по телефону 8(961)691-58-94. Постоянным клиентам скидка';
@@ -149,7 +149,7 @@ $propertiesShowedInAnnounce = false;
                                     <?php echo $this->blocks['announce'];?>
                                 </div>
                             <div class="text-center" id="varieties-product">
-                                <h2>Разновидности товара</h2>
+                                <h3>Разновидности товара</h3>
                                 <?php
                                 echo app\web\theme\module\widgets\varieties\VarietiesWidget::widget(
                                     [
@@ -161,7 +161,7 @@ $propertiesShowedInAnnounce = false;
                         </div>
                             <?php else: ?>
                             <div class="varieties">  <!-- Разновидности товара -->
-                             <h2>Характеристики товара</h2>
+                             <h3>Характеристики товара</h3>
                                 <?php
                                 echo \app\properties\PropertiesWidget::widget(
                                 [
@@ -176,7 +176,7 @@ $propertiesShowedInAnnounce = false;
 
                     <?php else: ?>
                         <div class="varieties">
-                            <h2>Характеристики товара</h2>
+                            <h3>Характеристики товара</h3>
                             <div itemprop="description">
                                 <?php
                                     echo $parentAnnounce->announce;
@@ -221,11 +221,11 @@ $propertiesShowedInAnnounce = false;
                         </a>
 
                        <br><br>
-                        <a href='#' class="btn-add-to-wishlist" rel="nofollow" data-toggle="modal" data-target="#wishlist">
-                            <?=Yii::t('app', 'Add to wishlist')?>
-                        </a>
-                        <?= AddToWishlistWidget::widget(['id' => $model->id]) ?>
-                        <br><br>
+<!--                        <a href='#' class="btn-add-to-wishlist" rel="nofollow" data-toggle="modal" data-target="#wishlist">-->
+<!--                            --><?//=Yii::t('app', 'Add to wishlist')?>
+<!--                        </a>-->
+<!--                        --><?//= AddToWishlistWidget::widget(['id' => $model->id]) ?>
+<!--                        <br><br>-->
 
                         <a href="/shop/cart" class="btn btn-success go-cart" role="button" >Перейти в корзину</a>
 

@@ -1360,14 +1360,14 @@ class Product extends ActiveRecord implements ImportableInterface, ExportableInt
      */
     public function __toString()
     {
-        return ($this->className() . ':' . $this->id);
+        return ($this->class . ':' . $this->id);
     }
 
     /**
      * @return string
      */
-    public function jsonSerialize()
+    public function jsonSerialize() : array
     {
-        return ($this->className() . ':' . $this->id);
+        return ($this->class . ':' . $this->id);
     }
 }

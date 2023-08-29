@@ -339,11 +339,38 @@ class ProductController extends Controller
                 'selected_category' => $selected_category,
                 'selected_category_ids' => $selected_category_ids,
                 'object' => $object,
-                'breadcrumbs' => $this->buildBreadcrumbsArray($selected_category, $productModel)
+                'breadcrumbs' => $this->buildBreadcrumbsShow($productModel->categoryProduct, $productModel->name),
             ]
         );
     }
+    //Функция формирует хлебные крошки для отдельного товара
+    private function buildBreadcrumbsShow($selCat, $product)
+    {
+        if ($selCat === null) {
+            return [];
+        }
+        $breadcrumb = [];
 
+        foreach ($selCat as $cat) {
+            $crumbs[$cat["name"]] = [
+                '@category',
+                'last_category_id' => $cat["id"],
+                'category_group_id' =>$cat["category_group_id"],
+            ];
+        }
+
+        foreach ($crumbs as $label => $url) {
+            $breadcrumb[] = [
+                'label' => $label,
+                'url' => $url
+            ];
+        }
+
+        $arr1 =  $arr1 = [$product];
+        $breadcrumbs = array_merge($breadcrumb, $arr1);
+
+        return $breadcrumbs;
+    }
     /**
      * Search handler
      * @return array
