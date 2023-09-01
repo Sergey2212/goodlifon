@@ -107,7 +107,6 @@ class View extends ActiveRecord
                         if(!is_array($v)) {
                             $map[$v['id']] = $v['view'];
                         }
-
                     }
                 }
             }

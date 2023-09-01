@@ -23,7 +23,7 @@ class ThemeAsset extends AssetBundle
     public $js = [
         // your js files will be here
         "js/main.js",
-//        "js/jquery.mousewheel.js",
+        "js/jquery.mousewheel.js",
         "js/jscrollpane.min.js",
         "js/app.js",
 //        "js/sweet-alert.min.js",

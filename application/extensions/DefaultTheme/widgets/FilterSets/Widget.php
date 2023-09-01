@@ -353,7 +353,7 @@ class Widget extends BaseWidget
                 'filterSets' => $filterSets,
                 'id' => 'filter-set-' . $this->id,
                 'hideEmpty' => $this->hideEmpty,
-                'calc' => 'privet',
+                'calc' => 'Ничего не найдено.',
             ]
         );
     }

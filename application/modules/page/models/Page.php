@@ -393,7 +393,7 @@ class Page extends ActiveRecord
     /**
      * @return string
      */
-    public function jsonSerialize()
+    public function jsonSerialize() :array
     {
         return ($this->className() . ':' . $this->id);
     }
