@@ -29,7 +29,9 @@ use app\modules\shop\widgets\AddToWishlistWidget;
 
 $productName = $breadcrumbs[array_key_last($breadcrumbs)];
 
-$productCategory = (array_pop($model->subcategoryTittle)['title_append']);
+//$productCategory = (array_pop($model->subcategoryTittle)['title_append']);
+$productCategory = $model->subcategoryTittle[0]['title_append'];
+
 $this->title = $productCategory  .' '.  $model->brand->name  .' '.  $model->name  . ' купить в Волгограде. В интернет-магазине Гудлифон' ;
 
 $textDescription =  $productCategory  .' '.  $model->brand->name  .' '.  $model->name  . ' купить в магазине нижнего белья Гудлифон. Имеющийся размер и цвет уточняйте на сайте или по телефону 8(961)691-58-94. Постоянным клиентам скидка';

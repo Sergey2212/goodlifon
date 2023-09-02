@@ -14,13 +14,13 @@
                 <nav class=" position-relative text-center text-md-end  info-top" id="top-about">
                     <ul class="list-inline">
                         <li class="list-inline-item ">
-                            <a href="#" class="text-decoration-none">О нас</a>
+                            <a href="<?= \yii\helpers\Url::toRoute(['/about']) ?>">О нас</a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#" class="text-decoration-none">Контакты</a>
+                            <a href="<?= \yii\helpers\Url::toRoute(['/delivery']) ?>">Доставка</a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#" class="text-decoration-none">Доставка</a>
+                            <a href="<?= \yii\helpers\Url::toRoute(['/payment']) ?>">Оплата</a>
                         </li>
                     </ul>
                 </nav>

@@ -357,7 +357,7 @@ class Product extends ActiveRecord implements ImportableInterface, ExportableInt
         return $this->hasMany(Category::className(), ['id' => 'category_id'])
             ->viaTable('product_category', ['object_model_id' => 'id'])
             ->select(['title_append'])
-           // ->orderBy('id DESC')
+            ->orderBy('id DESC')
             //->limit(1);
             ->asArray() ;
     }
