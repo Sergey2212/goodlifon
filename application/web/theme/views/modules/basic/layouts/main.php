@@ -44,7 +44,7 @@ HtmlTagHelper::addTagOptions('html', 'lang', Yii::$app->language);
 <!--    ga('create', 'UA-139507803-1', 'auto');-->
 <!--    ga('send', 'pageview');-->
 <!--</script>-->
-<meta name="yandex-verification" content="d9798448354fae6f" />
+<!-- <meta name="yandex-verification" content="d9798448354fae6f" /> -->
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="icon" type="image/png" href="/files/favicons/favicon-16x16.png" sizes="16x16" />  
