@@ -19,7 +19,7 @@ use app\properties\HasProperties;
                             'data-pg' => json_encode(
                                 [
                                     'id' => $opg->group->id,
-                                    'form_name' => $model->formName(),
+                                    'form_name' => $model->form,
                                 ]
                             )
                         ]
@@ -42,7 +42,7 @@ use app\properties\HasProperties;
                     'data-pg' => json_encode(
                         [
                             'id' => $id,
-                            'form_name' => $model->formName(),
+                            'form_name' => $model->form,
                         ]
                     ),
                 ],
@@ -52,7 +52,7 @@ use app\properties\HasProperties;
         ?>
         <div class="widget-toolbar">
             <?=
-            yii\bootstrap\Nav::widget(
+            yii\bootstrap5\Nav::widget(
                 [
                     'items' => $items,
                     'options' => [
@@ -63,7 +63,7 @@ use app\properties\HasProperties;
             ?>
             <?php
             if (count($property_groups_to_add) > 0):?>
-                <?=yii\bootstrap\ButtonDropdown::widget(
+                <?=yii\bootstrap5\ButtonDropdown::widget(
                     [
                         'label' => Yii::t('app', 'Add'),
                         'dropdown' => [

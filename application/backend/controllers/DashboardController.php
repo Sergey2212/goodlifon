@@ -6,7 +6,6 @@ use app\backend\actions\FlushCacheAction;
 use app\backend\models\Notification;
 use app\components\Helper;
 use app\modules\image\actions\UpdateNameAction;
-use vova07\imperavi\actions\GetAction;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -48,15 +47,15 @@ class DashboardController extends Controller
                 'class' => FlushCacheAction::className(),
             ],
             'imperavi-image-upload' => [
-                'class' => 'vova07\imperavi\actions\UploadAction',
+                'class' =>  'vova07\imperavi\actions\UploadFileAction',
                 'url' => $uploadDir,
                 'path' => '@webroot' . $uploadDir,
             ],
             'imperavi-images-get' => [
-                'class' => 'vova07\imperavi\actions\GetAction',
+                'class' => 'vova07\imperavi\actions\GetFilesAction',
                 'url' => $uploadDir,
                 'path' => '@webroot' . $uploadDir,
-                'type' => GetAction::TYPE_IMAGES,
+                'options' => ['only' => ['*.txt', '*.md']],
             ],
             'rename-image' => [
                 'class' => UpdateNameAction::className(),
