@@ -2,8 +2,13 @@
 
 /* @var $this \yii\web\View */
 /* @var $content string */
-
+use app\backend\assets\BackendAsset;
 use yii\helpers\Html;
+use app\backend\widgets\flushcache\FlushCacheButton;
+use yii\helpers\Url;
+use yii\widgets\Breadcrumbs;
+
+BackendAsset::register($this);
 
 \hail812\adminlte3\assets\FontAwesomeAsset::register($this);
 \hail812\adminlte3\assets\AdminLteAsset::register($this);

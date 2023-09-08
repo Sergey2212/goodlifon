@@ -12,7 +12,7 @@ $bodyColumn = ' col-md-9';
 $modalConfirmId = $modalFormId . '-confirm';
 
 // MAIN FORM
-\yii\bootstrap\Modal::begin(
+\yii\bootstrap5\Modal::begin(
     [
         'id' => $modalFormId,
         'footer' => Html::button(
@@ -29,7 +29,7 @@ $modalConfirmId = $modalFormId . '-confirm';
                     'data-dismiss' => 'modal',
                 ]
             ),
-        'header' => Yii::t('app', 'Batch editing prices'),
+        'title' => Yii::t('app', 'Batch editing prices'),
     ]
 );
 ?>
@@ -257,13 +257,13 @@ $modalConfirmId = $modalFormId . '-confirm';
 
 <div class="hidden" id="to_hidden"></div>
 
-<?php \yii\bootstrap\Modal::end() ?>
+<?php \yii\bootstrap5\Modal::end() ?>
 
 
 
 <?php
 // CONFIRM FORM
-\yii\bootstrap\Modal::begin(
+\yii\bootstrap5\Modal::begin(
     [
         'id' => $modalConfirmId,
         'footer' => Html::button(
@@ -290,7 +290,7 @@ $modalConfirmId = $modalFormId . '-confirm';
                 'id' => 'close_rep'
             ]
         ),
-        'header' => Yii::t('app', 'Confirm edit item'),
+        'title' => Yii::t('app', 'Confirm edit item'),
     ]
 );
 ?>
@@ -301,4 +301,4 @@ $modalConfirmId = $modalFormId . '-confirm';
         <div class="alert alert-danger"></div>
     </div>
 </div>
-<?php \yii\bootstrap\Modal::end() ?>
+<?php \yii\bootstrap5\Modal::end() ?>

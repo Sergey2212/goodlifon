@@ -24,20 +24,20 @@ class BackendAsset extends AssetBundle
 {
     public $sourcePath = '@app/backend/assets/backend';
     public $css = [
-        '//st-1.dotplant.ru/css/smartadmin-production.min.css',
-        '//st-2.dotplant.ru/css/smartadmin-production-plugins.min.css',
+//        'css/smartadmin-production.min.css',
+        'css/smartadmin-production-plugins.min.css',
         'css/admin.css',
     ];
     public $js = [
         'js/admin.js',
         'js/DialogActions.js',
         'js/select2sortable.js',
-        '//st-4.dotplant.ru/js/plugin/SmartNotification_jarvis.uglify.min.js',
-        '//st-2.dotplant.ru/js/plugin/msie-fix/jquery.mb.browser.min.js',
-        '//st-3.dotplant.ru/js/app.min.js',
-        '//st-4.dotplant.ru/js/plugin/fullcalendar/jquery.fullcalendar.min.js',
-        '//cdn.jsdelivr.net/lodash/3.6.0/lodash.min.js',
-        '//cdn.jsdelivr.net/bootbox/4.3.0/bootbox.min.js',
+        'js/SmartNotification_jarvis.uglify.min.js',
+        'js/jquery.mb.browser.min.js',
+        'js/app.min.js',
+        'js/jquery.fullcalendar.min.js',
+        'js/lodash.min.js',
+        'js/bootbox.min.js',
     ];
     public $depends = [
         'yii\web\JqueryAsset',
@@ -48,7 +48,6 @@ class BackendAsset extends AssetBundle
         'yii\validators\ValidationAsset',
         'yii\widgets\ActiveFormAsset',
         'yii\jui\JuiAsset',
-        '\kartik\icons\FontAwesomeAsset',
         'app\backend\assets\LaddaAsset',
     ];
 }
