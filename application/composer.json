@@ -38,13 +38,11 @@
     "himiklab/yii2-recaptcha-widget" : "*",
     "creocoder/yii2-flysystem": "^1.1",
     "timurmelnikov/yii2-loading-overlay": "~1.0.0",
-    "vova07/yii2-imperavi-widget": "~1.2.2",
     "twbs/bootstrap-icons": "^1.10",
-    "hail812/yii2-adminlte3": "~1.1"
-<<<<<<< HEAD
-=======
+    "hail812/yii2-adminlte3": "~1.1",
+    "vova07/yii2-imperavi-widget": "*"
+    
 
->>>>>>> 1bc1997990b6b6695d60c505118ed1958848ba59
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.1.0",

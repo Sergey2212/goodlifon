@@ -11,8 +11,8 @@ class TypeAheadAsset extends AssetBundle
         'typeahead.jquery.min.js',
     ];
     public $depends = [
-        'yii\bootstrap\BootstrapAsset',
-        'yii\bootstrap\BootstrapPluginAsset',
+        'yii\bootstrap5\BootstrapAsset',
+        'yii\bootstrap5\BootstrapPluginAsset',
         'yii\web\JqueryAsset',
     ];
 }
