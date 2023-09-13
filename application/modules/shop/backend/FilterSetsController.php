@@ -14,7 +14,7 @@ use devgroup\TagDependencyHelper\ActiveRecordHelper;
 use Yii;
 use yii\debug\components\search\Filter;
 use yii\filters\AccessControl;
-use devgroup\JsTreeWidget\AdjacencyFullTreeDataAction;
+use devgroup\JsTreeWidget\actions\AdjacencyList\FullTreeDataAction;
 use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -46,7 +46,7 @@ class FilterSetsController extends BackendController
     {
         return [
             'getTree' => [
-                'class' => AdjacencyFullTreeDataAction::className(),
+                'class' => FullTreeDataAction::className(),
                 'class_name' => Category::className(),
                 'model_label_attribute' => 'name',
             ],

@@ -15,9 +15,9 @@ use app\properties\HasProperties;
 use app\modules\image\widgets\RemoveAction;
 use app\modules\image\widgets\SaveInfoAction;
 use app\modules\image\widgets\UploadAction;
-use devgroup\JsTreeWidget\AdjacencyFullTreeDataAction;
-use devgroup\JsTreeWidget\TreeNodeMoveAction;
-use devgroup\JsTreeWidget\TreeNodesReorderAction;
+use devgroup\JsTreeWidget\actions\AdjacencyList\FullTreeDataAction;
+use devgroup\JsTreeWidget\actions\AdjacencyList\TreeNodeMoveAction;
+use devgroup\JsTreeWidget\actions\AdjacencyList\TreeNodesReorderAction;
 use Yii;
 use yii\db\Query;
 use yii\filters\AccessControl;
@@ -53,7 +53,7 @@ class PageController extends \app\backend\components\BackendController
     {
         return [
             'getTree' => [
-                'class' => AdjacencyFullTreeDataAction::className(),
+                'class' => FullTreeDataAction::className(),
                 'class_name' => Page::className(),
                 'model_label_attribute' => 'name',
             ],

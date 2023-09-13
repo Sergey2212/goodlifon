@@ -3,7 +3,7 @@
 namespace app\backend\controllers;
 
 use app\backend\models\BackendMenu;
-use devgroup\JsTreeWidget\AdjacencyFullTreeDataAction;
+use devgroup\JsTreeWidget\actions\AdjacencyList\FullTreeDataAction;
 use Yii;
 use yii\filters\AccessControl;
 use yii\helpers\Url;
@@ -35,7 +35,7 @@ class BackendMenuController extends Controller
     {
         return [
             'getTree' => [
-                'class' => AdjacencyFullTreeDataAction::className(),
+                'class' => FullTreeDataAction::className(),
                 'class_name' => BackendMenu::className(),
                 'model_label_attribute' => 'name',
             ],

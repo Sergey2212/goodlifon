@@ -9,8 +9,8 @@
 
 use kartik\dynagrid\DynaGrid;
 use kartik\icons\Icon;
-use devgroup\JsTreeWidget\TreeWidget;
-use devgroup\JsTreeWidget\ContextMenuHelper;
+use devgroup\JsTreeWidget\widgets\TreeWidget;
+use devgroup\JsTreeWidget\helpers\ContextMenuHelper;
 
 $this->title = Yii::t('app', 'Pages');
 if (is_object($model)) {
@@ -149,7 +149,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                             [
                                 'url' => 'edit',
-                                'icon' => 'pencil',
+                                'icon' => 'pen',
                                 'class' => 'btn-primary',
                                 'label' => Yii::t('app', 'Edit'),
                             ],
@@ -161,7 +161,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                             [
                                 'url' => 'delete',
-                                'icon' => 'trash-o',
+                                'icon' => 'trash',
                                 'class' => 'btn-danger',
                                 'label' => Yii::t('app', 'Delete'),
                                 'options' => [

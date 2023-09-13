@@ -24,7 +24,7 @@ class BackendAsset extends AssetBundle
 {
     public $sourcePath = '@app/backend/assets/backend';
     public $css = [
-//        'css/smartadmin-production.min.css',
+        'css/smartadmin-production.min.css',
         'css/smartadmin-production-plugins.min.css',
         'css/admin.css',
     ];
@@ -44,7 +44,7 @@ class BackendAsset extends AssetBundle
         'yii\web\YiiAsset',
         'yii\bootstrap5\BootstrapAsset',
         'yii\bootstrap5\BootstrapPluginAsset',
-        'devgroup\JsTreeWidget\JsTreeAssetBundle',
+        'devgroup\JsTreeWidget\widgets\JsTreeAssetBundle',
         'yii\validators\ValidationAsset',
         'yii\widgets\ActiveFormAsset',
         'yii\jui\JuiAsset',

@@ -22,7 +22,7 @@ use app\modules\image\widgets\RemoveAction;
 use app\modules\image\widgets\SaveInfoAction;
 use app\modules\image\widgets\UploadAction;
 use app\backend\actions\UpdateEditable;
-use devgroup\JsTreeWidget\AdjacencyFullTreeDataAction;
+use devgroup\JsTreeWidget\actions\AdjacencyList\FullTreeDataAction;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\db\Query;
@@ -71,7 +71,7 @@ class BackendProductController extends BackendController
         $product = Yii::$container->get(Product::class);
         return [
             'getTree' => [
-                'class' => AdjacencyFullTreeDataAction::className(),
+                'class' => FullTreeDataAction::class,
                 'class_name' => Category::className(),
                 'model_label_attribute' => 'name',
             ],

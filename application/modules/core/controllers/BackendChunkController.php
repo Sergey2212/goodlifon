@@ -5,7 +5,7 @@ namespace app\modules\core\controllers;
 use app\backend\components\BackendController;
 use app\backend\traits\BackendRedirect;
 use app\modules\core\models\ContentBlockGroup;
-use devgroup\JsTreeWidget\AdjacencyFullTreeDataAction;
+use devgroup\JsTreeWidget\actions\AdjacencyList\FullTreeDataAction;;
 use devgroup\JsTreeWidget\TreeNodeMoveAction;
 use devgroup\JsTreeWidget\TreeNodesReorderAction;
 use yii\filters\AccessControl;
@@ -22,7 +22,7 @@ class BackendChunkController extends BackendController
     {
         return [
             'getTree' => [
-                'class' => AdjacencyFullTreeDataAction::className(),
+                'class' => FullTreeDataAction::className(),
                 'class_name' => ContentBlockGroup::className(),
                 'model_label_attribute' => 'name',
             ],
