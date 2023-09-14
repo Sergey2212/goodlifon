@@ -35,7 +35,7 @@ class RemoveAllButton extends Widget
     protected function renderButton()
     {
         return Html::button(
-            Icon::show('trash-o') . ' ' .
+            Icon::show('trash') . ' ' .
             \Yii::t('app', 'Delete selected'),
             $this->htmlOptions
         );

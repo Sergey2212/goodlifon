@@ -40,14 +40,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'contextMenuItems' => [
                 'edit' => [
                     'label' => 'Edit',
-                    'icon' => 'fa fa-pencil',
+                    'icon' => 'fa fa-pen',
                     'action' => ContextMenuHelper::actionUrl(
                         ['/page/backend/edit']
                     ),
                 ],
                 'show' => [
                     'label' => 'Show pages inside this page',
-                    'icon' => 'fa fa-folder-o',
+                    'icon' => 'fa fa-folder',
                     'action' => ContextMenuHelper::actionUrl(
                         ['/page/backend/index'],
                         [
@@ -67,7 +67,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 'delete' => [
                     'label' => 'Delete',
-                    'icon' => 'fa fa-trash-o',
+                    'icon' => 'fa fa-trash',
                     'action' => new \yii\web\JsExpression(
                         "function(node) {
                             jQuery('#delete-confirmation')

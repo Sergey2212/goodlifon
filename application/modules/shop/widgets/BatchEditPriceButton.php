@@ -45,7 +45,7 @@ class BatchEditPriceButton extends Widget
 
         // render button
         $button = Html::button(
-            Icon::show('usd') . ' ' . \Yii::t('app', 'Edit prices'),
+            Icon::show('dollar-sign') . ' ' . \Yii::t('app', 'Edit prices'),
             $this->btnHtmlOptions
         );
         

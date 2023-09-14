@@ -10,7 +10,7 @@ use app\backend\widgets\flushcache\FlushCacheButton;
 use kartik\helpers\Html;
 use kartik\icons\Icon;
 use yii\helpers\Url;
-use yii\widgets\Breadcrumbs;
+use yii\bootstrap5\Breadcrumbs;
 
 BackendAsset::register($this);
 Icon::map($this);
@@ -38,10 +38,10 @@ Icon::map($this);
         </div>
         <div class="pull-right">
             <div id="hide-menu" class="btn-header pull-right">
-                <span> <a href="javascript:void(0);" data-action="toggleMenu" title="<?= Yii::t('app', 'Collapse Menu') ?>"><i class="fa fa-reorder"></i></a> </span>
+                <span> <a href="javascript:void(0);" data-action="toggleMenu" title="<?= Yii::t('app', 'Collapse Menu') ?>"><i class="fas fa-bars"></i></a> </span>
             </div>
             <div id="logout" class="btn-header transparent pull-right">
-                <span> <a href="/logout" title="<?= Yii::t('app', 'Logout') ?>" data-action="userLogout" data-logout-msg="<?= Yii::t('app', 'Are you sure you want to exit') ?>"><i class="fa fa-sign-out"></i></a> </span>
+                <span> <a href="/logout" title="<?= Yii::t('app', 'Logout') ?>" data-action="userLogout" data-logout-msg="<?= Yii::t('app', 'Are you sure you want to exit') ?>"><i class="fas fa-sign-out-alt"></i></a> </span>
             </div>
             <!--<form action="search.html" class="header-search pull-right">
                 <input id="search-fld"  type="text" name="param" placeholder="Find reports and more">
@@ -78,7 +78,7 @@ Icon::map($this);
                 </div>
             <?php endif; ?>
             <div class="btn-header transparent pull-right">
-                <span> <a href="/" title="<?= Yii::t('app', 'Go to site') ?>"><i class="fa fa-newspaper-o"></i></a> </span>
+                <span> <a href="/" title="<?= Yii::t('app', 'Go to site') ?>"><i class="fa fa-newspaper"></i></a> </span>
             </div>
         </div>
     </header>
@@ -151,7 +151,7 @@ Icon::map($this);
                 . Html::button(
                     Yii::t('app', 'Cancel'),
                     [
-                        'class' => 'btn btn-default',
+                        'class' => 'btn btn-light',
                         'data-dismiss' => 'modal',
                     ]
                 ),
@@ -179,7 +179,7 @@ Icon::map($this);
                 . Html::button(
                     Yii::t('app', 'Cancel'),
                     [
-                        'class' => 'btn btn-default',
+                        'class' => 'btn btn-light',
                         'data-dismiss' => 'modal',
                     ]
                 ),
@@ -206,7 +206,7 @@ Icon::map($this);
                 . Html::button(
                     Yii::t('app', 'Cancel'),
                     [
-                        'class' => 'btn btn-default',
+                        'class' => 'btn btn-light',
                         'data-dismiss' => 'modal',
                     ]
                 ),
@@ -234,7 +234,7 @@ Icon::map($this);
                 . Html::button(
                     Yii::t('app', 'Cancel'),
                     [
-                        'class' => 'btn btn-default',
+                        'class' => 'btn btn-light',
                         'data-dismiss' => 'modal',
                     ]
                 ),

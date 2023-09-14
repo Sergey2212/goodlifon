@@ -168,7 +168,7 @@ img.image-column {
 #ribbon li {
   max-width: 200px;
   overflow: hidden;
-  height: 18px;
+  height: 23px;
 }
 
 #ribbon li.active {
@@ -356,4 +356,8 @@ div.files.dropzone {
 
 .nav-tabs li a.has-error[data-toggle=tab] {
   color: #a94442;
+}
+
+.breadcrumb > li {
+  display: inline-block;
 }

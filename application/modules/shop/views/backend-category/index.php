@@ -3,8 +3,8 @@
 use kartik\dynagrid\DynaGrid;
 use kartik\icons\Icon;
 use yii\helpers\Url;
-use devgroup\JsTreeWidget\TreeWidget;
-use devgroup\JsTreeWidget\ContextMenuHelper;
+use devgroup\JsTreeWidget\widgets\TreeWidget;
+use devgroup\JsTreeWidget\helpers\ContextMenuHelper;
 use app\backend\components\Helper;
 
 $this->title = Yii::t('app', 'Categories');
@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'contextMenuItems' => [
                     'edit' => [
                         'label' => 'Edit',
-                        'icon' => 'fa fa-pencil',
+                        'icon' => 'fa fa-pen',
                         'action' => ContextMenuHelper::actionUrl(
                             ['edit', 'returnUrl' => Helper::getReturnUrl()]
                         ),
@@ -62,7 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                     'delete' => [
                         'label' => 'Delete',
-                        'icon' => 'fa fa-trash-o',
+                        'icon' => 'fa fa-trash',
                         'action' => new \yii\web\JsExpression(
                             "function(node) {
                                 jQuery('#delete-category-confirmation')
@@ -148,13 +148,13 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                             [
                                 'url' => 'edit',
-                                'icon' => 'pencil',
+                                'icon' => 'pen',
                                 'class' => 'btn-primary',
                                 'label' => Yii::t('app', 'Edit'),
                             ],
                             [
                                 'url' => 'delete',
-                                'icon' => 'trash-o',
+                                'icon' => 'trash',
                                 'class' => 'btn-danger',
                                 'label' => Yii::t('app', 'Delete'),
                                 'options' => [

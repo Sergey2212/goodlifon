@@ -25,14 +25,14 @@ class BackendAsset extends AssetBundle
     public $sourcePath = '@app/backend/assets/backend';
     public $css = [
         'css/smartadmin-production.min.css',
-        'css/smartadmin-production-plugins.min.css',
+    	'css/smartadmin-production-plugins.min.css',
         'css/admin.css',
     ];
     public $js = [
         'js/admin.js',
         'js/DialogActions.js',
         'js/select2sortable.js',
-        'js/SmartNotification_jarvis.uglify.min.js',
+        'js/SmartNotification_jarvis.uglify.min.js',//Окно выхода
         'js/jquery.mb.browser.min.js',
         'js/app.min.js',
         'js/jquery.fullcalendar.min.js',

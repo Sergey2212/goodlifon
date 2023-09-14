@@ -11,7 +11,7 @@ use yii\helpers\Url;
 class Menu extends Widget
 {
     public $linkTemplate = '<a href="{url}" class="{class}">
-            <i class="fa fa-{icon} fa-fw fa-lg"></i>
+            <i class="fas fa-{icon} fa-fw fa-lg"></i>
             <span class="menu-item-parent">{label}</span>
         </a>';
     public $linkNoIconTemplate = '<a href="{url}" class="{class}">
