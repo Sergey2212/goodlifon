@@ -61,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ?>
                                 <?=
                                 Html::a(
-                                    Icon::show('trash-o'),
+                                    Icon::show('trash'),
                                     ['delete-active-widget', 'id'=>$activeWidget->id],
                                     [
                                         'class' => 'btn btn-danger btn-xs',

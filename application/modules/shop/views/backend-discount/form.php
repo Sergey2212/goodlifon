@@ -113,7 +113,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'buttons' => [
                                         [
                                             'url' => 'delete-filters',
-                                            'icon' => 'trash-o',
+                                            'icon' => 'trash',
                                             'class' => 'btn-danger',
                                             'label' => Yii::t('app', 'Delete'),
                                             'options' => [

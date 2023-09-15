@@ -80,16 +80,18 @@ class CategoryMovementsButtons extends Widget
                 Yii::t('app', 'Add selected to:'),
                 [
                     'class' => isset($this->htmlOptions['add-class']) ?
-                        $this->htmlOptions['add-class'] : 'btn btn-default',
+                        $this->htmlOptions['add-class'] : 'btn btn-secondary cat-move-buttons',
+                    'style'=>"--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .85rem;",
                     'disabled' => 'disabled',
                     'data-mc-action' => self::ADD_ACTION
                 ]),
             self::MOVE_ACTION => Html::button(
-                Icon::show('arrows') . ' ' .
+                Icon::show('arrows-alt') . ' ' .
                 Yii::t('app', 'Move selected to:'),
                 [
                     'class' => isset($this->htmlOptions['move-class']) ?
-                        $this->htmlOptions['move-class'] : 'btn btn-default',
+                        $this->htmlOptions['move-class'] : 'btn btn-secondary cat-move-buttons',
+                    'style'=>"--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .85rem;",
                     'disabled' => 'disabled',
                     'data-mc-action' => self::MOVE_ACTION
                 ]),
@@ -102,14 +104,14 @@ class CategoryMovementsButtons extends Widget
                     $button . "\n\t" . Html::tag('div',
                         Html::dropDownList(null, null, static::$categories, [
                             'prompt' => Yii::t('app', 'Select category'),
-                            'class' => 'form-control',
+                            'class' => 'form-select form-select-sm',
                             'id' => $id,
                         ]), [
                             'class' => 'input-group',
                         ]), [
-                        'class' => 'btn-group',
+                        'class' => 'btn-group btn-group-sm',
                     ]), [
-                    'class' => 'col-xs-12 col-sm-6',
+                    'class' => 'col col-sm-6',
                 ]);
         };
         return Html::tag('div', $group, ['class' => 'row m-bottom-10']);

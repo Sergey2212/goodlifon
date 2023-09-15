@@ -361,3 +361,11 @@ div.files.dropzone {
 .breadcrumb > li {
   display: inline-block;
 }
+
+.cat-move-buttons{
+  min-width: 210px;
+}
+
+.select2-container{
+  width: 120px !important;
+}

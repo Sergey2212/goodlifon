@@ -40,7 +40,7 @@ class ActionColumn extends \yii\grid\ActionColumn
         if (!isset($this->buttons['delete'])) {
             $this->buttons['delete'] = function ($url, $model) {
                 return Html::a(
-                    Icon::show('trash-o', ['class' => 'fa-lg'], Icon::FA),
+                    Icon::show('trash', ['class' => 'fa-lg'], Icon::FA),
                     $url,
                     [
                         'title' => \Yii::t('yii', 'Delete'),

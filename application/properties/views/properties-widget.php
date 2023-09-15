@@ -19,7 +19,7 @@ use app\properties\HasProperties;
                             'data-pg' => json_encode(
                                 [
                                     'id' => $opg->group->id,
-                                    'form_name' => $model->form,
+                                    'form_name' => $model->formName(),
                                 ]
                             )
                         ]
@@ -42,7 +42,7 @@ use app\properties\HasProperties;
                     'data-pg' => json_encode(
                         [
                             'id' => $id,
-                            'form_name' => $model->form,
+                            'form_name' => $model->formName(),
                         ]
                     ),
                 ],

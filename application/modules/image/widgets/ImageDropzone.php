@@ -165,7 +165,7 @@ class ImageDropzone extends DropZone
                             <div class="dz-error-mark"><span>✘</span> ERROR</div>
 
                           <button data-dz-remove class="btn btn-danger delete">
-                            <i class="fa fa-trash-o"></i>
+                            <i class="fa fa-trash"></i>
                             <span>' . Yii::t('app', 'Delete') . '</span>
                           </button>
                         </div>

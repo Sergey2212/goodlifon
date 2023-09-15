@@ -39,7 +39,7 @@ use kartik\helpers\Html;
                             <button class="btn btn-danger btn-sm" type="button" data-action="delete" data-url="<?= \yii\helpers\Url::toRoute([
                                 'delete',
                                 'id' => $item->id
-                            ]) ?>"><i class="fa fa-trash-o"></i></button>
+                            ]) ?>"><i class="fa fa-trash"></i></button>
                         </div>
                     </div>
                 </div>

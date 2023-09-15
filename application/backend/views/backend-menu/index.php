@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'contextMenuItems' => [
                 'edit' => [
                     'label' => 'Edit',
-                    'icon' => 'fa fa-pencil',
+                    'icon' => 'fa fa-pen',
                     'action' => ContextMenuHelper::actionUrl(
                         ['/backend/backend-menu/edit', 'returnUrl' => Helper::getReturnUrl()],
                         [
@@ -68,7 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 'delete' => [
                     'label' => 'Delete',
-                    'icon' => 'fa fa-trash-o',
+                    'icon' => 'fa fa-trash',
                     'action' => new \yii\web\JsExpression(
                         "function(node) {
                                 jQuery('#delete-confirmation')

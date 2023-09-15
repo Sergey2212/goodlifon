@@ -85,7 +85,7 @@ foreach ($items as $i => $item) {
                                 <button class="btn btn-danger" type="button" data-action="delete" data-id="<?= $item->id ?>" data-url="<?= \yii\helpers\Url::toRoute([
                                     'delete',
                                     'id' => $item->id
-                                ]) ?>"><i class="fa fa-trash-o"></i></button>
+                                ]) ?>"><i class="fa fa-trash"></i></button>
                             </div>
                         </div>
                     </div>

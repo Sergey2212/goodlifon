@@ -68,7 +68,7 @@ DynaGrid::widget(
                 'buttons' => [
                     [
                         'url' => 'edit-addon',
-                        'icon' => 'pencil',
+                        'icon' => 'pen',
                         'class' => 'btn-default',
                         'label' => Yii::t('app', 'Edit'),
                         'url_append' => '&addon_category_id=' . $addonCategory->id
@@ -76,7 +76,7 @@ DynaGrid::widget(
                     ],
                     [
                         'url' => 'delete-addon',
-                        'icon' => 'trash-o',
+                        'icon' => 'trash',
                         'class' => 'btn-danger',
                         'label' => Yii::t('app', 'Delete'),
                     ],

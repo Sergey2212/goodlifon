@@ -1,8 +1,13 @@
 <?php
 
 use app\modules\shop\models\Product;
+use app\modules\shop\models\WarehouseProduct;
+use app\models\PropertyStaticValues;
 use kartik\dynagrid\DynaGrid;
+use kartik\grid\GridView;
 use kartik\icons\Icon;
+use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
 use yii\helpers\Url;
 use devgroup\JsTreeWidget\widgets\TreeWidget;
 use devgroup\JsTreeWidget\helpers\ContextMenuHelper;
@@ -54,7 +59,7 @@ $this->endBlock();
 ?>
 
 <div class="row">
-    <div class="col-md-4">
+    <div class=" col col-md-3">
         <?=TreeWidget::widget(
             [
                 'treeDataRoute' => ['getTree'],
@@ -66,7 +71,7 @@ $this->endBlock();
                 ),
                 'contextMenuItems' => [
                     'show' => [
-                        'label' => 'Show products in category',
+                        'label' => 'Показать продукты этой категории',
                         'icon' => 'fa fa-folder-open',
                         'action' => ContextMenuHelper::actionUrl(
                             ['index'],
@@ -76,7 +81,7 @@ $this->endBlock();
                         ),
                     ],
                     'createProduct' => [
-                        'label' => 'Create product in this category',
+                        'label' => 'Создать продукт в этой категории',
                         'icon' => 'fa fa-plus-circle',
                         'action' => ContextMenuHelper::actionUrl(
                             ['edit', 'returnUrl' => Helper::getReturnUrl()],
@@ -87,13 +92,13 @@ $this->endBlock();
                     ],
                     'edit' => [
                         'label' => 'Edit category',
-                        'icon' => 'fa fa-pencil',
+                        'icon' => 'fas fa-pen',
                         'action' => ContextMenuHelper::actionUrl(
                             ['/shop/backend-category/edit', 'returnUrl' => Helper::getReturnUrl()]
                         ),
                     ],
                     'create' => [
-                        'label' => 'Create category',
+                        'label' => 'Создать категорию',
                         'icon' => 'fa fa-plus-circle',
                         'action' => ContextMenuHelper::actionUrl(
                             ['/shop/backend-category/edit', 'returnUrl' => Helper::getReturnUrl()],
@@ -104,7 +109,7 @@ $this->endBlock();
                     ],
                     'delete' => [
                         'label' => 'Delete',
-                        'icon' => 'fa fa-trash-o',
+                        'icon' => 'fas fa-trash',
                         'action' => new \yii\web\JsExpression(
                             "function(node) {
                             jQuery('#delete-category-confirmation')
@@ -119,9 +124,12 @@ $this->endBlock();
             ]
         );?>
     </div>
-    <div class="col-md-8" id="jstree-more">
-        <?=DynaGrid::widget(
-            [
+    <div class="col col-md-9" id="jstree-more">
+        <?=DynaGrid::widget([
+
+                'storage'=>DynaGrid::TYPE_COOKIE,
+                'theme'=>'panel-danger',
+
                 'options' => [
                     'id' => 'Product-grid',
                 ],
@@ -140,7 +148,136 @@ $this->endBlock();
                         'class' => 'yii\grid\DataColumn',
                         'attribute' => 'name',
                     ],
-                    'slug',
+                    [
+                        'class'=>\kartik\grid\EditableColumn::className(),
+                        'header' => 'Кол-во',
+                        'contentOptions' => ['class' => 'kv-quantity-column'],
+                        'value' => function($model){
+                            if(!$model->quantity->in_warehouse){
+                                \app\backend\widgets\WarehousesRemains::widget([
+                                    'model' => $model,
+                                ]);
+                            }
+                        },
+                        'editableOptions' => function ($model) {
+                            return   [
+                                'value' => $model->quantity->in_warehouse,
+                                'name' => 'remain['.$model->quantity->id.'][in_warehouse]',
+                                'inputType' => \kartik\editable\Editable::INPUT_TEXT,
+                                'formOptions' => [
+                                    'action' => Url::toRoute('/shop/backend-warehouse/update-remains'),
+                                ],
+                                'inputType' => \kartik\editable\Editable::INPUT_SPIN,
+                                'options' => ['pluginOptions' => ['min' => 0, 'max' => 5000]],
+                                'placement' => 'top',
+                            ];
+                        },
+                    ],
+                    [
+                        'class' => 'yii\grid\DataColumn',
+                        'attribute' => 'optionsQuantity',
+                    ],
+                    [
+                        'attribute' => 'brand',
+                        'vAlign'=>'middle',
+                        'width'=>'130px',
+                        'value' =>function($model) {
+                            if(isset($model->brand->name)){
+                                return $model->brand->name;
+                            }else{
+                                return "Не указан";
+                            }
+                        },
+                        'filter'=>ArrayHelper::map(
+                            PropertyStaticValues::find()
+                                ->where('property_id  = 7')
+                                ->orderBy('name')
+                                ->asArray()
+                                ->all(), 'name', 'name'
+                        ),
+                        'filterType'=>GridView::FILTER_SELECT2,
+                        'filterWidgetOptions'=>[
+                            'pluginOptions'=>['allowClear'=>true, ],
+                        ],
+                        'filterInputOptions'=>[
+                            'placeholder'=>'Все бренды'
+                        ],
+                        'format'=>'raw'
+                    ],
+                   /* [
+                        'class' => \kartik\grid\EditableColumn::className(),
+                        'attribute' => 'audit',
+                        'editableOptions' => [
+                            'data' => [
+                                0 => Yii::t('app', 'Не точно'),
+                                1 => Yii::t('app', 'OK'),
+                            ],
+                            'inputType' => 'dropDownList',
+                            'placement' => 'left',
+                            'formOptions' => [
+                                'action' => 'update-editable',
+                            ],
+                        ],
+                        'filter' => [
+                            0 => Yii::t('app', 'Не точно'),
+                            1 => Yii::t('app', 'OK'),
+                        ],
+                        'format' => 'raw',
+                        'value' => function (Product $model) {
+                            if ($model === null || $model->audit === null) {
+                                return null;
+                            }
+                            if ($model->audit === 1) {
+                                $label_class = 'label-success';
+                                $value = 'OK';
+                            } else {
+                                $value = 'Не точно';
+                                $label_class = 'label-warning';
+                            }
+                            return \yii\helpers\Html::tag(
+                                'span',
+                                Yii::t('app', $value),
+                                ['class' => "label $label_class"]
+                            );
+                        },
+                    ],*/
+                    [
+                        'class' => \kartik\grid\EditableColumn::className(),
+                        'attribute' => 'new',
+                        'editableOptions' => [
+                            'data' => [
+                                0 => Yii::t('app', 'Не нов'),
+                                1 => Yii::t('app', 'Новый'),
+                            ],
+                            'inputType' => 'dropDownList',
+                            'placement' => 'left',
+                            'formOptions' => [
+                                'action' => 'update-editable',
+                            ],
+                        ],
+                        'filter' => [
+                            0 => Yii::t('app', 'Не нов'),
+                            1 => Yii::t('app', 'Новый'),
+                        ],
+                        'format' => 'raw',
+                        'value' => function (Product $model) {
+                            if ($model === null || $model->new === null) {
+                                return null;
+                            }
+                            if ($model->new === 1) {
+                                $label_class = 'text-bg-success';
+                                $value = 'Новый';
+                            } else {
+                                $value = 'Не нов';
+                                $label_class = 'text-bg-warning';
+                            }
+                            return \yii\helpers\Html::tag(
+                                'span',
+                                Yii::t('app', $value),
+                                ['class' => "badge $label_class"]
+                            );
+                        },
+                    ],
                     [
                         'class' => \kartik\grid\EditableColumn::className(),
                         'attribute' => 'active',
@@ -165,16 +302,18 @@ $this->endBlock();
                                 return null;
                             }
                             if ($model->active === 1) {
-                                $label_class = 'label-success';
+                                $label_class = 'text-bg-success';
                                 $value = 'Active';
+                                $model ->afterActive();
                             } else {
                                 $value = 'Inactive';
-                                $label_class = 'label-default';
+                                $label_class = 'text-bg-secondary';
+                                $model ->afterInActive();
                             }
                             return \yii\helpers\Html::tag(
                                 'span',
                                 Yii::t('app', $value),
-                                ['class' => "label $label_class"]
+                                ['class' => "badge $label_class"]
                             );
                         },
                     ],
@@ -187,59 +326,11 @@ $this->endBlock();
                                 'action' => 'update-editable',
                             ],
                         ],
-                    ],
-                    [
-                        'class' => 'kartik\grid\EditableColumn',
-                        'attribute' => 'old_price',
-                        'editableOptions' => [
-                            'inputType' => \kartik\editable\Editable::INPUT_TEXT,
-                            'formOptions' => [
-                                'action' => 'update-editable',
-                            ],
-                        ],
-                    ],
-                    [
-                        'attribute' => 'currency_id',
-                        'class' => \kartik\grid\EditableColumn::className(),
-                        'editableOptions' => [
-                            'data' => [0 => '-'] + \app\components\Helper::getModelMap(
-                                    \app\modules\shop\models\Currency::className(),
-                                    'id',
-                                    'name'
-                                ),
-                            'inputType' => 'dropDownList',
-                            'placement' => 'left',
-                            'formOptions' => [
-                                'action' => 'update-editable',
-                            ],
-                        ],
-                        'filter' => \app\components\Helper::getModelMap(
-                            \app\modules\shop\models\Currency::className(),
-                            'id',
-                            'name'
-                        ),
-                        'format' => 'raw',
-                        'value' => function ($model) {
-                            if ($model === null || $model->currency === null || $model->currency_id === 0) {
-                                return null;
-                            }
-                            return \yii\helpers\Html::tag(
-                                'div',
-                                $model->currency->name,
-                                ['class' => $model->currency->name]
-                            );
+                         'value' =>function($model) {
+
+                                $model ->priceChange();
+
                         },
-                    ],
-                    [
-                        'class' => 'kartik\grid\EditableColumn',
-                        'attribute' => 'sku',
-                        'editableOptions' => [
-                            'inputType' => \kartik\editable\Editable::INPUT_TEXT,
-                            'formOptions' => [
-                                'action' => 'update-editable',
-                            ],
-                            'placement' => 'left',
-                        ],
                     ],
                     'date_modified',
                     [
@@ -248,7 +339,7 @@ $this->endBlock();
                             [
                                 'url' => '@product',
                                 'icon' => 'eye',
-                                'class' => 'btn-info',
+                                'class' => 'btn btn-info',
                                 'label' => Yii::t('app', 'Preview'),
                                 'appendReturnUrl' => false,
                                 'url_append' => '',
@@ -257,19 +348,19 @@ $this->endBlock();
                             ],
                             [
                                 'url' => 'edit',
-                                'icon' => 'pencil',
-                                'class' => 'btn-primary',
+                                'icon' => 'pen',
+                                'class' => 'btn btn-primary',
                                 'label' => Yii::t('app', 'Edit'),
                             ],
-                            [
+                           /* [
                                 'url' => 'clone',
                                 'icon' => 'copy',
                                 'class' => 'btn-success',
                                 'label' => Yii::t('app', 'Clone'),
-                            ],
+                            ],*/
                             [
                                 'url' => 'delete',
-                                'icon' => 'trash-o',
+                                'icon' => 'trash',
                                 'class' => 'btn-danger',
                                 'label' => Yii::t('app', 'Delete'),
                                 'options' => [
@@ -292,4 +383,5 @@ $this->endBlock();
             ]
         );?>
     </div>
+
 </div>

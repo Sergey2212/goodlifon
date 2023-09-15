@@ -183,7 +183,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <td>
                                             <?=
                                                 Html::a(
-                                                    Icon::show('trash-o'),
+                                                    Icon::show('trash'),
                                                     [
                                                         '/shop/backend-filter-sets/delete-filter-set',
                                                         'id' => $filterSet->id,

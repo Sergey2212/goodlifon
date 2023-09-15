@@ -144,13 +144,13 @@ Html::submitButton(
                         'buttons' => [
                             [
                                 'url' => 'edit-property',
-                                'icon' => 'pencil',
+                                'icon' => 'pen',
                                 'class' => 'btn-primary',
                                 'label' => 'Edit',
                             ],
                             [
                                 'url' => 'delete-property',
-                                'icon' => 'trash-o',
+                                'icon' => 'trash',
                                 'class' => 'btn-danger',
                                 'label' => 'Delete',
                                 'options' => [

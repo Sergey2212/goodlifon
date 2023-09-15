@@ -25,14 +25,14 @@ class ActionColumn extends app\backend\components\ActionColumn
         $this->buttons = [
             [
                 'url' => 'edit',
-                'icon' => 'pencil',
+                'icon' => 'pen',
                 'class' => 'btn-primary',
                 'label' => Yii::t('app', 'Edit'),
 
             ],
             [
                 'url' => 'delete',
-                'icon' => 'trash-o',
+                'icon' => 'trash',
                 'class' => 'btn-danger',
                 'label' => Yii::t('app', 'Delete'),
             ],

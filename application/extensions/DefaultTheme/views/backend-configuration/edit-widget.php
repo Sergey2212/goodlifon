@@ -74,7 +74,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </td>
                                 <td>
                                     <?= Html::a(
-                                        Icon::show('trash-o') . ' ' . Yii::t('app', 'Remove'),
+                                        Icon::show('trash') . ' ' . Yii::t('app', 'Remove'),
                                         [
                                             'remove-applying',
                                             'part_id' => $widget_applying->part->id,

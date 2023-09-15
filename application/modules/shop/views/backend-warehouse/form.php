@@ -162,13 +162,13 @@ $this->params['breadcrumbs'][] = $this->title;
                             'buttons' => [
                                 [
                                     'url' => 'edit-phone',
-                                    'icon' => 'pencil',
+                                    'icon' => 'pen',
                                     'class' => 'btn-primary',
                                     'label' => Yii::t('app', 'Edit'),
                                 ],
                                 [
                                     'url' => 'delete-phone',
-                                    'icon' => 'trash-o',
+                                    'icon' => 'trash',
                                     'class' => 'btn-danger',
                                     'label' => Yii::t('app', 'Delete'),
                                     'options' => [
@@ -199,13 +199,13 @@ $this->params['breadcrumbs'][] = $this->title;
                             'buttons' => [
                                 [
                                     'url' => 'edit-email',
-                                    'icon' => 'pencil',
+                                    'icon' => 'pen',
                                     'class' => 'btn-primary',
                                     'label' => Yii::t('app', 'Edit'),
                                 ],
                                 [
                                     'url' => 'delete-filters',
-                                    'icon' => 'trash-o',
+                                    'icon' => 'trash',
                                     'class' => 'btn-danger',
                                     'label' => Yii::t('app', 'Delete'),
                                     'options' => [

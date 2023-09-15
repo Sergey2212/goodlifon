@@ -36,7 +36,7 @@ if (\app\modules\core\models\Extensions::isPackageActive($package->getName()) ==
 }
 
 echo Html::a(
-    Icon::show('trash-o') . ' ' . Yii::t('app', 'Remove extension'),
+    Icon::show('trash') . ' ' . Yii::t('app', 'Remove extension'),
     ['/core/backend-extensions/remove-extension', 'name' => $package->getName()],
     [
         'class' => 'btn btn-sm btn-danger',

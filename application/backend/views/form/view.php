@@ -74,7 +74,7 @@ $this->endBlock('buttons');
                             ],
                             [
                                 'url' => 'delete-submission',
-                                'icon' => 'trash-o',
+                                'icon' => 'trash',
                                 'class' => 'btn-danger',
                                 'label' => 'Delete',
                             ],
@@ -89,7 +89,7 @@ $this->endBlock('buttons');
                         ],
                         [
                             'url' => 'delete-submission',
-                            'icon' => 'trash-o',
+                            'icon' => 'trash',
                             'class' => 'btn-danger',
                             'label' => 'Delete',
                         ],

@@ -60,7 +60,7 @@ class JSTree extends Widget
                 'items' => [
                     'edit' => [
                         'label' => Yii::t('app', 'Edit'),
-                        'icon' => 'fa fa-pencil',
+                        'icon' => 'fa fa-pen',
                         'action' => new JsExpression(
                             "function (a) {
                                 var \$object = $(a.reference[0]);
@@ -94,7 +94,7 @@ class JSTree extends Widget
                     ],
                     'delete' => [
                         'label' => Yii::T('app', 'Delete'),
-                        'icon' => 'fa fa-trash-o',
+                        'icon' => 'fa fa-trash',
                         'action' => new JsExpression(
                             "function (a) {
                                 var \$object = $(a.reference[0]);

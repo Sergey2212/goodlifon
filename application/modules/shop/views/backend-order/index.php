@@ -125,7 +125,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         if (intval(Yii::$app->getModule('shop')->deleteOrdersAbility) === 1 && $model->is_deleted == 0) {
                             $result[] = [
                                 'url' => 'delete',
-                                'icon' => 'trash-o',
+                                'icon' => 'trash',
                                 'class' => 'btn-danger',
                                 'label' => Yii::t('app', 'Delete'),
                                 'options' => [

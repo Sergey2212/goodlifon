@@ -210,7 +210,7 @@ $editable_formOptions = [
                     'buttons' => [
                         [
                             'url' => 'delete-slide',
-                            'icon' => 'trash-o',
+                            'icon' => 'trash',
                             'class' => 'btn-danger',
                             'label' => Yii::t('app', 'Delete'),
                         ],

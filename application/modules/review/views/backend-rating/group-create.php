@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <section id="widget-grid">
     <div class="row">
         <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <?php BackendWidget::begin(['title' => Yii::t('app', 'Common'), 'icon' => 'pencil', 'footer' => $this->blocks['submit']]); ?>
+            <?php BackendWidget::begin(['title' => Yii::t('app', 'Common'), 'icon' => 'pen', 'footer' => $this->blocks['submit']]); ?>
             <div class="form-group required">
                 <?= Html::label(Yii::t('app', 'Group name'), 'group-name', ['class' => 'col-md-2 control-label']); ?>
                 <div class="col-md-10"><?= Html::input('text', 'group-name', '', ['class' => 'form-control']); ?></div>

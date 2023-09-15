@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <section id="widget-grid">
     <div class="row">
         <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <?php BackendWidget::begin(['title' => Yii::t('app', 'Common'), 'icon' => 'pencil', 'footer' => $this->blocks['submit']]); ?>
+            <?php BackendWidget::begin(['title' => Yii::t('app', 'Common'), 'icon' => 'pen', 'footer' => $this->blocks['submit']]); ?>
             <div class="form-group">
                 <?= Html::label(Yii::t('app', 'Group name'), 'group-name', ['class' => 'col-md-2 control-label']); ?>
                 <div class="col-md-10"><?= Html::input('text', 'group-name', $group['rating_group'], ['class' => 'form-control']); ?></div>
@@ -96,13 +96,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         return [
                             [
                                 'url' => 'item-edit',
-                                'icon' => 'pencil',
+                                'icon' => 'pen',
                                 'class' => 'btn-primary',
                                 'label' => Yii::t('app', 'Edit'),
                             ],
                             [
                                 'url' => 'item-delete',
-                                'icon' => 'trash-o',
+                                'icon' => 'trash',
                                 'class' => 'btn-danger',
                                 'label' => Yii::t('app', 'Delete'),
                                 'options' => [

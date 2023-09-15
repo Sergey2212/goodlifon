@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'contextMenuItems' => [
                 'edit' => [
                     'label' => 'Edit',
-                    'icon' => 'fa fa-pencil',
+                    'icon' => 'fa fa-pen',
                     'action' => ContextMenuHelper::actionUrl(
                         ['/core/backend-chunk-group/update', 'returnUrl' => Helper::getReturnUrl()]
                     ),
@@ -69,7 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 'delete' => [
                     'label' => 'Delete',
-                    'icon' => 'fa fa-trash-o',
+                    'icon' => 'fa fa-trash',
                     'action' => new \yii\web\JsExpression(
                         "function(node) {
                                 jQuery('#confirm_delete')
@@ -119,13 +119,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     'buttons' => [
                         [
                             'url' => 'edit',
-                            'icon' => 'pencil',
+                            'icon' => 'pen',
                             'class' => 'btn-primary',
                             'label' => Yii::t('app', 'Edit'),
                         ],
                         [
                             'url' => 'delete',
-                            'icon' => 'trash-o',
+                            'icon' => 'trash',
                             'class' => 'btn-danger',
                             'label' => Yii::t('app', 'Delete'),
                         ],

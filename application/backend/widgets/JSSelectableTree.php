@@ -40,7 +40,7 @@ class JSSelectableTree extends JSTree
         if (isset($this->routes['edit'])) {
             $items['edit'] = [
                 'label' => Yii::t('app', 'Edit'),
-                'icon' => 'fa fa-pencil',
+                'icon' => 'fa fa-pen',
                 'action' => new JsExpression(
                     "function (a) {
                         var \$object = $(a.reference[0]);
@@ -80,7 +80,7 @@ class JSSelectableTree extends JSTree
         if (isset($this->routes['delete'])) {
             $items['delete'] = [
                 'label' => Yii::t('app', 'Delete'),
-                'icon' => 'fa fa-trash-o',
+                'icon' => 'fa fa-trash',
                 'action' => new JsExpression(
                     "function (a) {
                         var \$object = $(a.reference[0]);

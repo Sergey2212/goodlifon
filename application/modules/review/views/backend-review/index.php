@@ -160,7 +160,7 @@ $this->endBlock();
                             ],
                             [
                                 'url' => 'delete',
-                                'icon' => 'trash-o',
+                                'icon' => 'trash',
                                 'class' => 'btn-danger',
                                 'label' => 'Delete',
                                 'options' => [

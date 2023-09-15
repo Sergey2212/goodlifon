@@ -29,7 +29,7 @@ use kartik\icons\Icon;
                             ['class'=>'btn btn-default add-property-'.$property_key]
                         ) .
                         Html::button(
-                            Icon::show('trash-o'),
+                            Icon::show('trash'),
                             ['class'=>'btn btn-default remove-property-'.$property_key]
                         ),
                     'asButton' => true,

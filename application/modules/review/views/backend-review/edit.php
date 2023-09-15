@@ -77,7 +77,7 @@ use app\components\Helper;
             <?php
                 BackendWidget::begin([
                     'title' => Yii::t('app', 'Reviews'),
-                    'icon' => 'pencil',
+                    'icon' => 'pen',
                     'footer' => $this->blocks['buttons']
                 ]);
             ?>
@@ -194,14 +194,14 @@ JSCODE;
                     'contextMenuItems' => [
                         'edit' => [
                             'label' => 'Edit',
-                            'icon' => 'fa fa-pencil',
+                            'icon' => 'fa fa-pen',
                             'action' => \devgroup\JsTreeWidget\ContextMenuHelper::actionUrl(
                                 ['view']
                             ),
                         ],
                         'delete' => [
                             'label' => 'Delete',
-                            'icon' => 'fa fa-trash-o',
+                            'icon' => 'fa fa-trash',
                             'action' => new \yii\web\JsExpression(
                                 "function(node) {
                                 jQuery('#delete-category-confirmation')

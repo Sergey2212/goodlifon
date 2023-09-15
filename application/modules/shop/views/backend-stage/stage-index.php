@@ -43,13 +43,13 @@ use yii\helpers\Html;
                 'buttons' => [
                     [
                         'url' => 'stage-edit',
-                        'icon' => 'pencil',
+                        'icon' => 'pen',
                         'class' => 'btn-primary',
                         'label' => Yii::t('app', 'Edit'),
                     ],
                     [
                         'url' => 'stage-delete',
-                        'icon' => 'trash-o',
+                        'icon' => 'trash',
                         'class' => 'btn-danger',
                         'label' => Yii::t('app', 'Delete'),
                         'options' => [

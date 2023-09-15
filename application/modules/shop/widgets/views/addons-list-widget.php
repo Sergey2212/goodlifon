@@ -33,7 +33,7 @@ use yii\helpers\Url;
                         <div class="panel-body">
                             <div class="btn btn-xs btn-info pull-left handle" style="margin-right: 20px;cursor: move;">
 
-                                <i class="fa fa-arrows"></i>
+                                <i class="fas fa-arrows-alt"></i>
 
                             </div>
                             <div class="pull-right btn-group">
@@ -46,7 +46,7 @@ use yii\helpers\Url;
 
                                 </div>
                                 <?= Html::a(
-                                    \kartik\icons\Icon::show('trash-o') . ' ' . Yii::t('app', 'Delete'),
+                                    \kartik\icons\Icon::show('trash') . ' ' . Yii::t('app', 'Delete'),
                                     '#',
                                     [
                                         'data-id' => $addon->id,

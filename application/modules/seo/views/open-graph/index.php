@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'buttons' => [
                     [
                         'url' => 'edit',
-                        'icon' => 'pencil',
+                        'icon' => 'pen',
                         'class' => 'btn-primary',
                         'label' => Yii::t('app', 'Edit'),
                     ],

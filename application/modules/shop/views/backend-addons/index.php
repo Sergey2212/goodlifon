@@ -49,7 +49,7 @@ DynaGrid::widget(
                 'buttons' => [
                     [
                         'url' => 'edit-category',
-                        'icon' => 'pencil',
+                        'icon' => 'pen',
                         'class' => 'btn-default',
                         'label' => Yii::t('app', 'Edit'),
 
@@ -63,7 +63,7 @@ DynaGrid::widget(
                     ],
                     [
                         'url' => 'delete-category',
-                        'icon' => 'trash-o',
+                        'icon' => 'trash',
                         'class' => 'btn-danger',
                         'label' => Yii::t('app', 'Delete'),
                     ],

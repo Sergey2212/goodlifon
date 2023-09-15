@@ -36,7 +36,7 @@ use yii\widgets\Pjax;
             'buttons' => [
                 'edit-part' => [
                     'url' => 'edit-part',
-                    'icon' => 'pencil',
+                    'icon' => 'pen',
                     'class' => 'btn-default',
                     'label' => Yii::t('app', 'Edit'),
                 ],
@@ -45,7 +45,7 @@ use yii\widgets\Pjax;
                         'data-action' => 'delete',
                     ],
                     'url' => 'delete-part',
-                    'icon' => 'trash-o',
+                    'icon' => 'trash',
                     'class' => 'btn-danger',
                     'label' => Yii::t('app', 'Delete'),
                 ]

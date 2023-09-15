@@ -94,7 +94,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <article class="<?= Helper::getBackendGridClass('page', PageModule::BACKEND_PAGE_GRID, 1) ?>">
 
             <?php BackendWidget::begin(
-                ['title' => Yii::t('app', 'Page'), 'icon' => 'pencil', 'footer' => $this->blocks['submit']]
+                ['title' => Yii::t('app', 'Page'), 'icon' => 'pen', 'footer' => $this->blocks['submit']]
             ); ?>
 
             <?=

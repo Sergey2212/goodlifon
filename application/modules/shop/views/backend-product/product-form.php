@@ -7,7 +7,7 @@ use app\backend\widgets\GridView;
 use kartik\helpers\Html;
 use kartik\icons\Icon;
 use app\backend\components\ActiveForm;
-use kartik\datetime\DateTimePicker;
+use kartik\widgets\DateTimePicker;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Url;
 
@@ -172,35 +172,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?php BackendWidget::end(); ?>
 
-                <?php
-                BackendWidget::begin(
-                    [
-                        'title'=> Yii::t('app', 'Content'),
-                        'icon'=>'file-text',
-                        'footer'=>$this->blocks['submit']
-                    ]
-                ); ?>
 
-                <?= $form->field($model, 'content')->widget(Yii::$app->getModule('core')->wysiwyg_class_name(), Yii::$app->getModule('core')->wysiwyg_params()); ?>
-
-                <?= $form->field($model, 'announce')->widget(Yii::$app->getModule('core')->wysiwyg_class_name(), Yii::$app->getModule('core')->wysiwyg_params()); ?>
-
-                <?= $form->field($model, 'sort_order'); ?>
-
-                <?=$form->field($model, 'date_added')->widget(
-                    DateTimePicker::classname(),
-                    [
-                        'pluginOptions' => [
-                            'autoclose' => true,
-                            'format' => 'yyyy-mm-dd hh:ii',
-                            'todayHighlight' => true,
-                            'todayBtn' => true,
-
-                        ]
-                    ]
-                );?>
-
-                <?php BackendWidget::end(); ?>
             </div>
             <div class="col-md-6">
                 <?php
@@ -252,7 +224,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
     <div role="tabpanel" class="tab-pane" id="tab-seo">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <?php BackendWidget::begin(['title'=> Yii::t('app', 'SEO'), 'icon'=>'cogs', 'footer'=>$this->blocks['submit']]); ?>
 
             <?=
@@ -302,8 +274,49 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?php BackendWidget::end(); ?>
         </div>
+
+
+        <div class="col-md-6"> <!-- Content -->
+
+            <?php
+            BackendWidget::begin(
+                [
+                    'title'=> Yii::t('app', 'Content'),
+                    'icon'=>'file-text',
+                    'footer'=>$this->blocks['submit']
+                ]
+            ); ?>
+
+            <?= $form->field($model, 'content')->widget(Yii::$app->getModule('core')->wysiwyg_class_name(), Yii::$app->getModule('core')->wysiwyg_params()); ?>
+
+            <?= $form->field($model, 'announce')->widget(Yii::$app->getModule('core')->wysiwyg_class_name(), Yii::$app->getModule('core')->wysiwyg_params()); ?>
+
+            <?= $form->field($model, 'sort_order'); ?>
+
+            <?=$form->field($model, 'date_added')->widget(
+                DateTimePicker::classname(),
+                [
+                    'pluginOptions' => [
+                        'autoclose' => true,
+                        'format' => 'yyyy-mm-dd hh:ii',
+                        'todayHighlight' => true,
+                        'todayBtn' => true,
+
+                    ]
+                ]
+            );?>
+
+            <?php BackendWidget::end(); ?>
+
+        </div>
+
+
     </div>
     <div role="tabpanel" class="tab-pane" id="tab-images">
+
+
+
+
         <div class="col-md-12">
             <?php
             BackendWidget::begin(
@@ -353,6 +366,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?php BackendWidget::end(); ?>
         </div>
+
+
+
     </div>
     <div role="tabpanel" class="tab-pane" id="tab-properties">
         <div class="col-md-6">
@@ -386,67 +402,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     </div>
     <div class="tab-pane" id="tab-options" role="tabpanel">
-        <section class="col-md-12">
-            <article>
-                <?php
-                $product = Yii::$container->get(Product::class);
-                if (!empty($model->options)) : ?>
-                    <?php
-                    BackendWidget::begin(
-                        [
-                            'title'=> Yii::t('app', 'Product Options'),
-                            'icon'=>'shopping-cart',
-                            'footer'=>$this->blocks['submit']
-                        ]
-                    ); ?>
 
-                    <?=
-                    GridView::widget([
-                        'dataProvider' =>  $dataProvider = new ActiveDataProvider(
-                            [
-                                'query' => $product::find()
-                                    ->where(['parent_id' => $model->id]),
-                            ]
-                        ),
-                        'columns' => [
-                            [
-                                'class' => 'yii\grid\DataColumn',
-                                'attribute' => 'id',
-                            ],
-                            [
-                                'class' => 'app\backend\columns\TextWrapper',
-                                'attribute' => 'name',
-                                'callback_wrapper' => function ($content, $model, $key, $index, $parent) {
-
-                                    return $content;
-                                }
-                            ],
-                            [
-                                'class' => \kartik\grid\EditableColumn::className(),
-                                'attribute' => 'price',
-                                'editableOptions' => [
-                                    'inputType' => \kartik\editable\Editable::INPUT_TEXT,
-                                    'formOptions' => [
-                                        'action' => Url::toRoute('/shop/backend-product/update-editable'),
-                                    ],
-                                ],
-                            ],
-                            'old_price',
-                            [
-                                'class' => 'app\backend\components\ActionColumn',
-                                'buttons' => function ($model, $key, $index, $parent) {
-                                    return null;
-                                }
-                            ],
-                        ],
-                        'hover' => true,
-                    ]);
-                    ?>
-                    <?php BackendWidget::end(); ?>
-                    <?php
-                endif; ?>
-            </article>
-        </section>
     </div>
 </div>
 
@@ -455,6 +411,146 @@ $event = new \app\backend\events\BackendEntityEditFormEvent($form, $model);
 $this->trigger(BackendProductController::EVENT_BACKEND_PRODUCT_EDIT_FORM, $event);
 ?>
 <?php ActiveForm::end(); ?>
+
+
+
+    <section class="col-md-12">
+        <article>
+            <?php  // Разновидности продукта  с фильтрацией
+            $product = Yii::$container->get(Product::class);
+            if (!empty($model->options)) : ?>
+                <?php
+                BackendWidget::begin(
+                    [
+                        'title'=> Yii::t('app', 'Product Options'),
+                        'icon'=>'shopping-cart',
+                        'footer'=>$this->blocks['submit']
+                    ]
+                ); ?>
+
+                <?=
+                GridView::widget([
+                    'dataProvider' => $dataProvider,
+                    'filterModel' => new app\modules\shop\models\ProductOptionSearch,
+                    'columns' => [
+                        [
+                            'class' => 'yii\grid\DataColumn',
+                            'attribute' => 'id',
+                        ],
+                        [
+                            'class' => 'app\backend\columns\TextWrapper',
+                            'attribute' => 'name',
+                            'callback_wrapper' => function ($content, $model, $key, $index, $parent) {
+
+                                return $content;
+                            }
+                        ],
+                        [
+                            'class'=>\kartik\grid\EditableColumn::className(),
+                            'header' => 'Наличие',
+                            'contentOptions' => ['class' => 'kv-quantity-column'],
+                            'value' => function($model){
+                                if(!isset($model->quantity->in_warehouse)){
+                                    \app\backend\widgets\WarehousesRemains::widget([
+                                        'model' => $model,
+                                    ]);
+                                }
+                            },
+                            'editableOptions' => function ($model) {
+                                if(!isset($model->quantity->in_warehouse)){
+                                    return   [
+                                        'value' => 'Обновите',
+                                        'name' => 'no',
+                                        'inputType' => \kartik\editable\Editable::INPUT_TEXT,
+                                        'formOptions' => [
+                                            'action' => Url::toRoute('/shop/backend-warehouse/update-remains'),
+                                        ],
+                                        'inputType' => \kartik\editable\Editable::INPUT_SPIN,
+                                        'options' => ['pluginOptions' => ['min' => 0, 'max' => 5000]],
+                                        'placement' => 'top',
+                                    ];
+                                }else{
+                                    return   [
+                                        'value' => $model->quantity->in_warehouse,
+                                        'name' => 'remain['.$model->quantity->id.'][in_warehouse]',
+                                        'inputType' => \kartik\editable\Editable::INPUT_TEXT,
+                                        'formOptions' => [
+                                            'action' => Url::toRoute('/shop/backend-warehouse/update-remains'),
+                                        ],
+                                        'inputType' => \kartik\editable\Editable::INPUT_SPIN,
+                                        'options' => ['pluginOptions' => ['min' => 0, 'max' => 5000]],
+                                        'placement' => 'top',
+                                    ];
+                                }
+
+                            },
+                        ],
+                        [
+                            'class' => \kartik\grid\EditableColumn::className(),
+                            'attribute' => 'price',
+                            'editableOptions' => [
+                                'inputType' => \kartik\editable\Editable::INPUT_TEXT,
+                                'formOptions' => [
+                                    'action' => Url::toRoute('/shop/backend-product/update-editable'),
+                                ],
+                            ],
+                        ],
+                        'old_price', //Старая цена
+                        [
+                            'class' => \kartik\grid\EditableColumn::className(),
+                            'attribute' => 'active',
+                            'editableOptions' => [
+                                'data' => [
+                                    0 => Yii::t('app', 'Inactive'),
+                                    1 => Yii::t('app', 'Active'),
+                                ],
+                                'inputType' => 'dropDownList',
+                                'placement' => 'left',
+                                'formOptions' => [
+                                    'action' => 'update-editable',
+                                ],
+                            ],
+                            'filter' => [
+                                0 => Yii::t('app', 'Inactive'),
+                                1 => Yii::t('app', 'Active'),
+                            ],
+                            'format' => 'raw',
+                            'value' => function (Product $model) {
+                                if ($model === null || $model->active === null) {
+                                    return null;
+                                }
+                                if ($model->active === 1) {
+                                    $label_class = 'label-success';
+                                    $value = 'Active';
+                                } else {
+                                    $value = 'Inactive';
+                                    $label_class = 'label-default';
+                                }
+                                return \yii\helpers\Html::tag(
+                                    'span',
+                                    Yii::t('app', $value),
+                                    ['class' => "label $label_class"]
+                                );
+                            },
+                        ],
+                        [
+                            'class' => 'app\backend\components\ActionColumn',
+                            'buttons' => function ($model, $key, $index, $parent) {
+                                return null;
+                            }
+                        ],
+                    ],
+                    'hover' => true,
+                ]);
+                ?>
+                <?php BackendWidget::end(); ?>
+                <?php
+            endif; ?>
+        </article>
+    </section>
+
+
+
 
 <?php
 $tab_errors = <<<JS

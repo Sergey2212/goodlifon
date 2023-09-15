@@ -14,14 +14,14 @@ use yii\helpers\Html;
             <?= Html::encode($wishlist->title) ?>
         </h3>
         <a href='#' class="rename-wishlist btn btn-warning" rel="nofollow">
-            <i class="fa fa-pencil"></i>
+            <i class="fa fa-pen"></i>
             <?= Yii::t('app', 'Rename') ?>
         </a>
         <a href="<?= Url::toRoute([
             '/shop/wishlist/delete',
             'id' => $wishlist->id,
         ]) ?>" class="btn-delete-wishlist btn btn-danger">
-            <i class="fa fa-trash-o"></i>
+            <i class="fa fa-trash"></i>
             <?= Yii::t('app', 'Delete') ?>
         </a>
         <?php if ($wishlist->default) : ?>
@@ -73,7 +73,7 @@ use yii\helpers\Html;
                 <?php if (count($wishlists) > 1) : ?>
                     <a href='#' class="btn-move-to-wishlist btn btn-warning" rel="nofollow" data-toggle="modal"
                        data-target="#wishlist-move-<?= $wishlist->id ?>">
-                        <i class="fa fa-arrows"></i>
+                        <i class="fas fa-arrows-alt"></i>
                         <?= Yii::t('app', 'Move') ?>
                     </a>
                 <?php endif ?>
@@ -82,7 +82,7 @@ use yii\helpers\Html;
                     'id' => $wishlist->id,
                 ]) ?>" class="remove-group-wishlist btn btn-danger" rel="nofollow" data-action="remove-group-wishlist">
                     <?= Yii::t('app', 'Delete') ?>
-                    <i class="fa fa-trash-o"></i>
+                    <i class="fa fa-trash"></i>
                 </a>
             </div>
         <?php endif ?>

@@ -261,13 +261,13 @@ Html::submitButton(
                         'buttons' => [
                             [
                                 'url' => 'edit-static-value',
-                                'icon' => 'pencil',
+                                'icon' => 'pen',
                                 'class' => 'btn-primary',
                                 'label' => 'Edit',
                             ],
                             [
                                 'url' => 'delete-static-value',
-                                'icon' => 'trash-o',
+                                'icon' => 'trash',
                                 'class' => 'btn-danger',
                                 'label' => 'Delete',
                             ],

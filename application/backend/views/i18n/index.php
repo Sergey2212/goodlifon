@@ -56,7 +56,7 @@ $this->params['breadcrumbs'] = [
                         'buttons' => [
                             [
                                 'url' => 'update',
-                                'icon' => 'pencil',
+                                'icon' => 'pen',
                                 'class' => 'btn-primary',
                                 'label' => Yii::t('app', 'Edit'),
                             ],

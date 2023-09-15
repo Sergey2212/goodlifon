@@ -51,7 +51,7 @@ Icon::map($this);
                 <a href="javascript:void(0);" id="cancel-search-js" title="Cancel Search"><i class="fa fa-times"></i></a>
             </form>-->
             <div id="fullscreen" class="btn-header transparent pull-right">
-                <span> <a href="javascript:void(0);" data-action="launchFullscreen" title="<?= Yii::t('app', 'Full Screen') ?>"><i class="fa fa-arrows-alt"></i></a> </span>
+                <span> <a href="javascript:void(0);" data-action="launchFullscreen" title="<?= Yii::t('app', 'Full Screen') ?>"><i class="fas fa-arrows-alt"></i></a> </span>
             </div>
             <?php if(Yii::$app->user->can('cache manage')): ?>
                 <div id="flush-cache" class="btn-header transparent pull-right">

@@ -5,7 +5,7 @@
         <tbody>
             <tr class="hidden">
                 <td></td>
-                <td style="width: 30px;"><a href="#" class="remove"><?= \kartik\icons\Icon::show('trash-o', ['class' => 'fa-lg']) ?></a></td>
+                <td style="width: 30px;"><a href="#" class="remove"><?= \kartik\icons\Icon::show('trash', ['class' => 'fa-lg']) ?></a></td>
             </tr>
             <?php $isFirst = true; ?>
             <?php foreach($table as $dataId => $dataName): ?>
@@ -18,7 +18,7 @@
             ?>
             <tr data-id="<?= $dataId; ?>" class="<?= $class ?>">
                 <td><?= $dataName; ?></td>
-                <td style="width: 30px;"><a href="#" class="remove"><?= \kartik\icons\Icon::show('trash-o', ['class' => 'fa-lg']) ?></a></td>
+                <td style="width: 30px;"><a href="#" class="remove"><?= \kartik\icons\Icon::show('trash', ['class' => 'fa-lg']) ?></a></td>
                 <?= \yii\helpers\Html::input('hidden', $name, $dataId) ?>
             </tr>
             <?php endforeach; ?>

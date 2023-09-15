@@ -45,13 +45,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         return [
                             [
                                 'url' => 'group-edit',
-                                'icon' => 'pencil',
+                                'icon' => 'pen',
                                 'class' => 'btn-primary',
                                 'label' => Yii::t('app', 'Edit'),
                             ],
                             [
                                 'url' => 'group-delete',
-                                'icon' => 'trash-o',
+                                'icon' => 'trash',
                                 'class' => 'btn-danger',
                                 'label' => Yii::t('app', 'Delete'),
                                 'options' => [
