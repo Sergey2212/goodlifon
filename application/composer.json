@@ -26,7 +26,6 @@
     "bower-asset/bootstrap-hover-dropdown": "*",
     "bower-asset/ladda": "0.9.8",
     "devgroup/yii2-tag-dependency-helper": "0.0.3",
-    "devgroup/yii2-jstree-widget": "^1.0",
     "devgroup/yii2-dropzone": "*",
     "ext-json": "*",
     "kartik-v/yii2-bootstrap5-dropdown": "dev-master",
@@ -43,7 +42,8 @@
     "timurmelnikov/yii2-loading-overlay": "~1.0.0",
     "twbs/bootstrap-icons": "^1.10",
     "hail812/yii2-adminlte3": "~1.1",
-    "vova07/yii2-imperavi-widget": "*"
+    "vova07/yii2-imperavi-widget": "*",
+    "devgroup/yii2-jstree-widget": "^1.0"
     
 
   },

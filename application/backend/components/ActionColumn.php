@@ -143,7 +143,7 @@ class ActionColumn extends Column
             $keyParam = ArrayHelper::getValue($button, 'keyParam', 'id');
             $attrs = ArrayHelper::getValue($button, 'attrs', []);
             Html::addCssClass($button, 'btn');
-            //Html::addCssClass($button, 'btn-sm');
+            Html::addCssClass($button, 'btn-sm');
             $buttonText = isset($button['text']) ? ' ' . $button['text'] : '';
             $data .= Html::a(
                     Icon::show($button['icon']) . $buttonText,

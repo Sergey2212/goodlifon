@@ -100,14 +100,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="col-md-12">
     <div class="row">
-        <ul class="nav nav-tabs product-tabs">
-            <li class="active"><a id="product-tab-main" href="#tab-main" data-toggle="tab"><?= Yii::t('app', 'Main') ?></a></li>
-            <li><a id="product-tab-seo" href="#tab-seo" data-toggle="tab"><?= Yii::t('app', 'SEO') ?></a></li>
-            <?php if (false === $model->isNewRecord): ?><li><a id="product-tab-images" href="#tab-images" data-toggle="tab"><?= Yii::t('app', 'Images') ?></a></li><?php endif; ?>
-            <li><a id="product-tab-properties" href="#tab-properties" data-toggle="tab"><?= Yii::t('app', 'Properties') ?></a></li>
-            <li><a id="product-tab-addons" href="#tab-addons" data-toggle="tab"><?= Yii::t('app', 'Addons') ?></a></li>
-            <?php if (!empty($model->options)): ?><li><a id="product-tab-options" href="#tab-options" data-toggle="tab"><?= Yii::t('app', 'Product Options') ?></a></li><?php endif; ?>
-        </ul>
+        <nav class="nav nav-tabs product-tabs">
+            <a class="nav-link active" id="product-tab-main" href="#tab-main" data-toggle="tab"><?= Yii::t('app', 'Main') ?></a>
+            <a class="nav-link" id="product-tab-seo" href="#tab-seo" data-toggle="tab"><?= Yii::t('app', 'SEO') ?></a>
+            <?php if (false === $model->isNewRecord): ?><a class="nav-link" id="product-tab-images" href="#tab-images" data-toggle="tab"><?= Yii::t('app', 'Images') ?></a><?php endif; ?>
+            <a class="nav-link" id="product-tab-properties" href="#tab-properties" data-toggle="tab"><?= Yii::t('app', 'Properties') ?></a>
+            <a class="nav-link" id="product-tab-addons" href="#tab-addons" data-toggle="tab"><?= Yii::t('app', 'Addons') ?></a>
+            <?php if (!empty($model->options)): ?><a class="nav-link" id="product-tab-options" href="#tab-options" data-toggle="tab"><?= Yii::t('app', 'Product Options') ?></a><?php endif; ?>
+        </nav>
     </div>
 </div>
 
