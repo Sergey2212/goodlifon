@@ -98,21 +98,20 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 <?php $this->endBlock(); ?>
 
-<div class="col-md-12">
-    <div class="row">
-        <nav class="nav nav-tabs product-tabs">
-            <a class="nav-link active" id="product-tab-main" href="#tab-main" data-toggle="tab"><?= Yii::t('app', 'Main') ?></a>
-            <a class="nav-link" id="product-tab-seo" href="#tab-seo" data-toggle="tab"><?= Yii::t('app', 'SEO') ?></a>
-            <?php if (false === $model->isNewRecord): ?><a class="nav-link" id="product-tab-images" href="#tab-images" data-toggle="tab"><?= Yii::t('app', 'Images') ?></a><?php endif; ?>
-            <a class="nav-link" id="product-tab-properties" href="#tab-properties" data-toggle="tab"><?= Yii::t('app', 'Properties') ?></a>
-            <a class="nav-link" id="product-tab-addons" href="#tab-addons" data-toggle="tab"><?= Yii::t('app', 'Addons') ?></a>
-            <?php if (!empty($model->options)): ?><a class="nav-link" id="product-tab-options" href="#tab-options" data-toggle="tab"><?= Yii::t('app', 'Product Options') ?></a><?php endif; ?>
-        </nav>
-    </div>
-</div>
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-main" type="button" role="tab" aria-selected="true"><?= Yii::t('app', 'Main') ?></button>
+            <button class="nav-link"  data-bs-toggle="tab" data-bs-target="#tab-seo" type="button" role="tab"  aria-selected="false"><?= Yii::t('app', 'SEO') ?></button>
+        <?php if (false === $model->isNewRecord): ?><button class="nav-link" data-bs-toggle="tab" data-bs-target="#product-tab-images" type="button" role="tab" aria-selected="false"><?= Yii::t('app', 'Images') ?></button><?php endif; ?>
+            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#tab-properties" type="button" role="tab"  aria-selected="false"><?= Yii::t('app', 'Properties') ?></button>
+            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#tab-addons" type="button" role="tab"  aria-selected="false"><?= Yii::t('app', 'Addons') ?></button>
+<?php if (!empty($model->options)): ?><button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#tab-options" type="button" role="tab"  aria-selected="false"><?= Yii::t('app', 'Product Options') ?></button><?php endif; ?>
+        </div>
+    </nav>
 
-<div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="tab-main">
+
+<div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="tab-main" role="tabpanel">
         <div class="row">
             <div class="col-md-6">
                 <?php
@@ -223,7 +222,8 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
         </div>
     </div>
-    <div role="tabpanel" class="tab-pane" id="tab-seo">
+     <div class="tab-pane fade" id="tab-seo" role="tabpanel">
+         <div class="row">
         <div class="col-md-6">
             <?php BackendWidget::begin(['title'=> Yii::t('app', 'SEO'), 'icon'=>'cogs', 'footer'=>$this->blocks['submit']]); ?>
 
@@ -310,12 +310,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
         </div>
 
-
+         </div>
     </div>
-    <div role="tabpanel" class="tab-pane" id="tab-images">
-
-
-
+        <div class="tab-pane fade" id="product-tab-images" role="tabpanel">
 
         <div class="col-md-12">
             <?php
@@ -368,40 +365,47 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
 
 
-
     </div>
-    <div role="tabpanel" class="tab-pane" id="tab-properties">
-        <div class="col-md-6">
-            <?=
-            \app\properties\PropertiesWidget::widget([
-                'model' => $model,
-                'form' => $form,
-            ]);
-            ?>
-        </div>
-        <div class="col-md-6">
-            <?php if ($model->parent_id == 0) : ?>
+
+     <div class="tab-pane fade" id="tab-properties" role="tabpanel">
+     
+            <div class="row">
+                <div class="col-md-6">
                 <?=
-                \app\modules\shop\widgets\OptionGenerate::widget([
+                \app\properties\PropertiesWidget::widget([
                     'model' => $model,
                     'form' => $form,
-                    'footer' => $this->blocks['submit'],
                 ]);
                 ?>
-            <?php endif; ?>
+            </div>
+                <div class="col-md-6">
+                <?php if ($model->parent_id == 0) : ?>
+                    <?=
+                    \app\modules\shop\widgets\OptionGenerate::widget([
+                        'model' => $model,
+                        'form' => $form,
+                        'footer' => $this->blocks['submit'],
+                    ]);
+                    ?>
+                <?php endif; ?>
+            </div>
+            </div>
+    </div>
+
+
+        <div class="tab-pane fade" id="tab-addons" role="tabpanel">
+        <div class="col-md-12">
+            <?=
+            \app\modules\shop\widgets\AddonsWidget::widget([
+                'form' => $form,
+                'model' => $model
+            ])
+            ?>
         </div>
     </div>
-    <div role="tabpanel" class="tab-pane" id="tab-addons">
-    <div class="col-md-12">
-        <?=
-        \app\modules\shop\widgets\AddonsWidget::widget([
-            'form' => $form,
-            'model' => $model
-        ])
-        ?>
-    </div>
-    </div>
-    <div class="tab-pane" id="tab-options" role="tabpanel">
+
+
+    <div class="tab-pane fade" id="tab-options" role="tabpanel">
 
     </div>
 </div>

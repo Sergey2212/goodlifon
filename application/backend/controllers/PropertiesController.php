@@ -408,7 +408,11 @@ class PropertiesController extends Controller
                         'object_model_id' => $objectModelId,
                         'property_static_value_id' => $model->id,
                     ];
-                    $objectStaticValues->save();
+                    
+                    if(!is_null($objectId) && !is_null($objectModelId) && !is_null($model->id)){
+                    	$objectStaticValues->save();
+                    }
+                    
                     $tags[] = ActiveRecordHelper::getCommonTag(BaseObject::findById($objectId)->object_class);
                     $tags[] = ActiveRecordHelper::getObjectTag(
                         BaseObject::findById($objectId)->object_class,

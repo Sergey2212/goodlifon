@@ -52,7 +52,7 @@ use app\properties\HasProperties;
         ?>
         <div class="widget-toolbar">
             <?=
-            yii\bootstrap5\Nav::widget(
+            yii\bootstrap4\Nav::widget(
                 [
                     'items' => $items,
                     'options' => [
@@ -63,7 +63,7 @@ use app\properties\HasProperties;
             ?>
             <?php
             if (count($property_groups_to_add) > 0):?>
-                <?=yii\bootstrap5\ButtonDropdown::widget(
+                <?=yii\bootstrap4\ButtonDropdown::widget(
                     [
                         'label' => Yii::t('app', 'Add'),
                         'dropdown' => [

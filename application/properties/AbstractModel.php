@@ -264,7 +264,7 @@ class AbstractModel extends Model
             $rows = [];
             foreach ($osv_psv_ids as $psv_id) {
                 // 0 - Not Selected Field. Такие значения в базу не сохраняем
-                if ($psv_id == 0) {
+                if ($psv_id == '') {
                     continue;
                 }
                 $rows[] = [
