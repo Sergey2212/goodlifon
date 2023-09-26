@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
 use app\properties\HasProperties;
+
 ?>
     <div id="properties-widget-<?=$widget_id?>">
         <?php
@@ -27,7 +28,7 @@ use app\properties\HasProperties;
                 'url' => '#pg-' . $opg->group->id,
                 'active' => ($i == 0),
                 'linkOptions' => [
-                    'data-toggle' => 'tab',
+                    'data-bs-toggle' => 'tab',
                 ],
                 'encode' => false,
             ];
@@ -52,7 +53,7 @@ use app\properties\HasProperties;
         ?>
         <div class="widget-toolbar">
             <?=
-            yii\bootstrap4\Nav::widget(
+            yii\bootstrap5\Nav::widget(
                 [
                     'items' => $items,
                     'options' => [
@@ -63,7 +64,7 @@ use app\properties\HasProperties;
             ?>
             <?php
             if (count($property_groups_to_add) > 0):?>
-                <?=yii\bootstrap4\ButtonDropdown::widget(
+                <?=yii\bootstrap5\ButtonDropdown::widget(
                     [
                         'label' => Yii::t('app', 'Add'),
                         'dropdown' => [
