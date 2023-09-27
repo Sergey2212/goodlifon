@@ -40,6 +40,7 @@ $this->registerJs($js, \yii\web\View::POS_READY, 'select2-add-static-value');
 ?>
 
 <div class="form-group field-<?= \kartik\helpers\Html::getInputId($model, $property_key) ?>">
+  <div class="row">
     <?php
     if ($multiple):
         ?>
@@ -47,8 +48,8 @@ $this->registerJs($js, \yii\web\View::POS_READY, 'select2-add-static-value');
     <?php
     endif;
     ?>
-    <?= \yii\helpers\Html::activeLabel($model, $property_key, ['class' => 'col-md-2 control-label']); ?>
-    <div class="col-md-10">
+    <?= \yii\helpers\Html::activeLabel($model, $property_key, ['class' => 'col col-md-2 control-label']); ?>
+    <div class="col col-md-10">
         <?php
         $addUrl = \yii\helpers\Url::to(
             [
@@ -88,4 +89,5 @@ $this->registerJs($js, \yii\web\View::POS_READY, 'select2-add-static-value');
             )
         ?>
     </div>
+  </div>    
 </div>
