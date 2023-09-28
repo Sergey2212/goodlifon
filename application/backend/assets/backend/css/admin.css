@@ -371,5 +371,5 @@ div.files.dropzone {
 }
 
 .select2-container{
-  width: 300px !important;
+  min-width: 140px !important;
 }

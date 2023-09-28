@@ -527,7 +527,7 @@ JSCODE;
             <?php
             BackendWidget::begin(
                 [
-                    'icon' => 'dollar',
+                    'icon' => 'dollar-sign',
                     'title' => Yii::t('app', 'Order transactions'),
                 ]
             );

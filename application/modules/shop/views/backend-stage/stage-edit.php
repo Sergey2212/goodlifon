@@ -5,7 +5,7 @@
  */
 
 use app\backend\widgets\BackendWidget;
-use yii\bootstrap\ActiveForm;
+use yii\bootstrap5\ActiveForm;
 use yii\helpers\Url;
 
     $this->title = Yii::t('app', 'Edit order stage');

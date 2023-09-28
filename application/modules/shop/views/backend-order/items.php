@@ -53,7 +53,7 @@ use app\modules\shop\models\Product;
         </td>
         <td><?=$item->total_price?></td>
         <td><?=Html::a(
-                \kartik\icons\Icon::show('remove'),
+                \kartik\icons\Icon::show('times'),
                 ['delete-order-item', 'id' => $item->id],
                 ['class' => 'btn btn-primary btn-xs do-not-print']
             )?></td>

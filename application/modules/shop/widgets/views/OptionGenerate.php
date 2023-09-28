@@ -1,9 +1,11 @@
+
 <?php
 
 /**
  * @var $footer string
  * @var $groupModel \app\models\PropertyGroup
  * @var $this \yii\web\View
+ * F:\OpenServer\domains\goodlifon\application\modules\shop\widgets\views\OptionGenerate.php
  */
 
 use kartik\helpers\Html;
@@ -37,18 +39,14 @@ use yii\helpers\Url;
                     <label class="col-md-2 control-label"><?=$prop->name?></label>
 
                     <div class="col-md-10">
-                        <div class="scrollable-options-list">
+                        <input type="text" id="myInput" class="myInput" onkeyup="searchProperty()" placeholder="Поиск по значению...">
+                        <div class="scrollable-options-list myUL" id="myUL">
                             <?php foreach ($property_values as $property_value): ?>
-                                <?php
-                                $checked = false;
-                                if (isset($optionGenerate['values'][$prop->id][$property_value['id']])) {
-                                    $checked = true;
-                                }
-                                ?>
+
                                 <?=
                                 Html::checkbox(
                                     'GeneratePropertyValue[' . $prop->id . '][' . $property_value['id'] . ']',
-                                    $checked,
+                                    $checked = '',
                                     ['label' => $property_value['name']]
                                 )
                                 ?>
@@ -56,7 +54,7 @@ use yii\helpers\Url;
                         </div>
                     </div>
                 </div>
-            <?php
+                <?php
             endforeach;
             ?>
             <div class="clearfix"></div>
@@ -67,19 +65,45 @@ use yii\helpers\Url;
     <!-- end widget div -->
 </div><!-- end widget -->
 <?php $this->beginBlock('optionsJs'); ?>
-    $('#propertygroup-id').change(function () {
-        $("[name=action]").val("save");
-        $(this).parents('form').submit();
-    });
-    $('#btn-generate').click(function () {
-        $.ajax({
-            'url': '<?= Url::toRoute(['generate', 'id' => $model->id]) ?>',
-            'method': 'POST',
-            'data': $('form').serialize()
-        }).done(function () {
-            location.reload();
-        });
-        return false;
-    });
+$('#propertygroup-id').change(function () {
+$("[name=action]").val("save");
+$(this).parents('form').submit();
+});
+$('#btn-generate').click(function () {
+$.ajax({
+'url': '<?= Url::toRoute(['generate', 'id' => $model->id]) ?>',
+'method': 'POST',
+'data': $('form').serialize()
+}).done(function () {
+location.reload();
+});
+return false;
+});
+$('.form-group').attr("autocomplete", "off");
 <?php $this->endBlock(); ?>
-<?php $this->registerJs($this->blocks['optionsJs'], \yii\web\View::POS_READY);
+<?php $this->registerJs($this->blocks['optionsJs'], \yii\web\View::POS_READY);?>
+
+
+<script>
+
+    function searchProperty() {
+        var input, filter, ul, li, a, i, j;
+        input = document.getElementById('myInput');
+        var elems = document.getElementsByClassName('myInput');
+        ul = document.getElementsByClassName("myUL");
+        for (var i = 0; i < elems.length; i++) {
+            filter = elems[i].value.toUpperCase();
+            var reg = new RegExp( filter);
+            li = ul[i].getElementsByTagName('label');
+
+            for (j = 0; j < li.length; j++) {
+                a = li[j];
+                if ($(a).text().toUpperCase().search(reg) > -1) {
+                    li[j].style.display = "";
+                } else {
+                    li[j].style.display = "none";
+                }
+            }
+        }
+    }
+</script>

@@ -1,11 +1,11 @@
 <?php
 
-use kartik\dropdown\DropdownX;
+use kartik\bs4dropdown\Dropdown;
 use yii\helpers\Html;
 use kartik\icons\Icon;
 use yii\helpers\Url;
-use devgroup\JsTreeWidget\TreeWidget;
-use devgroup\JsTreeWidget\ContextMenuHelper;
+use devgroup\JsTreeWidget\widgets\TreeWidget;
+use devgroup\JsTreeWidget\helpers\ContextMenuHelper;
 
 
 $this->title = Yii::t('app', 'Filter sets');
@@ -55,7 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
         echo Html::beginTag('div', ['class'=>'dropdown']);
         echo Html::button(Yii::t('app', 'Add property') . ' <span class="caret"></span></button>',
             ['type'=>'button', 'class'=>'btn btn-default', 'data-toggle'=>'dropdown']);
-        echo DropdownX::widget([
+        echo Dropdown::widget([
 
             'items' => $propertiesDropdownItems,
 
@@ -124,7 +124,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <tr class="<?= $rowClass ?>" property-id="<?=$property->id?>" filterset-id="<?=$filterSet->id?>">
                                         <td class="td-no-padding">
                                             <span class="sort-handle">
-                                                <?= Icon::show('arrows-v') ?>
+                                                <?= Icon::show('arrows-alt-v') ?>
                                             </span>
                                         </td>
                                         <td>
@@ -229,7 +229,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                         <tr psv-id="<?=$staticValue['id']?>">
                                                             <td class="td-no-padding">
                                                                 <span class="psv-sort-handle">
-                                                                    <?= Icon::show('arrows-v') ?>
+                                                                    <?= Icon::show('arrows-alt-v') ?>
                                                                 </span>
                                                             </td>
                                                             <td>

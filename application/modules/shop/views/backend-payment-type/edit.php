@@ -68,7 +68,7 @@ Html::submitButton(
         <?php
             BackendWidget::begin(
                 [
-                    'icon' => 'usd',
+                    'icon' => 'dollar-sign',
                     'title'=> Yii::t('app', 'Payment Type'),
                     'footer' => $this->blocks['submit'],
                 ]

@@ -23,7 +23,7 @@ use app\components\Helper;
     <div class="col-md-12">
         <div class="row">
 <?php
-    $form = \yii\bootstrap\ActiveForm::begin([
+    $form = \yii\bootstrap5\ActiveForm::begin([
         'id' => 'customer-form',
         'action' => \yii\helpers\Url::toRoute(['edit', 'id' => $model->id]),
         'layout' => 'horizontal',
