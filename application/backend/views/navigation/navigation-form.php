@@ -75,7 +75,7 @@ $this->registerJs(
         <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 
             <?php BackendWidget::begin(
-                ['title' => Yii::t('app', 'Navigation item'), 'icon' => 'navicon', 'footer' => $this->blocks['submit']]
+                ['title' => Yii::t('app', 'Navigation item'), 'icon' => 'compass', 'footer' => $this->blocks['submit']]
             ); ?>
 
             <?= $form->field($model, 'active')->widget(\kartik\switchinput\SwitchInput::className()) ?>

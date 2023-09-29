@@ -10,7 +10,7 @@
 use app\backend\widgets\BackendWidget;
 use app\backend\widgets\flushcache\FlushCacheButton;
 use kartik\helpers\Html;
-use yii\bootstrap\Tabs;
+use yii\bootstrap5\Tabs;
 
 $this->title = Yii::t('app', 'Rbac');
 $this->params['breadcrumbs'][] = $this->title;

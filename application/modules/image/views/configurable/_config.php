@@ -5,7 +5,7 @@
 /** @var \app\modules\image\models\ConfigConfigurationModel $model */
 
 use app\backend\widgets\BackendWidget;
-use yii\bootstrap\Tabs;
+use yii\bootstrap5\Tabs;
 
 $activeComponents = [];
 foreach (array_keys($model->components) as $value) {

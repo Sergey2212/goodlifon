@@ -8,8 +8,8 @@
 
 use kartik\dynagrid\DynaGrid;
 use kartik\icons\Icon;
-use devgroup\JsTreeWidget\TreeWidget;
-use devgroup\JsTreeWidget\ContextMenuHelper;
+use devgroup\JsTreeWidget\widgets\TreeWidget;
+use devgroup\JsTreeWidget\helpers\ContextMenuHelper;
 use app\backend\components\Helper;
 
 

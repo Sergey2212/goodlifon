@@ -10,8 +10,8 @@ use kartik\helpers\Html;
 use kartik\dynagrid\DynaGrid;
 use kartik\icons\Icon;
 use yii\helpers\Url;
-use devgroup\JsTreeWidget\TreeWidget;
-use devgroup\JsTreeWidget\ContextMenuHelper;
+use devgroup\JsTreeWidget\widgets\TreeWidget;
+use devgroup\JsTreeWidget\helpers\ContextMenuHelper;
 use app\backend\components\Helper;
 
 $this->title = Yii::t('app', 'Backend menu items');
