@@ -13,7 +13,7 @@ use kartik\icons\Icon;
 ?>
 
 
-<div class="form-group field-importmodel-filterbycategory">
+<div class="row form-group field-importmodel-filterbycategory">
     <label class="col-md-2 control-label" for="'+condition_name +'"><?= $fieldLabel ?></label>
 
     <div class="col-md-10">
@@ -26,7 +26,7 @@ use kartik\icons\Icon;
         ]); ?>
     </div>
 
-    <div class="col-md-offset-2 col-md-10">
+    <div class="col-md-offset-2 col-md-12">
         <div class="help-block form-group">
 
             <a id="button-<?= $widgetId ?>"
