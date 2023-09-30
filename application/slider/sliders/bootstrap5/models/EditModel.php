@@ -1,6 +1,6 @@
 <?php
 
-namespace app\slider\sliders\bootstrap3\models;
+namespace app\slider\sliders\bootstrap5\models;
 
 use app;
 use app\slider\BaseSliderEditModel;

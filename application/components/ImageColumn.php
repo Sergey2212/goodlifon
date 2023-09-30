@@ -15,7 +15,7 @@ class ImageColumn extends \yii\grid\DataColumn
     public function getDataCellValue($model, $key, $index)
     {
         $img = Html::img($model->getAttribute($this->attribute), ['class' => 'image-column']);
-        $editLink = Html::a(Icon::show('pencil'), '#', [
+        $editLink = Html::a(Icon::show('pen'), '#', [
             'class' => 'btn btn-xs btn-warning btn-change-image',
             'data-modelid' => $model->id,
             'data-attribute' => $this->attribute

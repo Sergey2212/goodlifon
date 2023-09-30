@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a(Yii::t('app', 'Create Meta tag'), ['create-meta', 'returnUrl' => \app\backend\components\Helper::getReturnUrl()], ['class' => 'btn btn-success']) ?>
         <?= Html::button(Yii::t('app', 'Delete selected'), ['class'=> 'btn btn-danger', 'id' => 'deleteTasks']); ?>
-        <?= Yii::$app->user->can('cache manage') ? Html::button(Yii::t('app', 'Delete Meta Cache') . ' <span class="fa"></span>', ['class'=> 'btn btn-warning pull-right', 'id' => 'flushCache']) : ''; ?>
+        <?= Yii::$app->user->can('cache manage') ? Html::button(Yii::t('app', 'Delete Meta Cache') . ' <span class="fas fa-eraser"></span>', ['class'=> 'btn btn-warning pull-right', 'id' => 'flushCache']) : ''; ?>
     </p>
 
     <?= $this->render('_metaGrid', ['dataProvider' => $dataProvider, 'searchModel' => $searchModel, 'id' => 'meta-tags']); ?>
