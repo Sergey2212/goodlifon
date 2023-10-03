@@ -10,14 +10,14 @@
 use app\backend\components\ActionColumn;
 use app\backend\components\Helper;
 use app\modules\core\models\ContentBlockGroup;
-use devgroup\JsTreeWidget\ContextMenuHelper;
-use devgroup\JsTreeWidget\TreeWidget;
+use devgroup\JsTreeWidget\helpers\ContextMenuHelper;
+use devgroup\JsTreeWidget\widgets\TreeWidget;
 use kartik\dynagrid\DynaGrid;
 use kartik\grid\BooleanColumn;
 use kartik\helpers\Html;
 use kartik\icons\Icon;
-use yii\bootstrap\ActiveForm;
-use yii\bootstrap\Modal;
+use yii\bootstrap5\ActiveForm;
+use yii\bootstrap5\Modal;
 use yii\helpers\Url;
 
 $this->title = Yii::t('app', 'Content Blocks');
@@ -173,7 +173,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?php Modal::begin([
     'id' => 'confirm_delete',
-    'header' => Yii::t('app', 'Confirm delete item')
+    'title' => Yii::t('app', 'Confirm delete item')
 ]); ?>
 
 <?php $form = ActiveForm::begin([

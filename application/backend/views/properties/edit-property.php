@@ -81,36 +81,34 @@ Html::submitButton(
 <?php $hasStaticValues = $model->has_static_values; ?>
 
 <div class="col-md-12 col-lg-12 col-sm-12">
-    <div class="row">
-        <ul class="nav nav-tabs property-tabs">
+
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active"  data-bs-toggle="tab" data-bs-target="#tab-main" type="button" role="tab" aria-controls="nav-profile" aria-selected="true">
+                <?= Yii::t('app', 'Core params') ?>
+            </button>
+
             <?php if ($hasStaticValues): ?>
-            <li>
-                <a href="#tab-static-values" id="property-tab-image" data-toggle="tab">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-static-values" type="button" role="tab" aria-controls="nav-home" aria-selected="false">
                     <?= Yii::t("app", "Static values") ?>
-                </a>
-            </li>
+                </button>
             <?php endif; ?>
-            <li <?= $hasStaticValues ? '' : 'class="active"' ?>>
-                <a id="property-tab-main" href="#tab-main" data-toggle="tab">
-                    <?= Yii::t('app', 'Core params') ?>
-                </a>
-            </li>
-            <li>
-                <a href="#tab-logic" id="property-tab-logic" data-toggle="tab">
-                    <?= Yii::t("app", "Logic settings") ?>
-                </a>
-            </li>
-            <li>
-                <a href="#tab-image" id="property-tab-image" data-toggle="tab">
-                    <?= Yii::t("app", "Image") ?>
-                </a>
-            </li>
-        </ul>
-    </div>
+
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-logic" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
+                <?= Yii::t("app", "Logic settings") ?>
+            </button>
+            
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-image" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
+                <?= Yii::t("app", "Image") ?>
+            </button>    
+        </div>
+    </nav>            
+
+
 </div>
 
-<div class="tab-content">
-    <div class="tab-pane active" id="tab-main">
+<div class="tab-content"  id="nav-tabContent">
+    <div class="tab-pane fade show active" id="tab-main"  role="tabpanel">
         <div class="row">
             <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <?php
@@ -166,7 +164,7 @@ Html::submitButton(
         </div>
     </div>
 
-    <div class="tab-pane" id="tab-logic">
+    <div class="tab-pane fade" id="tab-logic" role="tabpanel">
         <div class="row">
             <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <?php BackendWidget::begin([
@@ -187,7 +185,7 @@ Html::submitButton(
         </div>
     </div>
 
-    <div class="tab-pane" id="tab-image">
+    <div class="tab-pane fade" id="tab-image" role="tabpanel">
         <div class="row">
             <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <?php
