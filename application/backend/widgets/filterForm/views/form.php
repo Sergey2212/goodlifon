@@ -13,7 +13,7 @@ use kartik\icons\Icon;
 ?>
 
 
-<div class="row form-group field-importmodel-filterbycategory">
+<div class="row g-2 form-group field-importmodel-filterbycategory">
     <label class="col-md-2 control-label" for="'+condition_name +'"><?= $fieldLabel ?></label>
 
     <div class="col-md-10">
@@ -50,11 +50,11 @@ use kartik\icons\Icon;
 
             if (condition_value) {
 
-                text = '<div id="<?= $fieldName ?>_form' + condition_value + '" class="form-group">';
+                text = '<div id="<?= $fieldName ?>_form' + condition_value + '" class="row g-2 form-group">';
                 text = text + '<div class=" col-md-1"> ';
 
                 if (andConditions.length != 0) {
-                    text = text + '<select name="' + condition_name + '[comparison]" class="form-control">';
+                    text = text + '<select name="' + condition_name + '[comparison]" class="form-select">';
                     andConditions.forEach(function (value) {
                         text = text + '<option value="' + value + '">' + value + '</option>';
                     });
@@ -68,7 +68,7 @@ use kartik\icons\Icon;
                 text = text + '<div class=" col-md-1"> ';
 
                 if (operators.length != 0) {
-                    text = text + '<select name="' + condition_name + '[operators]" class="form-control">';
+                    text = text + '<select name="' + condition_name + '[operators]" class="form-select">';
                     operators.forEach(function (value) {
                         text = text + '<option value="' + value + '">' + value + '</option>';
                     });

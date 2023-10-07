@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = [
                                 <div class="input-group">
                                     <input class="form-control" type="text" placeholder="Type configuration name for searching (TBD)...">
                                     <div class="input-group-btn">
-                                        <button class="btn btn-default" type="button">
+                                        <button class="btn btn-secondary" type="button">
                                             <i class="fa fa-search"></i> Search
                                         </button>
                                     </div>

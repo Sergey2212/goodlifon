@@ -45,7 +45,8 @@
     "twbs/bootstrap-icons": "^1.10",
     "hail812/yii2-adminlte3": "~1.1",
     "vova07/yii2-imperavi-widget": "*",
-    "devgroup/yii2-jstree-widget": "^1.0"
+    "devgroup/yii2-jstree-widget": "^1.0",
+    "phpoffice/phpexcel": "^1.8"
     
 
   },

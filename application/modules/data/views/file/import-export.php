@@ -68,7 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 
-    <div class="form-group row fields-to-import">
+    <div class="row form-group row fields-to-import">
         <div class="col-md-4">
             <?= $this->render('_objectFields', [
                 'form' => $form,
