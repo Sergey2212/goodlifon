@@ -46,7 +46,8 @@
     "hail812/yii2-adminlte3": "~1.1",
     "vova07/yii2-imperavi-widget": "*",
     "devgroup/yii2-jstree-widget": "^1.0",
-    "phpoffice/phpexcel": "^1.8"
+    "phpoffice/phpexcel": "^1.8",
+    "leafo/scssphp": "^0.8.4"
     
 
   },

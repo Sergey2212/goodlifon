@@ -80,8 +80,8 @@ $this->params['breadcrumbs'][] = [
                     </div>
 
                     <div class="padding-10">
-                        <div class="tabs-left">
-                            <ul class="nav nav-tabs tabs-left" id="config-control-tabs">
+                        <div class="d-flex align-items-start">
+                            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                 <?php
                                     $counter=0;
                                     foreach ($models as $i => $model):
@@ -89,14 +89,11 @@ $this->params['breadcrumbs'][] = [
                                             continue;
                                         }
                                 ?>
-                                <li class="<?= $counter++===0 ? 'active' : '' ?>">
-                                    <a id="tab-<?= $i ?>" href="#tab-configurable-<?=$i?>" data-toggle="tab">
-                                        <?= Yii::t('app', $model->section_name) ?>
-                                    </a>
-                                </li>
+                                <button class="nav-link <?= $counter++===0 ? 'active' : '' ?>" id="v-pills-home-tab-<?= $i ?>" data-bs-toggle="pill" data-bs-target="#tab-configurable-<?=$i?>" type="button" role="tab"><?= Yii::t('app', $model->section_name) ?>
+                                </button>
                                 <?php endforeach; ?>
-                            </ul>
-                            <div class="tab-content">
+                            </div>
+                            <div class="tab-content" id="v-pills-tabContent">
                                 <?php
                                     $counter = 0;
                                     foreach ($models as $i => $model):

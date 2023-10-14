@@ -11,7 +11,7 @@ use app\components\Helper;
 
 ?>
 
-<div>
+<div class="row">
     <div class="col-md-6 col-sm-12">
         <?php
         BackendWidget::begin(
@@ -105,7 +105,7 @@ use app\components\Helper;
     ?>
 </div>
 
-<div>
+<div class="row">
     <div class="col-md-6 col-sm-12">
         <?php
         BackendWidget::begin(

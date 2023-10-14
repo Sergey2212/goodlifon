@@ -19,7 +19,7 @@ use app\modules\shop\models\Currency;
         + \yii\helpers\ArrayHelper::map(Currency::find()->select(['iso_code','name'])->asArray()->all(), 'iso_code', 'name');
 ?>
 
-<div>
+<div class="row">
     <div class="col-md-6 col-sm-12">
         <?php BackendWidget::begin(['title' => Yii::t('app', 'Main settings'), 'options' => ['class' => 'visible-header']]); ?>
             <?= $form->field($model, 'mainPage') ?>

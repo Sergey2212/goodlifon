@@ -11,7 +11,7 @@ use kartik\switchinput\SwitchInput;
 
 ?>
 
-<div>
+<div class="row">
     <div class="col-md-5 col-sm-12">
         <?php BackendWidget::begin(['title' => Yii::t('app', 'Main settings'), 'options' => ['class' => 'visible-header']]); ?>
         <?= $form->field($model, 'serverName') ?>

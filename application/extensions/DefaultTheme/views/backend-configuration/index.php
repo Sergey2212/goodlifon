@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = [
 ];
 ?>
 
-<?= \yii\bootstrap\Tabs::widget([
+<?= \yii\bootstrap5\Tabs::widget([
     'items' => [
         [
             'label' => Yii::t('app', 'Theme variations'),

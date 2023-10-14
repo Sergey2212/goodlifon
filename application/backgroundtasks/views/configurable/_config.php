@@ -10,8 +10,8 @@ use app\components\Helper;
 
 ?>
 
-<div>
-    <div class="col-md-6 col-sm-12">
+<div class="row">
+    <div class="col">
         <?php BackendWidget::begin(['icon' => 'cogs', 'title' => Yii::t('app', 'Main settings'), 'options' => ['class' => 'visible-header']]) ?>
         <?= $form->field($model, 'daysToStoreNotify') ?>
         <?php BackendWidget::end() ?>

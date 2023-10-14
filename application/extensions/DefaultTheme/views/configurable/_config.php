@@ -34,7 +34,7 @@ use kartik\icons\Icon;
                     <?php if (empty($model->logotypePath)):?>
                         <?= Yii::t('app', 'No image') ?>
                     <?php else: ?>
-                        <img src="<?= $model->logotypePath ?>" alt="Your current logo" class="img-responsive"/>
+                        <img src="<?= $model->logotypePath ?>" alt="Your current logo" class="img-fluid"/>
                         <?= $form->field($model, 'logotypeFile')->widget(\kartik\file\FileInput::className()) ?>
                     <?php endif; ?>
                 </div>

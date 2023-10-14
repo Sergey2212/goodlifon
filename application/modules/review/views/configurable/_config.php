@@ -9,7 +9,7 @@ use app\backend\widgets\BackendWidget;
 ?>
 
 <div class="row">
-    <div class="col-md-6 col-sm-12">
+    <div class="col">
         <?php BackendWidget::begin(['title' => Yii::t('app', 'Main settings'), 'options' => ['class' => 'visible-header']]); ?>
         <?= $form->field($model, 'maxPerPage') ?>
         <?= $form->field($model, 'pageSize') ?>
