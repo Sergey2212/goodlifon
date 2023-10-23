@@ -26,7 +26,7 @@ class ThemeAsset extends AssetBundle
         "js/jquery.mousewheel.js",
         "js/jscrollpane.min.js",
         "js/app.js",
-//        "js/sweet-alert.min.js",
+        "js/sweet-alert.min.js",
         "js/zoomsl-3.0.min.js",
     ];
     public $depends = [

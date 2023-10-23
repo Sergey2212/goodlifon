@@ -84,10 +84,19 @@ $theme = Yii::$app->getModule('DefaultTheme');
                                 </a>
                             </li>
                             <li class="nav-item dropdown dropdown-large">
-                                <a class="nav-link  position-relative cart-link" href="">
+                                <a class="nav-link  position-relative cart-link" href="<?= \yii\helpers\Url::toRoute(['/shop/cart']) ?>">
                                         <span class="position-relative">
                                             <i class="bx bx-shopping-bag"></i>
-                                            <span class="alert-count">3</span>
+                                            <span class="alert-count">
+                                                <?php
+                                                    $comparisonProductCount = Yii::$app->session->get('comparisonProductList');
+                                                    if($comparisonProductCount){
+                                                        echo(count($comparisonProductCount));
+                                                    }else{
+                                                        echo(0);
+                                                    }
+                                                    //echo count(Yii::$app->session->get('comparisonProductList'));                    ?>
+                                            </span>
                                         </span>
 <!--                                    <span class="cart-total position-relative">$90.00</span>-->
                                 </a>
