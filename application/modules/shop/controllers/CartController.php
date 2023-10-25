@@ -97,7 +97,7 @@ class CartController extends Controller
      * @throws BadRequestHttpException
      * @throws NotFoundHttpException
      */
-    protected function addProductsToOrder(Order $order, $result, $products = [], $parentId = 0)
+    protected function addProductsToOrder(Order $order, $products = [], $result, $parentId = 0)
     {
         $parentId = intval($parentId);
         if ($parentId !== 0) {
@@ -235,7 +235,7 @@ class CartController extends Controller
         $result['success'] = count($products) > 0 && count($result['products']) > 0;
         $result['itemsCount'] = $order->items_count;
         $result['totalPrice'] = $userCurrency->format(
-            CurrencyHelper::convertToUserCurrency($order->total_price, CurrencyHelper::getMainCurrency())
+            CurrencyHelper::convertToUserCurrency(CurrencyHelper::getMainCurrency(), $order->total_price)
         );
 
         $event = new CartActionEvent($order, $result['products']);
@@ -579,7 +579,7 @@ class CartController extends Controller
             $i = [
                 'id' => $model->id,
                 'name' => $model->name,
-                'price' => CurrencyHelper::convertToMainCurrency($model->price, $model->currency),
+                'price' => CurrencyHelper::convertToMainCurrency($model->currency, $model->price),
                 'currency' => CurrencyHelper::getMainCurrency()->iso_code,
             ];
             if (isset($item['quantity'])) {

@@ -10,13 +10,13 @@ class CurrencyHelper
      * @var Currency $userCurrency
      * @var Currency $mainCurrency
      */
-    protected static $userCurrency = null;
-    protected static $mainCurrency = null;
+    static protected $userCurrency = null;
+    static protected $mainCurrency = null;
 
     /**
      * @return Currency
      */
-    public static function getUserCurrency()
+    static public function getUserCurrency()
     {
         if (null === static::$userCurrency) {
             static::$userCurrency = static::findCurrencyByIso(UserPreferences::preferences()->userCurrency);
@@ -29,7 +29,7 @@ class CurrencyHelper
      * @param Currency $userCurrency
      * @return Currency
      */
-    public static function setUserCurrency(Currency $userCurrency)
+    static public function setUserCurrency(Currency $userCurrency)
     {
         return static::$userCurrency = $userCurrency;
     }
@@ -37,11 +37,11 @@ class CurrencyHelper
     /**
      * @return Currency
      */
-    public static function getMainCurrency()
+    static public function getMainCurrency()
     {
         return null === static::$mainCurrency
-        ? static::$mainCurrency = Currency::getMainCurrency()
-        : static::$mainCurrency;
+            ? static::$mainCurrency = Currency::getMainCurrency()
+            : static::$mainCurrency;
     }
 
     /**
@@ -49,7 +49,7 @@ class CurrencyHelper
      * @param bool|true $useMainCurrency
      * @return Currency
      */
-    public static function findCurrencyByIso($code)
+    static public function findCurrencyByIso($code)
     {
         $currency = Currency::find()->where(['iso_code' => $code])->one();
         $currency = null === $currency ? static::getMainCurrency() : $currency;
@@ -62,7 +62,7 @@ class CurrencyHelper
      * @param Currency $to
      * @return float|int
      */
-    public static function convertCurrencies(Currency $from, Currency $to, $input = 0)
+    static public function convertCurrencies(Currency $from, Currency $to, $input = 0)
     {
         if (0 === $input) {
             return $input;
@@ -88,9 +88,9 @@ class CurrencyHelper
      * @param Currency $from
      * @return float|int
      */
-    public static function convertToUserCurrency(Currency $from, $input = 0)
+    static public function convertToUserCurrency(Currency $from, $input = 0)
     {
-        return static::convertCurrencies($input, $from, static::getUserCurrency());
+        return static::convertCurrencies($from, static::getUserCurrency(), $input);
     }
 
     /**
@@ -98,9 +98,9 @@ class CurrencyHelper
      * @param Currency $from
      * @return float|int
      */
-    public static function convertToMainCurrency(Currency $from, $input = 0)
+    static public function convertToMainCurrency(Currency $from, $input = 0)
     {
-        return static::convertCurrencies($input, $from, static::getMainCurrency());
+        return static::convertCurrencies($from, static::getMainCurrency(), $input);
     }
 
     /**
@@ -108,9 +108,9 @@ class CurrencyHelper
      * @param Currency $to
      * @return float|int
      */
-    public static function convertFromMainCurrency(Currency $to, $input = 0)
+    static public function convertFromMainCurrency(Currency $to, $input = 0)
     {
-        return static::convertCurrencies($input, static::getMainCurrency(), $to);
+        return static::convertCurrencies(static::getMainCurrency(), $to, $input);
     }
 
     /**
@@ -118,7 +118,7 @@ class CurrencyHelper
      * @param string|null $locale
      * @return string
      */
-    public static function getCurrencySymbol(Currency $currency, $locale = null)
+    static public function getCurrencySymbol(Currency $currency, $locale = null)
     {
         $locale = null === $locale ? \Yii::$app->language : $locale;
 

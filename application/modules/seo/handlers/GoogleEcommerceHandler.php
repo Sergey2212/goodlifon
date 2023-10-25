@@ -104,7 +104,7 @@ class GoogleEcommerceHandler extends BaseObject
                 'id' => $item->id,
                 'name' => $item->name,
                 'category' => self::getCategories($item),
-                'price' => CurrencyHelper::convertCurrencies($item->price, $item->currency, $currency),
+                'price' => CurrencyHelper::convertCurrencies($item->currency, $currency, $item->price),
                 'quantity' => $quantity,
             ];
             return $res;
@@ -135,7 +135,7 @@ class GoogleEcommerceHandler extends BaseObject
                 'id' => $item->id,
                 'name' => $item->name,
                 'category' => self::getCategories($item),
-                'price' => CurrencyHelper::convertCurrencies($item->price, $item->currency, $currency),
+                'price' => CurrencyHelper::convertCurrencies($item->currency, $currency, $item->price),
                 'quantity' => $quantity,
             ];
             return $res;
@@ -166,7 +166,7 @@ class GoogleEcommerceHandler extends BaseObject
                 'id' => $item->id,
                 'name' => $item->name,
                 'category' => self::getCategories($item),
-                'price' => CurrencyHelper::convertCurrencies($item->price, $item->currency, $currency),
+                'price' => CurrencyHelper::convertCurrencies($item->currency, $currency, $item->price),
                 'quantity' => $quantity,
             ];
             return $res;
@@ -197,7 +197,7 @@ class GoogleEcommerceHandler extends BaseObject
                 'id' => $item->id,
                 'name' => $item->name,
                 'category' => self::getCategories($item),
-                'price' => CurrencyHelper::convertCurrencies($item->price, $item->currency, $currency),
+                'price' => CurrencyHelper::convertCurrencies($item->currency, $currency, $item->price),
                 'quantity' => $quantity,
             ];
             return $res;
@@ -232,7 +232,7 @@ class GoogleEcommerceHandler extends BaseObject
                 'id' => $model->id,
                 'name' => $model->name,
                 'category' => self::getCategories($model),
-                'price' => CurrencyHelper::convertCurrencies($model->price, $model->currency, $currency),
+                'price' => CurrencyHelper::convertCurrencies($model->currency, $currency, $model->price),
                 'quantity' => null === $model->measure ? 1 : $model->measure->nominal,
             ]
         ];
@@ -267,7 +267,7 @@ class GoogleEcommerceHandler extends BaseObject
                 'id' => $item->product->id,
                 'name' => $item->product->name,
                 'category' => self::getCategories($item->product),
-                'price' => CurrencyHelper::convertCurrencies($item->product->price, $item->product->currency, $currency),
+                'price' => CurrencyHelper::convertCurrencies($item->product->currency, $currency, $item->product->price),
                 'quantity' => $item->quantity,
             ];
         }

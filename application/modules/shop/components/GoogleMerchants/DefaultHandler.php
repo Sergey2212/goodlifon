@@ -123,9 +123,9 @@ class DefaultHandler implements ModificationDataInterface
     {
         return number_format(
             CurrencyHelper::convertCurrencies(
-                $price,
                 $model->currency,
-                $mainCurrency
+                $mainCurrency,
+                $price
             ),
             2,
             '.',

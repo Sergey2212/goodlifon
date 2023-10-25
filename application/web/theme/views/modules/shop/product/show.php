@@ -222,7 +222,7 @@ $propertiesShowedInAnnounce = false;
                             <?=Yii::t('app', 'Add to')?> корзину <i class="bi bi-cart-plus-fill"></i>
                         </a>
                         <a  class="btn btn-add-to-cart add-to-cart-disabled" id="add-to-cart"  data-action="add-to-cart" data-id = "<?= $model->id?>">
-                            <?=Yii::t('app', 'Add to')?> <i class="fa fa-shopping-cart"></i>
+                            <?=Yii::t('app', 'Add to')?> <i class="bi bi-cart-plus-fill"></i>
                         </a>
 
                        <br><br>

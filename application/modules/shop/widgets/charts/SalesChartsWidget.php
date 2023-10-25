@@ -150,7 +150,7 @@ class SalesChartsWidget extends Widget
      */
     protected function getTotalSumOrderTransaction(OrderTransaction $transaction, Currency $currency)
     {
-        return CurrencyHelper::convertFromMainCurrency($transaction->total_sum, $currency);
+        return CurrencyHelper::convertFromMainCurrency($currency, $transaction->total_sum);
     }
 
     /**

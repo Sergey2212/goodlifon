@@ -4,6 +4,7 @@
 /* @var \yii\data\ActiveDataProvider $objects */
 
 use \app\modules\data\assets\DataAsset;
+use kartik\grid\GridView;
 
 $bundle = DataAsset::register($this);
 
@@ -36,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 <div class="data-index">
     <?=
-    \yii\grid\GridView::widget([
+    GridView::widget([
         'id' => 'data-grid',
         'dataProvider' => $objects,
         'layout' => "{items}\n{summary}\n{pager}",

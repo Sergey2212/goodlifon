@@ -77,7 +77,7 @@ class PayPalPayment extends AbstractPayment
             /** @var OrderItem $item */
             /** @var Product $product */
             $product = $item->product;
-            $price = CurrencyHelper::convertFromMainCurrency($item->price_per_pcs, $this->currency);
+            $price = CurrencyHelper::convertFromMainCurrency($this->currency, $item->price_per_pcs);
             $priceSubTotal = $priceSubTotal + ($price * $item->quantity);
 
             /** @var ItemList $result */
@@ -95,7 +95,7 @@ class PayPalPayment extends AbstractPayment
             );
         }, new ItemList());
 
-        $priceTotal = CurrencyHelper::convertFromMainCurrency($order->total_price, $this->currency);
+        $priceTotal = CurrencyHelper::convertFromMainCurrency($this->currency, $order->total_price);
 
         $details = (new Details())
             ->setShipping($priceTotal - $priceSubTotal)

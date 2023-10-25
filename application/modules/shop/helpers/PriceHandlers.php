@@ -49,7 +49,7 @@ class PriceHandlers
         $price = 0,
         $quantity = 1
     ) {
-        return CurrencyHelper::convertToMainCurrency($price, $product->currency);
+        return CurrencyHelper::convertToMainCurrency($product->currency, $price);
     }
 
 

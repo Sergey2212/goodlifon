@@ -320,7 +320,7 @@ class Yml extends Component
         $offer = new OfferTag('offer', [], ['id' => $model->id, 'available' => 'true',]);
 
         $price = static::getOfferValue($config, 'offer_price', $model, 0);
-        $price = CurrencyHelper::convertCurrencies($price, $model->currency, $this->currency);
+        $price = CurrencyHelper::convertCurrencies($model->currency, $this->currency, $price);
         if ($price <= 0 || $price >= 1000000000) {
             return null;
         }
