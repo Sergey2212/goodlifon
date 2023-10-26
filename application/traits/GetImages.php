@@ -38,7 +38,11 @@ trait GetImages
 
         $strName= $model->name;
         preg_match( '!\(([^\)]+)\)!', $strName, $match );
-        $arrName = explode(', ', $match[1] );
+        if (isset($match[1])) {
+        		$arrName = explode(', ', $match[1]);
+			} else {
+				$arrName = explode(', ', '');
+			}
         $name = str_replace(['(', ','], ['', ''], $arrName);
 
         return $name[0];
@@ -58,7 +62,11 @@ trait GetImages
 
         $strName= $model->name;
         preg_match( '!\(([^\)]+)\)!', $strName, $match );
-        $arrName = explode(', ', $match[0]);
+        if (isset($match[0])) {
+        		$arrName = explode(', ', $match[0]);
+			} else {
+				$arrName = explode(', ', '');
+			}
         $color= str_replace(['(', ','], ['', ''], $arrName);
 
         $titles = Image::find()

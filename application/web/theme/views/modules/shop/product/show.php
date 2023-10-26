@@ -221,9 +221,6 @@ $propertiesShowedInAnnounce = false;
                         <a  class="btn btn-success btn-add-to-cart add-to-cart-disabled" id="add-to-cart"  data-action="add-to-cart" data-id = "<?= $model->id?>">
                             <?=Yii::t('app', 'Add to')?> корзину <i class="bi bi-cart-plus-fill"></i>
                         </a>
-                        <a  class="btn btn-add-to-cart add-to-cart-disabled" id="add-to-cart"  data-action="add-to-cart" data-id = "<?= $model->id?>">
-                            <?=Yii::t('app', 'Add to')?> <i class="bi bi-cart-plus-fill"></i>
-                        </a>
 
                        <br><br>
                         <a href='#' class="btn-add-to-wishlist" rel="nofollow" data-toggle="modal" data-target="#wishlist">

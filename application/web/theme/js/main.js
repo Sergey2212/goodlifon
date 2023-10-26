@@ -145,8 +145,13 @@ $("#add-to-cart").click(function() {
     if(!$(this).attr("disabled")) {
         var artName = $(this).attr('article');
         //alert(artName + '\nДобавлен в корзину');
-        swal(artName , "Добавлен в корзину!", "success");
-        setTimeout("endPart()", 750);
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: artName + '\nДобавлен в корзину!',
+            showConfirmButton: false,
+            timer: 1500
+        })
     }
 });
 

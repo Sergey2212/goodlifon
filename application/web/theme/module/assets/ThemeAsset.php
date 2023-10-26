@@ -14,11 +14,11 @@ class ThemeAsset extends AssetBundle
            "css/fonts.css",
            // "css/simple-line-icons.css",
             "css/app.css",
-//        "css/navbar.css",
+//         "css/navbar.css",
             "css/variaties.css",
-//        "css/default-theme.css",
-          "css/jscrollpane.css",
-//        "css/sweet-alert.css",
+//         "css/default-theme.css",
+           "css/jscrollpane.css",
+           "node_modules/sweetalert2/dist/sweetalert2.css"
     ];
     public $js = [
         // your js files will be here
@@ -26,8 +26,8 @@ class ThemeAsset extends AssetBundle
         "js/jquery.mousewheel.js",
         "js/jscrollpane.min.js",
         "js/app.js",
-        "js/sweet-alert.min.js",
         "js/zoomsl-3.0.min.js",
+        "node_modules/sweetalert2/dist/sweetalert2.js"
     ];
     public $depends = [
         'app\assets\AppAsset',

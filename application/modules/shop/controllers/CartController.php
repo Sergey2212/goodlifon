@@ -97,7 +97,7 @@ class CartController extends Controller
      * @throws BadRequestHttpException
      * @throws NotFoundHttpException
      */
-    protected function addProductsToOrder(Order $order, $products = [], $result, $parentId = 0)
+    protected function addProductsToOrder(Order $order, $result, $products = [], $parentId = 0)
     {
         $parentId = intval($parentId);
         if ($parentId !== 0) {
@@ -192,7 +192,7 @@ class CartController extends Controller
             }
 
             if (isset($productArray['children']) && is_array($productArray['children'])) {
-                $result = $this->addProductsToOrder($order, $productArray['children'], $result, $orderItem->id);
+                $result = $this->addProductsToOrder($order, $result, $productArray['children'], $orderItem->id);
             }
         }
 
@@ -225,7 +225,7 @@ class CartController extends Controller
             'additional' => [],
         ];
 
-        $result = $this->addProductsToOrder($order, $products, $result);
+        $result = $this->addProductsToOrder($order, $result, $products);
 
         $order = $this->loadOrder();
         $order->calculate(true);
