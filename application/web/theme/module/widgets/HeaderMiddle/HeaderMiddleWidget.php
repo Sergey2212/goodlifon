@@ -2,7 +2,11 @@
 
 namespace app\web\theme\module\widgets\HeaderMiddle;
 
-use yii\base\Widget;
+use Yii;
+use yii\base\Widget;;
+use app\modules\shop\models\Order;
+use yii\helpers\ArrayHelper;
+
 
 class HeaderMiddleWidget extends Widget
 {
@@ -11,8 +15,14 @@ class HeaderMiddleWidget extends Widget
         parent::init();
     }
 
-    public function run()
+    public function Run()
     {
-        return $this->render('header-middle');
+        $order = Order::getOrder(false);
+        return $this->render(
+            'header-middle',
+            [
+                'order' => $order,
+            ]
+        );
     }
 }

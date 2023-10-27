@@ -151,7 +151,8 @@ $("#add-to-cart").click(function() {
             title: artName + '\nДобавлен в корзину!',
             showConfirmButton: false,
             timer: 1500
-        })
+        });
+        setTimeout("endPart()", 750);
     }
 });
 

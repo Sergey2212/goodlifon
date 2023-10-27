@@ -78,14 +78,14 @@ foreach ($items as $i => $item) {
                         <div class="form-group">
                             <div class="btn-group">
                             <input class="form-control quantity" style="float: left; margin-right: -2px; max-width:80px;" placeholder="1" size="16" type="text" data-type="quantity" data-id="<?= $item->id ?>"  title="<?= $item->product->quantity->in_warehouse ?>" value="<?= $item->quantity ?>" data-nominal="<?= $item->product->measure->nominal ?>" />
-                                <button class="btn btn-primary minus" type="button" data-action="change-quantity">
-                                    <i class="fa fa-minus"></i></button>
-                                <button class="btn btn-success plus" type="button" data-action="change-quantity">
-                                    <i class="fa fa-plus"></i></button>
+                                <button class="btn btn-light minus" type="button" data-action="change-quantity">
+                                    <i class="bi bi-dash"></i></button>
+                                <button class="btn btn-light plus" type="button" data-action="change-quantity">
+                                    <i class="bi bi-plus"></i></button>
                                 <button class="btn btn-danger" type="button" data-action="delete" data-id="<?= $item->id ?>" data-url="<?= \yii\helpers\Url::toRoute([
                                     'delete',
                                     'id' => $item->id
-                                ]) ?>"><i class="fa fa-trash"></i></button>
+                                ]) ?>"><i class="bi bi-trash"></i></button>
                             </div>
                         </div>
                     </div>

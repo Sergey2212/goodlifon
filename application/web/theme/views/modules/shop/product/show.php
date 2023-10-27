@@ -218,6 +218,7 @@ $propertiesShowedInAnnounce = false;
 
                         </div>
                         <div class="cta">
+
                         <a  class="btn btn-success btn-add-to-cart add-to-cart-disabled" id="add-to-cart"  data-action="add-to-cart" data-id = "<?= $model->id?>">
                             <?=Yii::t('app', 'Add to')?> корзину <i class="bi bi-cart-plus-fill"></i>
                         </a>
@@ -303,7 +304,7 @@ $propertiesShowedInAnnounce = false;
     </section>
     <!--end product more info-->
 
-    <!-- Modal -->
+    <!-- Modal  Таблица размеров-->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">

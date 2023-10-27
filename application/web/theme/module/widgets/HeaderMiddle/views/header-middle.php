@@ -3,8 +3,17 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use app\web\theme\module\widgets\ExpandableSearch\ExpandableSearchWidget;
+
 /** @var \app\extensions\DefaultTheme\Module $theme */
 $theme = Yii::$app->getModule('DefaultTheme');
+
+$mainCurrency = \app\modules\shop\models\Currency::getMainCurrency();
+if (is_null($order)) {
+    $itemsCount = 0;
+} else {
+    $itemsCount = $order->items_count;
+}
+
 ?>
 
 <!-- header-middle satrt -->
@@ -88,14 +97,7 @@ $theme = Yii::$app->getModule('DefaultTheme');
                                         <span class="position-relative">
                                             <i class="bx bx-shopping-bag"></i>
                                             <span class="alert-count">
-                                                <?php
-                                                    $comparisonProductCount = Yii::$app->session->get('comparisonProductList');
-                                                    if($comparisonProductCount){
-                                                        echo(count($comparisonProductCount));
-                                                    }else{
-                                                        echo(0);
-                                                    }
-                                                    //echo count(Yii::$app->session->get('comparisonProductList'));                    ?>
+                                                    <?= $itemsCount ?>
                                             </span>
                                         </span>
 <!--                                    <span class="cart-total position-relative">$90.00</span>-->
