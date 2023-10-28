@@ -28,9 +28,9 @@ use app\modules\shop\widgets\AddToWishlistWidget;
 //$strCategory = implode('  ', $arrSubcategory);
 
 $productName = $breadcrumbs[array_key_last($breadcrumbs)];
+$arrSubcategoryTittle = $model->subcategoryTittle;
 
-//$productCategory = (array_pop($model->subcategoryTittle)['title_append']);
-$productCategory = $model->subcategoryTittle[0]['title_append'];
+$productCategory = $arrSubcategoryTittle[array_key_last($arrSubcategoryTittle)]['title_append'];
 
 $this->title = $productCategory  .' '.  $model->brand->name  .' '.  $model->name  . ' купить в Волгограде. В интернет-магазине Гудлифон' ;
 
@@ -61,10 +61,12 @@ $this->registerMetaTag([
     'content' => "https://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']
 ]);
 
-$this->registerMetaTag([
-    'property' => 'og:image',
-    'content' => "https://".$_SERVER['SERVER_NAME']. "/files/".$model->image->filename
-]);
+if (isset($model->image->filename)) {
+    $this->registerMetaTag([
+        'property' => 'og:image',
+        'content' => "https://".$_SERVER['SERVER_NAME']. "/files/".$model->image->filename
+    ]); 
+}
 
 $this->registerMetaTag([
     'property' => 'og:site_name',
