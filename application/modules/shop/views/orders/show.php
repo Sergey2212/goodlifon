@@ -83,7 +83,7 @@ use kartik\helpers\Html;
     ?>
 
     <?php
-        $form = \yii\bootstrap\ActiveForm::begin([
+        $form = \yii\bootstrap5\ActiveForm::begin([
             'id' => 'order-details-form',
             'action' => \yii\helpers\Url::to(['/shop/cabinet/update-order', 'hash' => $order->hash]),
             'layout' => 'horizontal',

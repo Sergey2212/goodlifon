@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \yii\web\View $this
- * @var \yii\bootstrap\ActiveForm $form
+ * @var \yii\bootstrap5\ActiveForm $form
  * @var \app\modules\shop\models\PaymentType[] $paymentTypes
  * @var integer $totalPayment
  */
@@ -22,7 +22,7 @@ use \app\modules\user\models\RegistrationForm;
 <div class="col-md-6 col-md-offset-3">
     <div class="row">
         <div>К оплате: <?= $currency->format($totalPayment); ?></div>
-        <?= \yii\bootstrap\Html::dropDownList('PaymentType', null, array_reduce($paymentTypes,
+        <?= \yii\bootstrap5\Html::dropDownList('PaymentType', null, array_reduce($paymentTypes,
             function($result, $item)
             {
                 /** @var \app\modules\shop\models\PaymentType $item */
@@ -34,7 +34,7 @@ use \app\modules\user\models\RegistrationForm;
             ]
         ); ?>
 
-        <?= $form->field($model, 'сonvention')
+        <!-- <?= $form->field($model, 'сonvention')
             ->checkbox([
                 'label' => 'Я принимаю условия '. Html::a('договора-оферты', ['/publichnaya-oferta'], ['class' => 'profile-link']) .'.',
                 'labelOptions' => [
@@ -48,6 +48,6 @@ use \app\modules\user\models\RegistrationForm;
                 'siteKey' => '6LfH-6cUAAAAAHRHB3XzICAgUcFXLzYEr1st5LjW', // unnecessary is reCaptcha component was set up
                 'action' => 'homepage',
             ]
-        ) ?>
+        ) ?> -->
 
     </div>

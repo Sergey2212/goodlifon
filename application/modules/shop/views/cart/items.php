@@ -32,14 +32,14 @@ foreach ($items as $i => $item) {
  ?>
 
 
-<table class="table table-bordered table-hover" id="cart-table">
+<table class="table" id="cart-table">
     <thead>
         <tr>
             <th></th>
-            <th><?=Yii::t('app', 'Name')?></th>
-            <th><?=Yii::t('app', 'Price')?></th>
-            <th><?=Yii::t('app', 'Quantity')?></th>
-            <th><?=Yii::t('app', 'Sum')?></th>
+            <th class="text-center"><?=Yii::t('app', 'Name')?></th>
+            <th class="text-center"><?=Yii::t('app', 'Price')?></th>
+            <th class="text-center"><?=Yii::t('app', 'Quantity')?></th>
+            <th class="text-center"><?=Yii::t('app', 'Sum')?></th>
         </tr>
     </thead>
     <tbody>
@@ -53,7 +53,7 @@ foreach ($items as $i => $item) {
                 ])
                 ?>
             </td>
-            <td>
+            <td class="text-center">
                 <?= Html::a(
                         Html::encode($item->entity->getName()),
                         \yii\helpers\Url::to([
@@ -63,24 +63,24 @@ foreach ($items as $i => $item) {
                         ])
                 ); ?>
             </td>
-            <td class="priceCart" title="<?= $mainCurrency->format($item->product->quantity->in_warehouse * $item->product->price) ?>">
+            <td class="priceCart text-center" title="<?= $mainCurrency->format($item->product->quantity->in_warehouse * $item->product->price) ?>">
                 <?=
                 $mainCurrency->format(
                     $item->price_per_pcs
                 )
                 ?>
             </td>
-            <td>
+            <td class="text-center">
                 <?php if ($immutable === true): ?>
                     <?= $item->quantity ?>
                 <?php else: ?>
                     <div class="form-inline">
                         <div class="form-group">
                             <div class="btn-group">
-                            <input class="form-control quantity" style="float: left; margin-right: -2px; max-width:80px;" placeholder="1" size="16" type="text" data-type="quantity" data-id="<?= $item->id ?>"  title="<?= $item->product->quantity->in_warehouse ?>" value="<?= $item->quantity ?>" data-nominal="<?= $item->product->measure->nominal ?>" />
+                            <input class="form-control quantity" style="float: left; margin-right: -2px; max-width:80px;" placeholder="1" size="16" type="text" data-type="quantity" data-id="<?= $item->id ?>"  title="<?= $item->product->quantity->in_warehouse ?>" value="<?= $item->quantity ?>" data-nominal="<?= $item->product->measure->nominal ?>" data-taken ="1" />
                                 <button class="btn btn-light minus" type="button" data-action="change-quantity">
                                     <i class="bi bi-dash"></i></button>
-                                <button class="btn btn-light plus" type="button" data-action="change-quantity">
+                                <button class="btn btn-light plus" type="button" data-action="change-quantity" >
                                     <i class="bi bi-plus"></i></button>
                                 <button class="btn btn-danger" type="button" data-action="delete" data-id="<?= $item->id ?>" data-url="<?= \yii\helpers\Url::toRoute([
                                     'delete',
@@ -91,7 +91,7 @@ foreach ($items as $i => $item) {
                     </div>
                 <?php endif; ?>
             </td>
-            <td>
+            <td class="text-center">
                 <span class="item-price" title="<?=$mainCurrency->format($item->total_price)?>">
                     <?php
                     if ($item->discount_amount > 0) {
@@ -139,8 +139,8 @@ foreach ($items as $i => $item) {
 
     <tr>
         <td colspan="3"></td>
-        <td><strong><span class="items-count"><?= $model->items_count ?></span></strong></td>
-        <td>
+        <td class="text-center"><strong><span class="items-count"><?= $model->items_count ?></span></strong></td>
+        <td class="text-center">
             <span class="label label-info">
                 <span class="total-price ">
                     <?= $mainCurrency->format($model->total_price) ?>
@@ -154,7 +154,7 @@ foreach ($items as $i => $item) {
 <style>
 @media print {
     header, .header, footer, .footer, .quantity {
-        display: none;
+        9isplay: none;
     }
 
     input[data-type=quantity] {
@@ -163,31 +163,40 @@ foreach ($items as $i => $item) {
     }
 }
 </style>
- <?php
- $js = <<<JS
-    "use strict";
-    $('.plus').on('click mousemove', function (event) {
-     var body = $('body');
-         var thisBtn = $(this);
-          var thisSum = Number(thisBtn.parents('tr').children('.priceCart').attr('title').replace(/\s+/g, '').slice(0, -4));//Товар * цена на складе
-         var thisExistenceSum = Number(thisBtn.parents('tr').eq(0).find('.item-price').attr('title').replace(/\s+/g, '').slice(0, -4));//Товар * цена в корзине
-         
-         //alert(thisSum < thisExistenceSum);
-         
-       if(thisSum <= thisExistenceSum){
-       //if(0){
-        swal({
+<?php
+$js = <<<JS
+ 
+
+$('.plus, .minus').on('click', function (event) {
+    var body = $('body');
+        var thisBtn = $(this);
+        var thisSum = Number(thisBtn.parents('tr').children('.priceCart').attr('title').replace(/\s+/g, '').slice(0, -4));//Товар * цена на складе
+        var thisExistenceSum = Number(thisBtn.parents('tr').eq(0).find('.item-price').attr('title').replace(/\s+/g, '').slice(0, -4));//Товар * цена в корзине
+
+    setTimeout(function() {window.location.reload();}, 500);                             
+});
+
+$('.minus').on('click', function (event) {
+    setTimeout(function() {window.location.reload();}, 500);                             
+});
+
+$('.plus').on('mouseenter', function (event) {
+
+    var thisBtn = $(this);
+    var limit = thisBtn.siblings('.quantity').attr('title');//Кол-во товара на складе
+    var taken = thisBtn.siblings('.quantity').attr('value');//Кол-во товара в заказе
+    //alert(inStock + ' ' + taken);
+
+    if(limit <= taken){
+        Swal.fire({
             title:"Невозможно добавить! Превышение лимита товара на складе",
             type: "error",
-            confirmButtonText: "Хорошо",
+            confirmButtonText: "Понятно",
             allowOutsideClick:   "true"
-        }); 
-    }else{
-           
-    }
-              
+        });
+            thisBtn.addClass('disabled'); 
+        }
 });
-     
     
 JS;
  $this->registerJs($js);

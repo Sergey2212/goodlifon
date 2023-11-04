@@ -209,6 +209,7 @@ blockquote {
     margin: 0 auto;
     display: block;
     overflow: hidden;
+    padding-bottom: 15px;
 }
 
     .product-grid .card.product-card:hover {

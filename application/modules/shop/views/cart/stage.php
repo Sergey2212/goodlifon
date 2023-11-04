@@ -14,9 +14,11 @@ $this->title = Html::encode($stage->name_frontend);
 <h1><?= Html::encode($stage->name_frontend); ?></h1>
 
 <?php
-$form = \yii\bootstrap\ActiveForm::begin([
+$form = \yii\bootstrap5\ActiveForm::begin([
     'id' => 'shop-stage',
-    'layout' => 'horizontal',
+    'options' => [
+    'class' => 'form-horizontal'],
+    'enableClientValidation' => true,
 ]);
 $stageView = Yii::getAlias($stage->view);
 if (is_file($stageView)) {

@@ -12,6 +12,10 @@
     padding-top: 15px;
 }
 
+.pb-15 {
+    padding-bottom: 15px;
+}
+
 .search-form .form-control.theme-border {
     border-color: #eee;
 }

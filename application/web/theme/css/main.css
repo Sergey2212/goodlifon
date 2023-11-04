@@ -1,3 +1,8 @@
+a{
+  text-decoration: none;
+  color: #282424;
+}
+
 .alert > p,  .alert > ul {
   margin-bottom: 0;
 }
@@ -21,7 +26,10 @@
   font-size: 15px;
 }
 
-
+div.required label.control-label::after {
+  content: " *";
+  color: red;
+}
 
 .pagination-section {
   margin-top: 30px;
@@ -217,6 +225,15 @@ p {
     font-size: 1.2rem;
     margin-top: 0.5rem;
   }
+
+#cart-table th {
+  background: #ffb840;
+  border-color: transparent;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 16px;
+}
+
   table.wearsize {
     width: 100%;
     font-size: 14px;
@@ -336,4 +353,25 @@ p {
 
 .jspScrollable {
   width: auto !important;
+}
+
+.table td, .table th, img, svg {
+  vertical-align: middle;
+}
+
+footer{
+  margin-top: 5px;
+}
+
+footer .navigation-widget {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer-widget{
+  margin-top: 8px;
+}
+
+.oferta{
+  margin-top: 15px;
 }
