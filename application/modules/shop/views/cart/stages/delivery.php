@@ -10,7 +10,7 @@
 use app\properties\AbstractModel;
 
 ?>
-<div class="col-md-6 col-md-offset-3">
+<div class="col-md-6 mx-auto">
     <div class="row">
     <?= $form->field($deliveryInformation, 'country_id')->dropDownList(\app\components\Helper::getModelMap(\app\models\Country::className(), 'id', 'name')); ?>
     <?= $form->field($deliveryInformation, 'city_id')->dropDownList(\app\components\Helper::getModelMap(\app\models\City::className(), 'id', 'name')); ?>

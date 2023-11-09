@@ -19,7 +19,7 @@ use \app\modules\user\models\RegistrationForm;
     $model = new \app\modules\user\models\RegistrationForm;
 
 ?>
-<div class="col-md-6 col-md-offset-3">
+<div class="col mx-auto ">
     <div class="row">
         <div>К оплате: <?= $currency->format($totalPayment); ?></div>
         <?= \yii\bootstrap5\Html::dropDownList('PaymentType', null, array_reduce($paymentTypes,

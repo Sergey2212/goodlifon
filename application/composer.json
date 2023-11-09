@@ -39,6 +39,7 @@
     "kartik-v/yii2-icons": "@dev",
     "kartik-v/yii2-helpers": "dev-master", 
     "kartik-v/yii2-nav-x": "@dev",
+    "kartik-v/yii2-validators": "dev-master",
     "himiklab/yii2-recaptcha-widget" : "*",
     "creocoder/yii2-flysystem": "^1.1",
     "timurmelnikov/yii2-loading-overlay": "~1.0.0",

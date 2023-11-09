@@ -26,9 +26,14 @@ a{
   font-size: 15px;
 }
 
-div.required label.control-label::after {
+div.required label.col-form-label::after {
   content: " *";
   color: red;
+}
+
+
+.list-stage-buttons{
+  margin-left: 30%;
 }
 
 .pagination-section {

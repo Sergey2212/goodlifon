@@ -6,6 +6,7 @@
  */
 
 use app\modules\shop\helpers\OrderStageHelper;
+use kartik\form\ActiveForm;
 use yii\helpers\Html;
 
 $this->title = Html::encode($stage->name_frontend);
@@ -14,11 +15,9 @@ $this->title = Html::encode($stage->name_frontend);
 <h1><?= Html::encode($stage->name_frontend); ?></h1>
 
 <?php
-$form = \yii\bootstrap5\ActiveForm::begin([
+$form = ActiveForm::begin([
     'id' => 'shop-stage',
-    'options' => [
-    'class' => 'form-horizontal'],
-    'enableClientValidation' => true,
+    'type' => ActiveForm::TYPE_HORIZONTAL
 ]);
 $stageView = Yii::getAlias($stage->view);
 if (is_file($stageView)) {
@@ -31,8 +30,9 @@ if (is_file($stageView)) {
 }
 ?>
 <div class="col-md-12">
-    <div class="row">
-        <div class="col-md-5">
+    <div class="row mx-auto">
+        
+        <div class="col-md-6">
             <ul class="list-stage-buttons">
                 <?=
                 array_reduce(
@@ -46,7 +46,7 @@ if (is_file($stageView)) {
                 ?>
             </ul>
         </div>
-        <div class="col-md-5 pull-right">
+        <div class="col-md-6">
             <?php if ($order->items_count > 0): ?>
                 <ul class="list-stage-buttons">
                     <?=
