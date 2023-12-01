@@ -80,7 +80,7 @@ return [
                 'name' => 'index.html',
             ],
             [
-                'name' => 'main.js',
+                'name' => 'varieties.js',
                 'content' => "$(function(){\n\t// your awesome code hoes here\n});\n",
             ],
         ],

@@ -51,7 +51,9 @@ use kartik\helpers\Html;
                             <div class="product-info">
                                 <a href="<?=$url?>">
                                     <p class="product-category font-13 mb-1" style="text-align: center">
-                                        <?= Html::encode($product->brand->name) ?>
+                                    	<?php if(isset($product->brand->name)): ?>
+                                        	<?= Html::encode($product->brand->name) ?>
+                                        <?php endif; ?>
                                         <?= Html::encode($product->name) ?>
                                     </p>
                                 </a>

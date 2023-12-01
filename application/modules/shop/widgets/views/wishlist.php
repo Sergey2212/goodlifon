@@ -13,15 +13,15 @@ use yii\helpers\Html;
 use kartik\icons\Icon;
 
 Modal::begin([
-    //'header' => '<h4>' . Yii::t('app', 'Adding to Wish List') . '</h4>',
-    'size' => Modal::SIZE_SMALL,
+    'title' => '<h4>' . Yii::t('app', 'Добавление в список желаний') . '</h4>',
+    'size' => Modal::SIZE_DEFAULT,
     'id' => 'wishlist',
     'options' => [
         'style' => [
             'text-align' => 'left',
         ],
     ],
-    'headerOptions' => [
+    'titleOptions' => [
         'style' => [
             'text-align' => 'center',
         ],
@@ -34,6 +34,7 @@ $form = ActiveForm::begin([
 ]);
 foreach ($wishlists as $wishlist) {
     /** @var Wishlist $wishlist */
+       
     echo Html::tag('div',
         Html::label(Html::radio('wishlistId', ($wishlist->default) ? true : false, ['value' => $wishlist->id]) . Html::encode($wishlist->title) . '<span>(' . count($wishlist->items) . ')</span>'),
         [
@@ -44,12 +45,14 @@ foreach ($wishlists as $wishlist) {
 echo Html::tag('div',
     Html::label(Html::radio('wishlistId', false, ['value' => 0]) . $form->field($model, 'title', [
             'inputOptions' => [
-                'placeholder' => Yii::t('app', 'Enter title'),
+            	'class' => 'form-control',
+                'placeholder' => Yii::t('app', 'Придумайте название списка'),
                 'name' => 'title',
             ],
             'options' => [
                 'style' => [
                     'float' => 'right',
+                    'width' => '400px'
                 ]
             ]
         ])->label('')),
@@ -58,9 +61,12 @@ echo Html::tag('div',
     ]
 );
 
-echo Html::button(Icon::show('check') . Yii::t('app', 'Save'), [
+
+
+echo Html::button(Icon::show('check') . Yii::t('app', 'Добавить'), [
     'class' => 'btn btn-success',
     'data-action' => 'add-to-wishlist',
+    'data-bs-dismiss' => 'modal',
     'data-id' => $id,
     'style' => [
         'margin' => '0 auto',

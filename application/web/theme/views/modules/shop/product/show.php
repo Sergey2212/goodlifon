@@ -226,10 +226,18 @@ $propertiesShowedInAnnounce = false;
                         </a>
 
                        <br><br>
-                        <a href='#' class="btn-add-to-wishlist" rel="nofollow" data-toggle="modal" data-target="#wishlist">
+
+                            <a href='#' class="btn-add-to-compare" rel="nofollow" data-action="add-to-compare" data-id="<?=$model->id?>">
+                                <?= Yii::t('app', 'Add to compare') ?>
+                            </a>
+
+                        <br><br>
+                       
+                        <a href='#' class="btn-add-to-wishlist" rel="nofollow" data-bs-toggle="modal" data-bs-target="#wishlist" >
                            <?=Yii::t('app', 'Add to wishlist')?>
                         </a>
                         <?= AddToWishlistWidget::widget(['id' => $model->id]) ?>
+
                         <br><br>
 
                         <a href="/shop/cart" class="btn btn-success go-cart" role="button" >Перейти в корзину</a>

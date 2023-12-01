@@ -4,6 +4,11 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use kartik\icons\Icon;
 
+try {
+    Icon::map($this);
+} catch (\yii\base\InvalidConfigException $e) {
+}
+
 /**
  * @var \yii\web\View $this
  * @var \app\modules\shop\models\Product[]|array $products
@@ -69,20 +74,21 @@ use kartik\icons\Icon;
                                     'blank' => 'http://placehold.it/180x180?text=No+image',
                                 ]
                             ]);
-                            $html .= Html::a($item->name, Url::to([
-                                    'product/show',
-                                    'model' => $item,
-                                    'last_category_id' => $item->main_category_id,
-                                    'category_group_id' => $item->category->category_group_id,
-                                ])
+                            $url = Url::to([
+                                'product/show',
+                                'model' => $item,
+                                'last_category_id' => $item->main_category_id,
+                                'category_group_id' => $item->category->category_group_id,
+                            ]);
+                            $html .= Html::a($item->name, $url
                             );
                             $html .= Html::tag('div', \Yii::t('app', 'Price') . ': ' . $item->nativeCurrencyPrice(false, false));
                             $html .= Html::tag('div',
-                                Html::a(Yii::t('app', Icon::show('shopping-cart')), '#', [
-                                    'data-action' => "add-to-cart",
-                                    'data-id' => $item->id
+                                Html::a(Yii::t('app', Icon::show('cart-arrow-down text-success')), $url, [
+                                    //'data-action' => "add-to-cart",
+                                   // 'data-id' => $item->id
                                 ])
-                                . Html::a(Yii::t('app', Icon::show('trash')), Url::toRoute([
+                                . Html::a(Yii::t('app', Icon::show('trash text-danger')), Url::toRoute([
                                     '/shop/product-compare/remove', 'id' => $item->id,
                                     'backUrl' => Yii::$app->request->url,
                                 ])),

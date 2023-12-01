@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
+use app\modules\shop\models\Wishlist;
 use app\web\theme\module\widgets\ExpandableSearch\ExpandableSearchWidget;
 
 /** @var \app\extensions\DefaultTheme\Module $theme */
@@ -48,7 +49,7 @@ if (is_null($order)) {
                                 <?php if (Yii::$app->user->isGuest === true): ?>
 
                                     <a href="<?= \yii\helpers\Url::toRoute(['/user/user/login']) ?>" class="offcanvas-toggle text-decoration-none">
-                                        <i class="bx bx-user"></i>
+                                        <i class="bi bi-person"></i>
                                     </a>
 
                                 <?php else: ?>
@@ -56,7 +57,7 @@ if (is_null($order)) {
 
                                     <div class="dropdown-center">
                                         <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="bx bx-user text-success"></i>
+                                            <i class="bi bi-person-check-fill text-success"></i>
                                         </a>
 
                                         <ul class="dropdown-menu">
@@ -84,26 +85,42 @@ if (is_null($order)) {
                                     </div>
                                 <?php endif; ?>
                             </li>
+
                             <li>
-                                <a class="offcanvas-toggle text-decoration-none" href="">
+                                <a class="btn-compare offcanvas-toggle text-decoration-none" href="<?=Url::to(['/shop/product-compare/compare'])?>" title="<?=Yii::t('app', 'Compare products')?>">
                                         <span class="position-relative">
-                                            <i class="bx bx-heart"></i>
-<!--                                            <span class="badge cbdg1">3</span>-->
+                                            <i class="bi bi-shuffle "></i>
+                                            <span class="alert-count items-count">
+                                            <?=count(Yii::$app->session->get('comparisonProductList', [])) ?>
+                                            </span>
                                         </span>
                                 </a>
                             </li>
-                            <li class="nav-item dropdown dropdown-large">
-                                <a class="nav-link  position-relative cart-link" href="<?= \yii\helpers\Url::toRoute(['/shop/cart']) ?>">
+
+                            <li>
                                         <span class="position-relative">
-                                            <i class="bx bx-shopping-bag"></i>
-                                            <span class="alert-count">
+                                <a class="btn-wishlist offcanvas-toggle text-decoration-none" href="<?=Url::to(['/shop/wishlist'])?>">
+                                            <i class="bi bi-suit-heart"></i>
+                                            <span class="alert-count items-count">
+                                            <?= Wishlist::countItems((!Yii::$app->user->isGuest ? Yii::$app->user->id : 0), Yii::$app->session->get('wishlists', [])) ?>
+                                            </span>
+                                        </span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item dropdown dropdown-large">
+                                <a class="btn-show-cart nav-link  position-relative cart-link" href="<?= \yii\helpers\Url::toRoute(['/shop/cart']) ?>">
+                                        <span class="position-relative">
+                                            <i class="bi bi-cart cart-icon"></i>
+                                            <span class="alert-count items-count">
                                                     <?= $itemsCount ?>
                                             </span>
                                         </span>
-<!--                                    <span class="cart-total position-relative">$90.00</span>-->
+                                    <!--                                    <span class="cart-total position-relative">$90.00</span>-->
                                 </a>
                             </li>
                             <!-- cart block end -->
+
                         </ul>
                     </div>
                     <div class="mobile-menu-toggle d-lg-none">

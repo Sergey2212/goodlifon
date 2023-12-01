@@ -3,7 +3,7 @@ use app\modules\shop\models\Wishlist;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
-use yii\bootstrap\Modal;
+use yii\bootstrap5\Modal;
 use kartik\icons\Icon;
 
 /**
@@ -42,7 +42,7 @@ $this->title = Yii::t('app', 'Wishlist');
                             'wishlists' => $wishlists,
                         ]) ?>
                         <?php Modal::begin([
-                            'header' => '<h4>' . Yii::t('app', 'Move selected to:') . '</h4>',
+                            'title' => '<h4>' . Yii::t('app', 'Move selected to:') . '</h4>',
                             'size' => Modal::SIZE_SMALL,
                             'id' => 'wishlist-move-' . $wishlist->id,
                             'class' => 'wishlist-move',

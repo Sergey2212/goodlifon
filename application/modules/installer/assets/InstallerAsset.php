@@ -17,7 +17,7 @@ class InstallerAsset extends AssetBundle
         'css/installer.css'
     ];
     public $js = [
-        'js/main.js',
+        'js/varieties.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
