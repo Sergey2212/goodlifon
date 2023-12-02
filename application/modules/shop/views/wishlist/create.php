@@ -28,7 +28,7 @@ $wishlist = new Wishlist();
                     'name' => 'title',
                     'class' => 'form-control',
                 ]
-            ])->label('');
+            ])->label('Например: Купальники');
             echo Html::submitButton(Icon::show('check') . Yii::t('app', 'Create'), ['class' => 'btn-create-wishlist btn btn-success']);
             ?>
             <a href='#' class="create-wishlist-close btn btn-danger" rel="nofollow" onclick="">

@@ -57,12 +57,12 @@ use app\modules\shop\widgets\AddToWishlistWidget;
                         <?php if ($product->new):?>
                         <span class="badge badge-danger top-left">New</span>
                         <?php endIf?>
-                        <div class="card-header bg-transparent border-bottom-0">
+                        <!-- <div class="card-header bg-transparent border-bottom-0">
                             <div class="d-flex align-items-center justify-content-end gap-3 product-image">
-                                <a href="<?=$url?>">
+                                <a href="<?//=$url?>">
                                     <div class="product-compare">
-                                        <a href='#' class="btn-add-to-compare" rel="nofollow" data-action="add-to-compare" data-id="<?=$product->id?>">
-                                            <?= Yii::t('app', 'Сравнить') ?>
+                                        <a href='#' class="btn-add-to-compare" rel="nofollow" data-action="add-to-compare" data-id="<?//=$product->id?>">
+                                            <?//= Yii::t('app', 'Сравнить') ?>
                                         </a>
                                     </div>
                                 </a>
@@ -70,9 +70,9 @@ use app\modules\shop\widgets\AddToWishlistWidget;
                                     <div class="product-wishlist"> <i class='bx bx-heart'></i>
                                     </div>
                                 </a>
-                                <?= AddToWishlistWidget::widget(['id' => $product->id]) ?>
+                                <?//= AddToWishlistWidget::widget(['id' => $product->id]) ?>
                             </div>
-                        </div>
+                        </div> -->
                         <a href="<?=$url?>">
                             <div class="product-image">
                                 <?=

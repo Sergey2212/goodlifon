@@ -55,7 +55,7 @@ echo Html::tag('div',
                     'width' => '400px'
                 ]
             ]
-        ])->label('')),
+        ])->label('Например: купальники')),
     [
         'class' => 'form-group required',
     ]

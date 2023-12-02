@@ -28,9 +28,9 @@ if (is_null($order)) {
                     </a>
                 </div>
             </div>
-            <div class="col-sm-5 col-lg-5 col-xl-4">
+            <div class="col-sm-5 col-lg-5 col-xl-5 col-xxl-4">
                 <div class="d-flex align-items-center justify-content-center justify-content-sm-end">
-                    <div class="media static-media mr-50 d-none d-md-flex">
+                    <div class="media static-media mr-20 d-none d-md-flex">
                         <?= Html::img('@web/theme/img/icon/1.png', ['class'=>'mr-3 align-self-center','alt' => 'phone']) ?>
                         <div class="media-body">
                             <div class="phone">
@@ -48,7 +48,7 @@ if (is_null($order)) {
                             <li>
                                 <?php if (Yii::$app->user->isGuest === true): ?>
 
-                                    <a href="<?= \yii\helpers\Url::toRoute(['/user/user/login']) ?>" class="offcanvas-toggle text-decoration-none">
+                                    <a href="<?= \yii\helpers\Url::toRoute(['/user/user/login']) ?>" class="offcanvas-toggle text-decoration-none" title="<?=Yii::t('app', 'Вход/Регистрация')?>">
                                         <i class="bi bi-person"></i>
                                     </a>
 
@@ -89,7 +89,7 @@ if (is_null($order)) {
                             <li>
                                 <a class="btn-compare offcanvas-toggle text-decoration-none" href="<?=Url::to(['/shop/product-compare/compare'])?>" title="<?=Yii::t('app', 'Compare products')?>">
                                         <span class="position-relative">
-                                            <i class="bi bi-shuffle "></i>
+                                            <i class="bi bi-shuffle"></i>
                                             <span class="alert-count items-count">
                                             <?=count(Yii::$app->session->get('comparisonProductList', [])) ?>
                                             </span>
@@ -99,7 +99,7 @@ if (is_null($order)) {
 
                             <li>
                                         <span class="position-relative">
-                                <a class="btn-wishlist offcanvas-toggle text-decoration-none" href="<?=Url::to(['/shop/wishlist'])?>">
+                                <a class="btn-wishlist offcanvas-toggle text-decoration-none" href="<?=Url::to(['/shop/wishlist'])?>" title="<?=Yii::t('app', 'Список желаний')?>">
                                             <i class="bi bi-suit-heart"></i>
                                             <span class="alert-count items-count">
                                             <?= Wishlist::countItems((!Yii::$app->user->isGuest ? Yii::$app->user->id : 0), Yii::$app->session->get('wishlists', [])) ?>
@@ -109,7 +109,7 @@ if (is_null($order)) {
                             </li>
 
                             <li class="nav-item dropdown dropdown-large">
-                                <a class="btn-show-cart nav-link  position-relative cart-link" href="<?= \yii\helpers\Url::toRoute(['/shop/cart']) ?>">
+                                <a class="btn-show-cart nav-link  position-relative cart-link" href="<?= \yii\helpers\Url::toRoute(['/shop/cart']) ?>" title="<?=Yii::t('app', 'Корзина')?>">
                                         <span class="position-relative">
                                             <i class="bi bi-cart cart-icon"></i>
                                             <span class="alert-count items-count">
@@ -140,7 +140,7 @@ if (is_null($order)) {
                 </div>
             </div>
             <!-- search-form -->
-            <div class="col-lg-4 col-xl-5 order-lg-first">
+            <div class="col-lg-4 col-xxl-5 order-lg-first">
                 <?= ExpandableSearchWidget::widget()?>
             </div>
             <!-- search-form end -->
