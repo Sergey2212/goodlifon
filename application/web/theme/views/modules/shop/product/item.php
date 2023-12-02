@@ -8,6 +8,7 @@
 
 use app\modules\image\widgets\ObjectImageWidget;
 use kartik\helpers\Html;
+use app\modules\shop\widgets\AddToWishlistWidget;
 
 ?>
 
@@ -19,20 +20,15 @@ use kartik\helpers\Html;
                         <?php endIf?>
                         <div class="card-header bg-transparent border-bottom-0">
                             <div class="d-flex align-items-center justify-content-end gap-3 product-image">
-                                <a href="<?=$url?>">
-                                    <div class="product-compare">
-                                        <span>
-                                            <i>
-                                                <img style="height: 15px;" src="../upload/images/icons/git-compare.png" alt="">
-                                            </i>
-                                            Сравнить
-                                        </span>
+                                <a href='#' class="btn-add-to-compare" rel="nofollow" data-action="add-to-compare" data-id="<?=$product->id?>">
+                                    <div class="product-wishlist"> <i class='bi bi-shuffle'></i>
                                     </div>
                                 </a>
-                                <a href="javascript:;">
+                                <a href='#' class="btn-add-to-wishlist" rel="nofollow" data-bs-toggle="modal" data-bs-target="#wishlist" >
                                     <div class="product-wishlist"> <i class='bx bx-heart'></i>
                                     </div>
                                 </a>
+                                <?= AddToWishlistWidget::widget(['id' => $product->id]) ?>
                             </div>
                         </div>
                         <a href="<?=$url?>">

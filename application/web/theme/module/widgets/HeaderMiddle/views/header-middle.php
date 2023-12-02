@@ -48,7 +48,7 @@ if (is_null($order)) {
                             <li>
                                 <?php if (Yii::$app->user->isGuest === true): ?>
 
-                                    <a href="<?= \yii\helpers\Url::toRoute(['/user/user/login']) ?>" class="offcanvas-toggle text-decoration-none">
+                                    <a href="<?= \yii\helpers\Url::toRoute(['/user/user/login']) ?>" class="offcanvas-toggle text-decoration-none" title="<?=Yii::t('app', 'Вход/Регистрация')?>">
                                         <i class="bi bi-person"></i>
                                     </a>
 
@@ -89,7 +89,7 @@ if (is_null($order)) {
                             <li>
                                 <a class="btn-compare offcanvas-toggle text-decoration-none" href="<?=Url::to(['/shop/product-compare/compare'])?>" title="<?=Yii::t('app', 'Compare products')?>">
                                         <span class="position-relative">
-                                            <i class="bi bi-shuffle "></i>
+                                            <i class="bi bi-shuffle"></i>
                                             <span class="alert-count items-count">
                                             <?=count(Yii::$app->session->get('comparisonProductList', [])) ?>
                                             </span>
@@ -99,7 +99,7 @@ if (is_null($order)) {
 
                             <li>
                                         <span class="position-relative">
-                                <a class="btn-wishlist offcanvas-toggle text-decoration-none" href="<?=Url::to(['/shop/wishlist'])?>">
+                                <a class="btn-wishlist offcanvas-toggle text-decoration-none" href="<?=Url::to(['/shop/wishlist'])?>" title="<?=Yii::t('app', 'Список желаний')?>">
                                             <i class="bi bi-suit-heart"></i>
                                             <span class="alert-count items-count">
                                             <?= Wishlist::countItems((!Yii::$app->user->isGuest ? Yii::$app->user->id : 0), Yii::$app->session->get('wishlists', [])) ?>
@@ -109,7 +109,7 @@ if (is_null($order)) {
                             </li>
 
                             <li class="nav-item dropdown dropdown-large">
-                                <a class="btn-show-cart nav-link  position-relative cart-link" href="<?= \yii\helpers\Url::toRoute(['/shop/cart']) ?>">
+                                <a class="btn-show-cart nav-link  position-relative cart-link" href="<?= \yii\helpers\Url::toRoute(['/shop/cart']) ?>" title="<?=Yii::t('app', 'Корзина')?>">
                                         <span class="position-relative">
                                             <i class="bi bi-cart cart-icon"></i>
                                             <span class="alert-count items-count">
