@@ -146,10 +146,13 @@ a {
     margin-bottom: 1.5rem
 }
 #main-message {
-    background-color: #e667af52;
+    background-color: #e667af1c;
     margin-top: 15px;
     padding-top: 10px;
     padding-bottom: 2px;
+}
+#navbar_main{
+	background-color: #e667af1c;
 }
 blockquote {
     padding: 10px 20px;
@@ -220,7 +223,7 @@ blockquote {
 
 #short-description{
     color: rgba(33, 37, 41, 0.78);
-    background: #d2bbbe30; /* Цвет фона */
+    background: #72a8941a; /* Цвет фона */
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3;

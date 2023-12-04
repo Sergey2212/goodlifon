@@ -70,7 +70,7 @@ if (isset($model->image->filename)) {
 
 $this->registerMetaTag([
     'property' => 'og:site_name',
-    'content' => 'Гудлифон-Магазин бюстгальтеров, купальников, колготок.'
+    'content' => 'Гудлифон - Магазин бюстгальтеров, купальников, колготок.'
 ]);
 
 

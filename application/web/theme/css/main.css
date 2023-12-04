@@ -3,6 +3,14 @@ a{
   color: #282424;
 }
 
+footer a{
+	color: white;
+}
+
+footer a:hover{
+	color: #FFC0CB;
+}
+
 .alert > p,  .alert > ul {
   margin-bottom: 0;
 }

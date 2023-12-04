@@ -24,11 +24,11 @@ use app\modules\shop\widgets\AddToWishlistWidget;
                                     <div class="product-wishlist"> <i class='bi bi-shuffle'></i>
                                     </div>
                                 </a>
-                                <a href='#' class="btn-add-to-wishlist" rel="nofollow" data-bs-toggle="modal" data-bs-target="#wishlist" >
+<!--                                <a href='#' class="btn-add-to-wishlist" rel="nofollow" data-bs-toggle="modal" data-bs-target="#wishlist" >
                                     <div class="product-wishlist"> <i class='bx bx-heart'></i>
                                     </div>
-                                </a>
-                                <?= AddToWishlistWidget::widget(['id' => $product->id]) ?>
+                                </a>-->
+                                <?//= AddToWishlistWidget::widget(['id' => $product->id]) ?>
                             </div>
                         </div>
                         <a href="<?=$url?>">

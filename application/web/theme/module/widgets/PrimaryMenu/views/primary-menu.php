@@ -13,7 +13,7 @@ use kartik\nav\NavXBs5;
             'brandLabel' => 'Все категории',
             'options' => [
                 'id' => 'navbar_main',
-                'class' => 'navbar navbar-expand-lg bg-light',
+                'class' => 'navbar navbar-expand-lg',
             ],
         ]);
 
