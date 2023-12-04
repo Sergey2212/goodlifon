@@ -38,7 +38,7 @@ use app\modules\shop\widgets\AddToWishlistWidget;
         <h2 class="title text-center">ПОПУЛЯРНЫЕ ПРОДУКТЫ</h2>
         <hr/>
         <div class="product-grid">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
                 <?php
                     $k = 0;
                     ?>
@@ -81,7 +81,7 @@ use app\modules\shop\widgets\AddToWishlistWidget;
 			                    //if (isset($product->brand->name)) {
 			                        //echo $product->brand->name;
 			                    //}
-			                    echo(array_pop($product->subcategoryTittle)['title_append']);
+			                    echo(array_slice($product->subcategoryTittle, -1)[0]['title_append']);
 			                ?>
             			</h4>
                         <a href="<?=$url?>">
