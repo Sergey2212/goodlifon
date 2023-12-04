@@ -9,7 +9,7 @@ use app\modules\shop\widgets\AddToWishlistWidget;
 ?>
 
 
-<div class="bg-light" id="main-message">
+<div id="main-message">
     <div class="text-justify col-xs-12 col-md-10 offset-md-1 ">
 
         <h1 class="text-center">Магазин нижнего белья Гудлифон</h1>
@@ -57,6 +57,9 @@ use app\modules\shop\widgets\AddToWishlistWidget;
                         <?php if ($product->new):?>
                         <span class="badge badge-danger top-left">New</span>
                         <?php endIf?>
+                        <?php if ($product->optionsQuantity < 1):?>
+                        <span class="badge badge-danger top-left">Распродано</span>
+                        <?php endIf?>
                         <!-- <div class="card-header bg-transparent border-bottom-0">
                             <div class="d-flex align-items-center justify-content-end gap-3 product-image">
                                 <a href="<?//=$url?>">
@@ -73,6 +76,14 @@ use app\modules\shop\widgets\AddToWishlistWidget;
                                 <?//= AddToWishlistWidget::widget(['id' => $product->id]) ?>
                             </div>
                         </div> -->
+                       <h4 class="text-center">
+			                <?php
+			                    //if (isset($product->brand->name)) {
+			                        //echo $product->brand->name;
+			                    //}
+			                    echo(array_pop($product->subcategoryTittle)['title_append']);
+			                ?>
+            			</h4>
                         <a href="<?=$url?>">
                             <div class="product-image">
                                 <?=
@@ -102,6 +113,11 @@ use app\modules\shop\widgets\AddToWishlistWidget;
                                         <span class="fs-5">
                                             <?=$product->formattedPrice(null, false, false)?>
                                         </span>
+                                        <?php if($product->optionsQuantity < 1):?>
+                                         <span class="fs-5 text-end">
+                                            Нет в наличии
+                                        </span>
+                                        <?php endif;?>
                                     </div>
                                     <div class="cursor-pointer ms-auto">
                                         <i class="bx bxs-star text-warning"></i>

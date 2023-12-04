@@ -9,7 +9,7 @@ use kartik\icons\Icon;
 /** @var integer $rootNavigationId */
 ?>
 
-<footer class="footer bg-light">
+<footer class="footer bg-secondary bg-gradient text-white">
     <div class="container">
         <div class="row">
             <div class="col-xs-3 col-md-3 footer-widget text-center">

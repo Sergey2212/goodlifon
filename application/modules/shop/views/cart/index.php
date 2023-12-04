@@ -21,6 +21,6 @@ $this->title = Yii::t('app', 'Cart');
 
     <?php else: ?>
         <h3><?= Yii::t('app', 'В корзине пока пусто') ?></h3>
-        <?= Html::img('@web/theme/img/empty-cart.png', ['class'=>'mr-3 align-self-center pb-15','alt' => 'phone']) ?>
+        <?= Html::img('@web/theme/img/empty-cart.png', ['class'=>'mr-3 align-self-center pb-15','alt' => 'В корзине пока пусто']) ?>
     <?php endif; ?>
 </div>

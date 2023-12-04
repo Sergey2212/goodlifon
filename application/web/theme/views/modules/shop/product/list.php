@@ -84,7 +84,7 @@ $this->registerMetaTag([
 
 $this->registerMetaTag([
     'property' => 'og:site_name',
-    'content' => 'Гудлифон-Магазин бюстгальтеров, купальников, колготок.'
+    'content' => 'Гудлифон - Магазин бюстгальтеров, купальников, колготок.'
 ]);
 
 $this->params['breadcrumbs'] = $breadcrumbs;

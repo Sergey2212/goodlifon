@@ -9,24 +9,24 @@ use yii\helpers\Html;
  * @var $wishlists array
  */
 ?>
-    <div class="wishlist-toolbar" style="border: #ddd 1px solid; padding: 10px; border-radius: 5px; margin: 5px;">
-        <h3 class="wishlist-title" style="float: left; margin: 2px;">
+    <div class="wishlist-toolbar" style="border: #ddd 1px solid; padding: 10px; border-radius: 5px; margin: 10px;">
+        <h3 class="wishlist-title" style="float: left; margin-top: -5px; margin-right: 5px">
             <?= Html::encode($wishlist->title) ?>
         </h3>
-        <a href='#' class="rename-wishlist btn btn-warning" rel="nofollow">
-            <i class="fa fa-pen"></i>
+        <a href='#' class="rename-wishlist btn btn-warning btn-sm" rel="nofollow">
+            <i class="bi bi-pencil-fill"></i>
             <?= Yii::t('app', 'Rename') ?>
         </a>
         <a href="<?= Url::toRoute([
             '/shop/wishlist/delete',
             'id' => $wishlist->id,
-        ]) ?>" class="btn-delete-wishlist btn btn-danger">
-            <i class="fa fa-trash"></i>
+        ]) ?>" class="btn-delete-wishlist btn btn-danger btn-sm">
+            <i class="bi bi-trash-fill"></i>
             <?= Yii::t('app', 'Delete') ?>
         </a>
         <?php if ($wishlist->default) : ?>
             <span class="default">
-            <i class="fa fa-star"></i>
+            <i class="bi bi-star-fill"></i>
                 <?= Yii::t('app', 'Default list') ?>
         </span>
         <?php else : ?>
@@ -65,24 +65,24 @@ use yii\helpers\Html;
                             $wishlist->id) ?>
                     </span>
                 </span>
-                <a href='#' class="buy-wishlist btn btn-success" rel="nofollow" data-action="add-batch-to-cart"
-                   data-id="[<?= $string ?>]">
-                    <?= Yii::t('app', 'Add to') ?>
+<!--                <a href='#' class="buy-wishlist btn btn-success" rel="nofollow" data-action="add-batch-to-cart"
+                   data-id="[<?//= $string ?>]">
+                    <?//= Yii::t('app', 'Add to') ?>
                     <i class="fa fa-shopping-cart"></i>
-                </a>
+                </a>-->
                 <?php if (count($wishlists) > 1) : ?>
                     <a href='#' class="btn-move-to-wishlist btn btn-warning" rel="nofollow" data-toggle="modal"
                        data-target="#wishlist-move-<?= $wishlist->id ?>">
-                        <i class="fas fa-arrows-alt"></i>
+                        <i class="bi bi-arrows-move"></i>
                         <?= Yii::t('app', 'Move') ?>
                     </a>
                 <?php endif ?>
                 <a href="<?= Url::toRoute([
                     '/shop/wishlist/clear',
                     'id' => $wishlist->id,
-                ]) ?>" class="remove-group-wishlist btn btn-danger" rel="nofollow" data-action="remove-group-wishlist">
+                ]) ?>" class="remove-group-wishlist btn btn-danger btn-sm" rel="nofollow" data-action="remove-group-wishlist">
                     <?= Yii::t('app', 'Delete') ?>
-                    <i class="fa fa-trash"></i>
+                    <i class="bi bi-trash-fill"></i>
                 </a>
             </div>
         <?php endif ?>

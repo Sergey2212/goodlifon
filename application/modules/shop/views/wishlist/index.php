@@ -20,13 +20,13 @@ $this->title = Yii::t('app', 'Wishlist');
         </h1>
         <?= $this->render('create') ?>
         <div id="block-wishlist" class="block-product-list">
-            <div class="row">
+            <div class="row text-center">
                 <?php if (empty($wishlists)) : ?>
                     <div class="wishlists-are-empty">
                         <h3 class="wishlists-are-empty-title">
                             <?= Yii::t('app', 'You do not have any wishlist yet') ?>
                         </h3>
-
+						<?= Html::img('@web/theme/img/empty-list.png', ['class'=>'mr-3 align-self-center pb-15','alt' => 'Нет списков'])?>
                         <p class="wishlists-are-empty-note">
                             <?= Yii::t('app', 'Create a wishlist') ?>
                         </p>
@@ -101,25 +101,27 @@ $this->title = Yii::t('app', 'Wishlist');
                                 </p>
                             </div>
                         <?php endif ?>
+                        
+						<div class="container">
+	                        <div class="row wishlist-items clearfix">
+	                            <?php foreach ($wishlist->items as $item) : ?>
+	                                <?php
+	                                $url = Url::to([
+	                                    '@product',
+	                                    'model' => $item->product,
+	                                    'category_group_id' => $item->product->category->category_group_id,
+	                                ]);
 
-                        <div class="wishlist-items clearfix">
-                            <?php foreach ($wishlist->items as $item) : ?>
-                                <?php
-                                $url = Url::to([
-                                    '@product',
-                                    'model' => $item->product,
-                                    'category_group_id' => $item->product->category->category_group_id,
-                                ]);
-
-                                echo $this->render('item',
-                                    [
-                                        'product' => $item->product,
-                                        'url' => $url,
-                                        'wishlist' => $wishlist,
-                                        'item' => $item,
-                                    ]
-                                ) ?>
-                            <?php endforeach ?>
+	                                echo $this->render('item',
+	                                    [
+	                                        'product' => $item->product,
+	                                        'url' => $url,
+	                                        'wishlist' => $wishlist,
+	                                        'item' => $item,
+	                                    ]
+	                                ) ?>
+	                            <?php endforeach ?>
+	                        </div>
                         </div>
                     </div>
                 <?php endforeach ?>
