@@ -243,6 +243,43 @@ $this->endBlock();
                     ],*/
                     [
                         'class' => \kartik\grid\EditableColumn::className(),
+                        'attribute' => 'top',
+                        'editableOptions' => [
+                            'data' => [
+                                0 => Yii::t('app', 'Не топ'),
+                                1 => Yii::t('app', 'Топ'),
+                            ],
+                            'inputType' => 'dropDownList',
+                            'placement' => 'left',
+                            'formOptions' => [
+                                'action' => 'update-editable',
+                            ],
+                        ],
+                        'filter' => [
+                            0 => Yii::t('app', 'Не топ'),
+                            1 => Yii::t('app', 'Топ'),
+                        ],
+                        'format' => 'raw',
+                        'value' => function (Product $model) {
+                            if ($model === null || $model->top === null) {
+                                return null;
+                            }
+                            if ($model->top === 1) {
+                                $label_class = 'text-bg-success';
+                                $value = 'Топ';
+                            } else {
+                                $value = 'Не топ';
+                                $label_class = 'text-bg-warning';
+                            }
+                            return \yii\helpers\Html::tag(
+                                'span',
+                                Yii::t('app', $value),
+                                ['class' => "badge $label_class"]
+                            );
+                        },
+                    ],
+                    [
+                        'class' => \kartik\grid\EditableColumn::className(),
                         'attribute' => 'new',
                         'editableOptions' => [
                             'data' => [

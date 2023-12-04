@@ -48,6 +48,8 @@ use app\modules\user\models\AuthAssignment;
  * @property string $announce
  * @property integer $sort_order
  * @property integer $active
+ * @property integer $new
+ * @property integer $top
  * @property double $price
  * @property double $old_price
  * @property integer $parent_id
@@ -125,6 +127,8 @@ class Product extends ActiveRecord implements ImportableInterface, ExportableInt
                 [
                     'unlimited_count',
                     'active',
+                    'top',
+                    'new',
                     'slug_absolute',
                     'audit',
                 ],
@@ -166,6 +170,8 @@ class Product extends ActiveRecord implements ImportableInterface, ExportableInt
             'announce' => Yii::t('app', 'Announce'),
             'sort_order' => Yii::t('app', 'Sort Order'),
             'active' => Yii::t('app', 'Active'),
+            'top' => Yii::t('app', 'Toп'),
+            'new' => Yii::t('app', 'New'),
             'price' => Yii::t('app', 'Price'),
             'old_price' => Yii::t('app', 'Old Price'),
             'option_generate' => Yii::t('app', 'Option Generate'),
