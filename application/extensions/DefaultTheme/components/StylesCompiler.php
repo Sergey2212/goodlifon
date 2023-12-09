@@ -2,7 +2,7 @@
 
 namespace app\extensions\DefaultTheme\components;
 
-use Leafo\ScssPhp\Compiler;
+use ScssPhp\ScssPhp\Compiler;
 use Yii;
 use yii\base\Component;
 

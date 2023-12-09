@@ -8,7 +8,7 @@ use yii\base\Model;
 use yii\helpers\Json;
 use yii\web\UploadedFile;
 
-class ImportModel extends Model implements \Serializable
+class ImportModel extends Model
 {
     public $object;
     private $user = 0;
