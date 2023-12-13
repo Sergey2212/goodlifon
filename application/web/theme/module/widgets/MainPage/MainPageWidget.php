@@ -12,6 +12,7 @@ class MainPageWidget extends BaseWidget
 {
 
     public $newProducts = '';
+    public $topProducts = '';
 
 
     public function init()
@@ -24,6 +25,13 @@ class MainPageWidget extends BaseWidget
             ->orderBy(['date_added' => SORT_DESC])
             //->asArray()
             ->all();
+            
+            $this->topProducts = Product::find()
+            ->where(['top' => 1])
+            ->with('images', 'brand')
+            ->orderBy(['date_added' => SORT_DESC])
+            //->asArray()
+            ->all();    
 
     }
 
@@ -33,6 +41,7 @@ class MainPageWidget extends BaseWidget
         //Yii::$app->response->format = Response::FORMAT_JSON;
         return $this->render('main-page', array(
             'newProducts' => $this->newProducts,
+            'topProducts' => $this->topProducts,
         ));
     }
 }

@@ -54,7 +54,7 @@ use app\modules\shop\widgets\AddToWishlistWidget;
                                     </p>
                                 </a>
                                 <a href="<?=$url?>">
-                                    <p class="product-category font-12 mb-1" id="short-description"><?= strip_tags($product->content)."… " ?></p>
+                                    <p class="product-category font-12 mb-1" id="short-description"><?= strip_tags($product->content ?? '')."… " ?></p>
                                 </a>
                                 <div class="d-flex align-items-center">
                                     <div class="mb-1 product-price">

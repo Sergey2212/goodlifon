@@ -238,6 +238,20 @@ blockquote {
     text-transform: uppercase;
 }
 
+#subCatTIttle{
+	height: 1.2em; 
+}
+
+.top-left {
+  top: 10px;
+  left: 10px;
+}
+
+.top-right {
+  left: auto;
+  right: 10px;
+}
+
 .font-11 {
     font-size: 11px
 }
