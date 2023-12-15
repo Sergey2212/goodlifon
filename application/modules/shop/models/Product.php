@@ -67,7 +67,7 @@ use app\modules\user\models\AuthAssignment;
  * @property Category $mainCategory
  */
 
-class Product extends ActiveRecord implements ImportableInterface, ExportableInterface, \JsonSerializable
+class Product extends ActiveRecord implements ImportableInterface, ExportableInterface
 {
     use GetImages;
     use HasAddonTrait;
@@ -131,14 +131,15 @@ class Product extends ActiveRecord implements ImportableInterface, ExportableInt
                     'new',
                     'slug_absolute',
                     'audit',
+                    'new',
                 ],
                 'boolean',
             ],
             [['price', 'old_price'], 'number'],
             [['slug'], 'string', 'max' => 80],
             [['slug_compiled'], 'string', 'max' => 180],
-            [['old_price', 'price'], 'default', 'value' => 0,],
-            [['active', 'unlimited_count'], 'default', 'value' => true],
+            [['active', 'old_price', 'new', 'price'], 'default', 'value' => 0,],
+            [['unlimited_count'], 'default', 'value' => true],
             [['audit'], 'default', 'value' => 1],
             [['parent_id', 'slug_absolute', 'sort_order'], 'default', 'value' => 0],
             [['sku', 'name'], 'default', 'value' => ''],
@@ -188,7 +189,7 @@ class Product extends ActiveRecord implements ImportableInterface, ExportableInt
             'brand' => Yii::t('app', 'Производитель'),
             'entry' => Yii::t('app', 'Приход товара шт.'),
             'audit' => Yii::t('app', 'Ревизия'),
-
+            'new' => Yii::t('app', 'Новый'),
         ];
     }
 
@@ -239,15 +240,19 @@ class Product extends ActiveRecord implements ImportableInterface, ExportableInt
      */
     public static function findById($id, $isActive = 1)
     {
+        $permiss= static::getPermission();
+
         if (!is_numeric($id)) {
             return null;
         }
         if (!isset(static::$identity_map[$id])) {
             $cacheKey = static::tableName() . ":$id:$isActive";
             if (false === $model = Yii::$app->cache->get($cacheKey)) {
-                $model = static::find()->where(['id' => $id])->with('images');
+                $model = static::find()->where(['id' => $id])->with('images')->orderBy(['date_added' => SORT_DESC]);
                 if (null !== $isActive) {
-                    $model->andWhere(['active' => $isActive]);
+                    if ($permiss != 'admin' && $permiss != 'manager') {
+                        $model->andWhere(['active' => $isActive])->orderBy(['date_added' => SORT_DESC]);
+                    }
                 }
                 if (null !== $model = $model->one()) {
                     /**
@@ -274,6 +279,21 @@ class Product extends ActiveRecord implements ImportableInterface, ExportableInt
     }
 
     /**
+     * @return полномочия пользователя (admin, manager и тд)
+     */
+    public static function getPermission()
+    {
+        if(isset(Yii::$app->user->id)){
+            $permit = AuthAssignment::findOne([
+                'user_id' => Yii::$app->user->id,
+            ]);
+            if (isset($permit->item_name)){
+                return $permit->item_name;
+            }
+        }
+    }
+
+    /**
      * Find a product by slug
      * @param string $slug
      * @param int $inCategoryId
@@ -282,17 +302,30 @@ class Product extends ActiveRecord implements ImportableInterface, ExportableInt
      */
     public static function findBySlug($slug, $inCategoryId = null, $isActive = 1)
     {
+        $permiss= static::getPermission(); // Определяем роль пользователя
+
         if (!isset(static::$slug_to_id[$slug])) {
             $cacheKey = static::tableName() . "$slug:$inCategoryId";
             if (false === $model = Yii::$app->cache->get($cacheKey)) {
                 $tags = [];
                 /** @var ActiveQuery $model */
-                $query = static::find()->where(
-                    [
-                        'slug' => $slug,
-                        'active' => $isActive,
-                    ]
-                )->with('images', 'relatedProducts');
+
+                if ($permiss != 'admin' && $permiss != 'manager') {
+                    $query = static::find()->where(
+                        [
+                            'slug' => $slug,
+                             'active' => $isActive,
+                        ]
+                    )->with('images', 'relatedProducts');
+                }
+                else{
+                    $query = static::find()->where(
+                        [
+                            'slug' => $slug,
+                           // 'active' => $isActive,
+                        ]
+                    )->with('images', 'relatedProducts');
+                }
 
                 if (!is_null($inCategoryId)) {
                     $query->andWhere(['main_category_id' => $inCategoryId]);
@@ -336,9 +369,9 @@ class Product extends ActiveRecord implements ImportableInterface, ExportableInt
      */
     public function getCategory()
     {
-        return $this->hasOne(Category::class, ['id' => 'main_category_id']);
+        return $this->hasOne(Category::className(), ['id' => 'main_category_id']);
     }
-
+    
     public function getCategoryProduct()
     {
         return $this->hasMany(Category::class, ['id' => 'category_id'])
@@ -346,10 +379,10 @@ class Product extends ActiveRecord implements ImportableInterface, ExportableInt
             ->select(['name', 'id', 'category_group_id'])
             ->asArray() ;
     }
-
+             
     public function getSubcategory()
     {
-        return $this->hasMany(Category::class, ['id' => 'category_id'])
+        return $this->hasMany(Category::className(), ['id' => 'category_id'])
             ->viaTable('product_category', ['object_model_id' => 'id'])
             ->select(['name'])
             ->orderBy('id DESC')
@@ -357,35 +390,35 @@ class Product extends ActiveRecord implements ImportableInterface, ExportableInt
         // ->asArray() ;
 
     }
-
+    
     public function getSubcategoryTittle()
     {
         return $this->hasMany(Category::className(), ['id' => 'category_id'])
             ->viaTable('product_category', ['object_model_id' => 'id'])
             ->select(['title_append'])
-            //->orderBy('id DESC')
+           // ->orderBy('id DESC')
             //->limit(1);
             ->asArray() ;
     }
 
     public function getOptions()
     {
-        return $this->hasMany(static::class, ['parent_id' => 'id']);
+        return $this->hasMany(static::className(), ['parent_id' => 'id']);
     }
 
     public function getFathers()
     {
-        return $this->hasMany(static::class, ['id' => 'parent_id']);
+        return $this->hasMany(static::className(), ['id' => 'parent_id']);
     }
 
     public function getCurrency()
     {
-        return $this->hasOne(Currency::class, ['id' => 'currency_id']);
+        return $this->hasOne(Currency::className(), ['id' => 'currency_id']);
     }
 
     public function getProperty()
     {
-        return $this->hasOne(PropertyStaticValues::class, ['id' => 'property_static_value_id'])
+        return $this->hasOne(PropertyStaticValues::className(), ['id' => 'property_static_value_id'])
             ->viaTable('object_static_values', ['object_model_id' => 'id']);
         //->where('property_id  = :property', [':property' => $property]);
     }
@@ -865,7 +898,7 @@ class Product extends ActiveRecord implements ImportableInterface, ExportableInt
             'categories' => [
                 'label' => Yii::t('app', 'Categories'),
                 'processValueAs' => [
-                    // 'id' => Yii::t('app', 'ID'),
+                   // 'id' => Yii::t('app', 'ID'),
                     'name' => Yii::t('app', 'Name'),
                     'slug' => Yii::t('app', 'Slug'),
                 ]
@@ -877,12 +910,12 @@ class Product extends ActiveRecord implements ImportableInterface, ExportableInt
                     'id' => Yii::t('app', 'ID'),
                 ]
             ],
-            /* 'relatedProducts' => [ // Связанные товары
-                 'label' => Yii::t('app', 'Related products'),
-                 'processValueAs' => [
-                     'id' => Yii::t('app', 'ID'),
-                 ],
-             ],*/
+           /* 'relatedProducts' => [ // Связанные товары
+                'label' => Yii::t('app', 'Related products'),
+                'processValueAs' => [
+                    'id' => Yii::t('app', 'ID'),
+                ],
+            ],*/
             'subcategory' => [
                 'label' => 'Подкатегория',
                 'processValueAs' => [
@@ -944,7 +977,7 @@ class Product extends ActiveRecord implements ImportableInterface, ExportableInt
         }
 
         if (isset($configuration['countValue'], $configuration['countValue']['processValuesAs'])
-            && $configuration['countValue']['enabled']
+        && $configuration['countValue']['enabled']
         ) {
             $result['countValue'] = ArrayHelper::getColumn($this->countValue , $configuration['countValue']['processValuesAs']);
         }
@@ -993,13 +1026,21 @@ class Product extends ActiveRecord implements ImportableInterface, ExportableInt
         /** @var \app\modules\shop\ShopModule $module */
         $module = Yii::$app->getModule('shop');
 
-        $query = static::find()->with('images');
+        $permiss= static::getPermission();
+
+        $query = static::find()->with('images')->orderBy(['date_added' => SORT_DESC]);
         if ($module->productsFilteringMode === ConfigConfigurationModel::FILTER_PARENTS_ONLY) {
-            $query->andWhere([static::tableName() . '.parent_id' => 0]);
+            $query->andWhere([static::tableName() . '.parent_id' => 0])
+                  ->orderBy(['date_added' => SORT_DESC]);
         } elseif ($module->productsFilteringMode === ConfigConfigurationModel::FILTER_CHILDREN_ONLY) {
-            $query->andWhere(['!=', static::tableName() . '.parent_id', 0]);
+            $query->andWhere(['!=', static::tableName() . '.parent_id', 0])
+                  ->orderBy(['date_added' => SORT_DESC]);
         }
-        $query->andWhere([static::tableName() . '.active' => 1]);
+
+        if ($permiss != 'admin' && $permiss != 'manager') {
+            $query->andWhere([static::tableName() . '.active' => 1])
+                  ->orderBy(['date_added' => SORT_DESC]);
+        }
 
         $query = static::find()->with('fathers');
 
@@ -1103,15 +1144,25 @@ class Product extends ActiveRecord implements ImportableInterface, ExportableInt
                 $i++;
             }
             $query = static::find()
-                ->andWhere([static::tableName() . '.id' => $arrParentId ]);
+                ->andWhere([static::tableName() . '.id' => $arrParentId ])
+                ->orderBy(['date_added' => SORT_DESC]);
 
-            $query->andWhere([static::tableName() . '.active' => 1]);
+            if ($permiss != 'admin' && $permiss != 'manager') {
+                $query->andWhere([static::tableName() . '.active' => 1])
+                      ->orderBy(['date_added' => SORT_DESC]);
+            }
         }
 
         if(empty($fathersArr[0]['fathers'])){ // Показывать продукты с вариантами и без
             //if(!isset($fathersArr[0])){ // Показывать только подукты с детками(вариантами)
             $query->andWhere([static::tableName() . '.parent_id' => 0]);
-            $query->andWhere([static::tableName() . '.active' => 1]);
+            if ($permiss != 'admin' && $permiss != 'manager') {
+                $query->andWhere([static::tableName() . '.active' => 1])
+                	  ->orderBy(['date_added' => SORT_DESC]);
+            }
+            else{
+
+            }
         }
 
         $pages = null;
@@ -1177,7 +1228,7 @@ class Product extends ActiveRecord implements ImportableInterface, ExportableInt
         return [
             'products' => $products,
             'pages' => $pages,
-            'allSorts' =>$allSorts,
+             'allSorts' =>$allSorts,
 
         ];
 
@@ -1371,14 +1422,14 @@ class Product extends ActiveRecord implements ImportableInterface, ExportableInt
      */
     public function __toString()
     {
-        return ($this->class . ':' . $this->id);
+        return ($this->className() . ':' . $this->id);
     }
 
     /**
      * @return string
      */
-    public function jsonSerialize() : array
+    public function jsonSerialize()
     {
-        return ($this->class . ':' . $this->id);
+        return ($this->className() . ':' . $this->id);
     }
 }

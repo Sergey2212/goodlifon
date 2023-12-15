@@ -62,6 +62,11 @@ use app\modules\shop\widgets\AddToWishlistWidget;
                                         <span class="fs-5">
                                             <?=$product->formattedPrice(null, false, false)?>
                                         </span>
+                                        <?php if($product->optionsQuantity < 1):?>
+                                        <span class="fs-5 text-end">
+                                        Нет в наличии
+                                        </span>
+                            <?php endif;?>
                                     </div>
                                     <div class="cursor-pointer ms-auto">
                                         <i class="bx bxs-star text-warning"></i>
