@@ -86,7 +86,7 @@
     box-shadow: none;
 }
 
-.navbar-nav li a {
+.navbar-expand-lg li a {
     font-weight: 500;
     display: block;
     text-align: center;

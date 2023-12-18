@@ -81,7 +81,7 @@ class ReviewModule extends BaseModule implements EventInterface
                 $reviews = Review::getForObjectModel($modelId, $objectId, 1);
                 if (!empty($reviews)) {
                     $event->items[] = [
-                        "label" => Icon::show("pencil") . \Yii::t("app", "Edit reviews") . " (" . count($reviews) . ")",
+                        "label" => Icon::show("pen") . \Yii::t("app", "Edit reviews") . " (" . count($reviews) . ")",
                         "url" => [
                             "/review/backend-review/index",
                             "SearchModel" => [

@@ -9,7 +9,7 @@ use kartik\icons\Icon;
 <nav id="dotplant-floating-panel" class="<?= $bottom?'dotplant-floating-panel-bottom open':'open'?>">
     <div class="container-fluid">
         <span class="panel-toggler"></span>
-        <a href="/backend/" class="navbar-text">DotPlant2</a>
+        <a href="/backend/" class="navbar-text">Goodlifon</a>
         <div class="navbar-text">
             <?= Yii::t('app', 'Logged as')?>:
             <?= Yii::$app->user->identity->username ?>
@@ -22,7 +22,7 @@ use kartik\icons\Icon;
             'items' => $items,
             'encodeLabels' => false,
             'options' => [
-                'class' => 'nav navbar-nav',
+                'class' => 'navbar navbar-expand-lg',
             ],
             'linkTemplate' => '<a href="{url}" target="_blank">{label}</a>',
         ]) ?>

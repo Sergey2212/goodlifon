@@ -78,7 +78,7 @@ class PageModule extends app\components\BaseModule implements EventInterface
                 if (in_array(\Yii::$app->requestedRoute, ['/page/page/show', '/page/page/list']) && isset($_GET['id'])) {
                     $page = app\modules\page\models\Page::findById($_GET['id']);
                     $event->items[] = [
-                        'label' => Icon::show('pencil') . ' ' . Yii::t('app', 'Edit page'),
+                        'label' => Icon::show('pen') . ' ' . Yii::t('app', 'Edit page'),
                         'url' => [
                             '/page/backend/edit',
                             'id' => $page->id,

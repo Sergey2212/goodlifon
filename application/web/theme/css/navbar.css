@@ -1,0 +1,146 @@
+
+
+    /************Главное Меню****************/
+
+
+    .dropdown-menu > li > a{
+        font-size: 18px;
+    }
+
+    a {
+        -webkit-transition: 900ms;
+        -moz-transition: 300ms;
+        -o-transition: 300ms;
+        transition: 400ms;
+    }
+
+    .navbar {
+        list-style: none;
+    }
+
+    .navbar-expand-lg > li > a {
+		padding-top: 3px;
+		padding-bottom: 15px;
+		font-size: 19px;
+		padding-left: 25px
+    }
+
+    @media (min-width: 767px) {
+
+        .navbar.navbar-expand-lg > li:hover > ul.dropdown-menu{
+            display: block;
+            -webkit-animation: fadeInUp 400ms;
+            -moz-animation: fadeInUp 400ms;
+            -ms-animation: fadeInUp 400ms;
+            -o-animation: fadeInUp 400ms;
+            animation: fadeInUp 400ms;
+        }
+
+        .dropdown-submenu ul{
+            display:none; /*Выключаем отображение*/
+            position:absolute;  /*Позиционируем абсолютно*/
+            list-style:none;    /*Отключаем маркеры*/
+            float:none;        /*Убираем выравнивание*/
+            width:168px;       /*Устанавливаем ширину элементов */
+            left:157px;     /*сдвигаем все меню вправо на 200px*/
+            top:0;              /*Прижимаем к верхнему краю род. элемента, указав 0*/
+            list-style: none;
+            font-size: 16px;
+            border: 1px solid rgba(0, 0, 0, .15);
+            border-radius: 4px;
+            background-color:white;
+        }
+
+        .dropdown-submenu ul li a{
+            color: black;
+            margin-left: -25px;
+        }
+
+        .dropdown-submenu:hover ul{
+            display:block;   /*Включаем отображение*/
+            -webkit-animation: fadeInUp 400ms;
+            -moz-animation: fadeInUp 400ms;
+            -ms-animation: fadeInUp 400ms;
+            -o-animation: fadeInUp 400ms;
+            animation: fadeInUp 400ms;
+        }
+
+        .dropdown-submenu ul li{
+            float:none;        /*Убираем выравнивание*/
+            width:158px;       /*Устанавливаем ширину элементов */
+
+        }
+
+        .dropdown-submenu ul li a:hover{
+            text-decoration: none;
+        }
+
+
+        .dropdown-submenu:hover>.dropdown-menu {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateY(20px);
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+            }
+        }
+
+    }
+
+    /* xs */
+    @media (max-width: 767px) {
+        .navbar-default .navbar-expand-lg .open .dropdown-menu>li>a {
+            color: #3c3a3e;
+        }
+    }
+
+    .dropdown-submenu {
+        position: relative;
+    }
+
+    .dropdown-submenu>.dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -6px;
+        margin-left: -1px;
+        -webkit-border-radius: 0 6px 6px 6px;
+        -moz-border-radius: 0 6px 6px;
+        border-radius: 0 6px 6px 6px;
+    }
+
+
+
+    .dropdown-submenu>a:after {
+        display: block;
+        content: " ";
+        float: right;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+        border-width: 5px 0 5px 5px;
+        border-left-color: #ccc;
+        margin-top: 5px;
+        margin-right: -10px;
+        font-size: 17px;
+    }
+
+    .dropdown-submenu:hover>a:after {
+        border-left-color: #fff;
+    }
+
+    .dropdown-submenu.pull-left {
+        float: none;
+    }
+
+
+

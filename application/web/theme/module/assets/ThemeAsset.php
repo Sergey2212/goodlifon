@@ -13,9 +13,9 @@ class ThemeAsset extends AssetBundle
            "css/header.css",
            "css/fonts.css",
            // "css/simple-line-icons.css",
-            "css/app.css",
-//         "css/navbar.css",
-            "css/variaties.css",
+           "css/app.css",
+           "css/navbar.css",
+           "css/variaties.css",
 //         "css/default-theme.css",
            "css/jscrollpane.css",
            "node_modules/sweetalert2/dist/sweetalert2.css"

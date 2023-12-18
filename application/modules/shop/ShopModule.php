@@ -272,7 +272,7 @@ class ShopModule extends BaseModule implements BootstrapInterface, EventInterfac
                             if (isset($_GET['last_category_id'])) {
                                 $cat = Category::findById($_GET['last_category_id']);
                                 $event->items[] = [
-                                    'label' => Icon::show('pencil') . ' ' . Yii::t('app', 'Edit category'),
+                                    'label' => Icon::show('bi bi-pencil') . ' ' . Yii::t('app', 'Edit category'),
                                     'url' => [
                                         '/shop/backend-category/edit',
                                         'id' => $cat->id,
@@ -285,7 +285,7 @@ class ShopModule extends BaseModule implements BootstrapInterface, EventInterfac
                     case 'shop/product/show':
                         if (isset($_GET['model_id'])) {
                             $event->items[] = [
-                                'label' => Icon::show('pencil') . ' ' . Yii::t('app', 'Edit product'),
+                                'label' => Icon::show('bi bi-pencil') . ' ' . Yii::t('app', 'Edit product'),
                                 'url' => [
                                     '/shop/backend-product/edit',
                                     'id' => (int)$_GET['model_id']
