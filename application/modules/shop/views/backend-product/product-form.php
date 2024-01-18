@@ -124,6 +124,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 ); ?>
 
                 <?= $form->field($model, 'active')->widget(\kartik\switchinput\SwitchInput::className()) ?>
+                <?= $form->field($model, 'new')->widget(\kartik\switchinput\SwitchInput::className()) ?>
+                <?= $form->field($model, 'top')->widget(\kartik\switchinput\SwitchInput::className()) ?>
                 <?= $form->field($model, 'name')?>
                 <?= $form->field($model, 'price',[
                     'addon' => [
