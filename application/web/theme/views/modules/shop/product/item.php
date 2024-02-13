@@ -20,7 +20,7 @@ use app\modules\shop\widgets\AddToWishlistWidget;
                         <?php endIf?>
                         <div class="card-header bg-transparent border-bottom-0">
                             <div class="d-flex align-items-center justify-content-end gap-3 product-image">
-                                <a href='#' class="btn-add-to-compare" rel="nofollow" data-action="add-to-compare" data-id='<?=$product->id?>'>
+                                <a href='#' class="btn-add-to-compare" rel="nofollow" data-action="add-to-compare" data-id="<?=$product->id?>">
                                     <div class="product-wishlist"> <i class='bi bi-shuffle'></i>
                                     </div>
                                 </a>
@@ -28,7 +28,7 @@ use app\modules\shop\widgets\AddToWishlistWidget;
                                     <div class="product-wishlist"> <i class='bx bx-heart'></i>
                                     </div>
                                 </a>-->
-                                <?//= AddToWishlistWidget::widget(['id' => $product->id]) ?>
+                                <?php /*echo AddToWishlistWidget::widget(['id' => $product->id])*/ ?>
                             </div>
                         </div>
                         <a href="<?=$url?>">

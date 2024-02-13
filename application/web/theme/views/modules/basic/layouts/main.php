@@ -122,7 +122,7 @@ if (empty($rightSidebar) === false) {
                     echo'<div class="col-12 col-xl-9">';
                 }
                 if (empty($leftSidebar)) {
-                    echo'<div class="content-part col-xs-12 col-sm-9 col-md-12">';
+                    echo'<div class="content-part col">';
                 }
 			?>
 
